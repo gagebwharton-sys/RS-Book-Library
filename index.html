@@ -32,7 +32,7 @@ body::before {
     radial-gradient(ellipse at 80% 80%, rgba(48,83,113,0.3) 0%, transparent 60%);
   pointer-events:none; z-index:0;
 }
- 
+
 /* HEADER */
 header {
   position:sticky; top:0; z-index:100;
@@ -58,7 +58,7 @@ header {
 .logo:active .logo-badge { transform:scale(0.9); }
 .logo-text .top { font-size:10px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; }
 .logo-text .bottom { font-size:16px; font-weight:700; color:var(--cream); line-height:1; }
- 
+
 nav { display:flex; gap:4px; }
 nav button {
   background:transparent; border:none; color:var(--light-blue);
@@ -67,20 +67,20 @@ nav button {
 }
 nav button:hover, nav button.active { background:rgba(201,97,46,0.15); color:var(--gold); }
 #btn-admin { display:none; }
- 
+
 #header-user { font-size:12px; color:var(--light-blue); }
 #header-user span { color:var(--gold); font-weight:600; }
- 
+
 /* MAIN */
 main { position:relative; z-index:1; max-width:1280px; margin:0 auto; padding:36px 32px; }
 .page { display:none; }
 .page.active { display:block; }
- 
+
 .section-header { margin-bottom:28px; }
 .section-header h1 { font-family:'Playfair Display',serif; font-size:32px; font-weight:900; color:var(--cream); }
 .section-header h1 span { color:var(--gold); }
 .section-header p { color:var(--light-blue); font-size:14px; margin-top:5px; }
- 
+
 /* USER BAR */
 .user-bar {
   background:rgba(48,83,113,0.2);
@@ -102,7 +102,7 @@ main { position:relative; z-index:1; max-width:1280px; margin:0 auto; padding:36
 .user-bar input[type=text]::placeholder { color:var(--gray-400); }
 .user-bar select:focus, .user-bar input:focus { border-color:var(--gold); }
 .or { color:var(--gray-400); font-size:12px; }
- 
+
 /* BUTTONS */
 .btn {
   display:inline-flex; align-items:center; gap:6px;
@@ -118,7 +118,7 @@ main { position:relative; z-index:1; max-width:1280px; margin:0 auto; padding:36
 .btn-success:hover { transform:translateY(-1px); }
 .btn-sm { padding:6px 13px; font-size:12px; border-radius:8px; }
 .btn:disabled { opacity:0.4; cursor:not-allowed; transform:none !important; }
- 
+
 /* FILTERS */
 .filter-bar { display:flex; gap:8px; margin-bottom:24px; flex-wrap:wrap; align-items:center; }
 .filter-chip {
@@ -136,7 +136,7 @@ main { position:relative; z-index:1; max-width:1280px; margin:0 auto; padding:36
 }
 .search-box:focus { border-color:var(--gold); }
 .search-box::placeholder { color:var(--gray-400); }
- 
+
 /* BOOK GRID */
 .book-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:18px; }
 .book-card {
@@ -155,7 +155,7 @@ main { position:relative; z-index:1; max-width:1280px; margin:0 auto; padding:36
 .badge-out { padding:3px 10px; border-radius:99px; font-size:11px; font-weight:600; background:rgba(198,40,40,0.15); color:#e57373; border:1px solid rgba(198,40,40,0.25); }
 .pts-badge { font-size:12px; color:var(--gold); font-weight:600; }
 .book-actions { padding:0 18px 18px; display:flex; gap:8px; }
- 
+
 /* KPI */
 .kpi-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:14px; margin-bottom:36px; }
 .kpi-card {
@@ -166,7 +166,7 @@ main { position:relative; z-index:1; max-width:1280px; margin:0 auto; padding:36
 .kpi-label { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--light-blue); margin-bottom:6px; }
 .kpi-value { font-family:'Playfair Display',serif; font-size:36px; font-weight:900; color:var(--gold); line-height:1; }
 .kpi-sub { font-size:11px; color:var(--gray-400); margin-top:3px; }
- 
+
 /* DASH */
 .dash-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
 .dash-panel {
@@ -184,7 +184,7 @@ main { position:relative; z-index:1; max-width:1280px; margin:0 auto; padding:36
 .lb-name { flex:1; font-size:13px; font-weight:500; }
 .lb-sub { font-size:11px; color:var(--light-blue); }
 .lb-pts { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--gold); }
- 
+
 /* TABLE */
 .table-wrap { overflow-x:auto; }
 table { width:100%; border-collapse:collapse; font-size:13px; }
@@ -195,7 +195,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
 .chip-ret{background:rgba(46,125,50,0.2);color:#81c784;}
 .chip-out{background:rgba(219,123,40,0.2);color:#ffb74d;}
 .chip-due{background:rgba(198,40,40,0.2);color:#ef5350;}
- 
+
 /* ROSTER */
 .roster-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:14px; }
 .roster-card {
@@ -210,7 +210,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
 .r-stats { display:flex; justify-content:center; gap:14px; margin-top:10px; }
 .r-stat-val { font-size:15px; font-weight:700; }
 .r-stat-lbl { font-size:10px; color:var(--gray-400); text-transform:uppercase; }
- 
+
 /* ADMIN */
 .admin-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
 .admin-panel { background:rgba(30,53,72,0.6); border:1px solid rgba(124,146,167,0.15); border-radius:18px; padding:26px; }
@@ -224,7 +224,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
   font-size:13px; padding:10px 14px; border-radius:10px; outline:none; transition:border-color 0.2s;
 }
 .form-group input:focus, .form-group select:focus { border-color:var(--gold); }
- 
+
 /* MODAL */
 .modal-overlay { display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,0.75); backdrop-filter:blur(6px); align-items:center; justify-content:center; }
 .modal-overlay.open { display:flex; }
@@ -246,7 +246,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
 .modal-field select:focus, .modal-field input:focus { border-color:var(--gold); }
 .modal-actions { display:flex; gap:10px; margin-top:22px; }
 .modal-actions .btn { flex:1; justify-content:center; }
- 
+
 /* PIN MODAL */
 #pin-modal .modal { max-width:380px; text-align:center; }
 #pin-modal .modal h2 { font-size:28px; margin-bottom:8px; }
@@ -264,7 +264,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
   font-size:11px; color:var(--gray-400); margin-top:16px;
   padding:10px; background:rgba(48,83,113,0.2); border-radius:8px;
 }
- 
+
 /* LOGO CLICK HINT */
 #logo-clicks {
   position:fixed; bottom:20px; left:50%; transform:translateX(-50%);
@@ -273,7 +273,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
   opacity:0; transition:opacity 0.3s; pointer-events:none; z-index:200;
 }
 #logo-clicks.show { opacity:1; }
- 
+
 /* TOAST */
 #toast {
   position:fixed; bottom:28px; right:28px; z-index:9999;
@@ -284,7 +284,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
 }
 #toast.show { transform:translateX(0); }
 .toast-title { font-weight:700; color:var(--gold); margin-bottom:2px; font-size:14px; }
- 
+
 /* LOADING / EMPTY */
 .loading { display:flex; align-items:center; justify-content:center; padding:60px; color:var(--light-blue); flex-direction:column; gap:14px; }
 .spinner { width:32px; height:32px; border-radius:50%; border:3px solid rgba(124,146,167,0.2); border-top-color:var(--gold); animation:spin 0.8s linear infinite; }
@@ -292,14 +292,14 @@ tr:hover td { background:rgba(48,83,113,0.1); }
 .empty { text-align:center; padding:50px 20px; color:var(--light-blue); }
 .empty .icon { font-size:42px; margin-bottom:12px; }
 .empty h3 { font-family:'Playfair Display',serif; font-size:18px; color:var(--cream); margin-bottom:4px; }
- 
+
 @media(max-width:900px){.dash-grid,.admin-grid{grid-template-columns:1fr;}}
 @media(max-width:768px){main{padding:20px 14px;}header{padding:0 14px;}nav button{padding:6px 8px;font-size:11px;}.book-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:500px){.book-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
- 
+
 <header>
   <div class="logo" id="logo" onclick="handleLogoClick()">
     <div class="logo-badge">RS</div>
@@ -317,12 +317,12 @@ tr:hover td { background:rgba(48,83,113,0.1); }
   </nav>
   <div id="header-user">👤 <span id="hdr-name">Not selected</span></div>
 </header>
- 
+
 <!-- Logo click hint -->
 <div id="logo-clicks"></div>
- 
+
 <main>
- 
+
   <!-- LIBRARY -->
   <div id="page-library" class="page active">
     <div class="section-header">
@@ -346,7 +346,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
       <div class="loading" style="grid-column:1/-1"><div class="spinner"></div>Loading library...</div>
     </div>
   </div>
- 
+
   <!-- DASHBOARD -->
   <div id="page-dashboard" class="page">
     <div class="section-header">
@@ -359,7 +359,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
       <div class="dash-panel"><h3>🕐 Recent Activity</h3><div id="dash-recent"></div></div>
     </div>
   </div>
- 
+
   <!-- MY BOOKS -->
   <div id="page-mybooks" class="page">
     <div class="section-header">
@@ -374,7 +374,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
     </div>
     <div id="my-books-wrap"></div>
   </div>
- 
+
   <!-- ROSTER -->
   <div id="page-roster" class="page">
     <div class="section-header">
@@ -385,7 +385,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
       <div class="loading" style="grid-column:1/-1"><div class="spinner"></div>Loading...</div>
     </div>
   </div>
- 
+
   <!-- ADMIN -->
   <div id="page-admin" class="page">
     <div class="section-header">
@@ -422,9 +422,9 @@ tr:hover td { background:rgba(48,83,113,0.1); }
       </div>
     </div>
   </div>
- 
+
 </main>
- 
+
 <!-- CHECKOUT MODAL -->
 <div class="modal-overlay" id="modal-checkout">
   <div class="modal">
@@ -444,7 +444,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
     </div>
   </div>
 </div>
- 
+
 <!-- RETURN MODAL -->
 <div class="modal-overlay" id="modal-return">
   <div class="modal">
@@ -459,7 +459,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
     </div>
   </div>
 </div>
- 
+
 <!-- PIN MODAL -->
 <div class="modal-overlay" id="pin-modal">
   <div class="modal" style="text-align:center;">
@@ -475,15 +475,15 @@ tr:hover td { background:rgba(48,83,113,0.1); }
     </div>
   </div>
 </div>
- 
+
 <div id="toast"><div class="toast-title" id="toast-title"></div><div id="toast-msg"></div></div>
- 
+
 <script>
 // ── CONFIG ────────────────────────────────────────────────────────────────────
 const API = "https://script.google.com/macros/s/AKfycbwOZtqrYrmQuddpF7EvVqw3CwzJQMTg_2_sHsbnfRHgOxd0x4fS3aMoV2P8aNvNhfP5/exec";
 const ADMIN_PIN = "4243";
 const CLICKS_NEEDED = 3;
- 
+
 // ── STATE ─────────────────────────────────────────────────────────────────────
 let currentUser = localStorage.getItem('rs_user') || '';
 let allBooks = [], allEmployees = [];
@@ -492,7 +492,7 @@ let adminUnlocked = false;
 let logoClickCount = 0;
 let logoClickTimer = null;
 let hintTimer = null;
- 
+
 // ── API ───────────────────────────────────────────────────────────────────────
 async function api(params) {
   const qs = new URLSearchParams(params).toString();
@@ -501,7 +501,7 @@ async function api(params) {
   try { return JSON.parse(text); }
   catch(e) { throw new Error('Bad response: ' + text.substring(0,200)); }
 }
- 
+
 // ── TOAST ─────────────────────────────────────────────────────────────────────
 function toast(title, msg, dur=3500) {
   document.getElementById('toast-title').textContent = title;
@@ -510,12 +510,12 @@ function toast(title, msg, dur=3500) {
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), dur);
 }
- 
+
 // ── SECRET LOGO CLICK HANDLER ─────────────────────────────────────────────────
 function handleLogoClick() {
   logoClickCount++;
   const hint = document.getElementById('logo-clicks');
- 
+
   // Show hint after first click
   const remaining = CLICKS_NEEDED - logoClickCount;
   if (remaining > 0) {
@@ -524,14 +524,14 @@ function handleLogoClick() {
     if (hintTimer) clearTimeout(hintTimer);
     hintTimer = setTimeout(() => hint.classList.remove('show'), 2000);
   }
- 
+
   // Reset if too slow (3 seconds between clicks)
   if (logoClickTimer) clearTimeout(logoClickTimer);
   logoClickTimer = setTimeout(() => {
     logoClickCount = 0;
     hint.classList.remove('show');
   }, 3000);
- 
+
   // Unlock after 3 clicks
   if (logoClickCount >= CLICKS_NEEDED) {
     logoClickCount = 0;
@@ -544,12 +544,12 @@ function handleLogoClick() {
     setTimeout(() => document.getElementById('pin-input').focus(), 300);
   }
 }
- 
+
 function resetLogoClicks() {
   logoClickCount = 0;
   if (logoClickTimer) clearTimeout(logoClickTimer);
 }
- 
+
 // ── PIN CHECK ─────────────────────────────────────────────────────────────────
 function checkPin() {
   const entered = document.getElementById('pin-input').value.trim();
@@ -572,14 +572,14 @@ function checkPin() {
     setTimeout(() => input.style.borderColor = '', 1000);
   }
 }
- 
+
 function lockAdmin() {
   adminUnlocked = false;
   document.getElementById('btn-admin').style.display = 'none';
   showPage('library', document.querySelector('nav button'));
   toast('🔒 Locked', 'Admin panel has been locked.');
 }
- 
+
 // ── NAV ───────────────────────────────────────────────────────────────────────
 function showPage(name, btn) {
   // Guard admin access
@@ -598,7 +598,7 @@ function showPage(name, btn) {
   if (name === 'admin')     loadAdminLog();
   if (name === 'mybooks')   loadMyBooks();
 }
- 
+
 // ── USER ──────────────────────────────────────────────────────────────────────
 function setUser(name) {
   currentUser = name;
@@ -609,7 +609,7 @@ function setUser(name) {
     if (el) el.value = name;
   });
 }
- 
+
 function populateUserSelects() {
   const opts = '<option value="">— Select your name —</option>' +
     allEmployees.map(e => `<option value="${e}">${e}</option>`).join('');
@@ -619,7 +619,7 @@ function populateUserSelects() {
   });
   document.getElementById('hdr-name').textContent = currentUser || 'Not selected';
 }
- 
+
 async function addMe() {
   const inp = document.getElementById('lib-new-name');
   const name = inp.value.trim();
@@ -633,7 +633,7 @@ async function addMe() {
     toast(data.success ? 'Welcome! 🎉' : 'Welcome back!', data.success ? data.message : `Logged in as ${name}`);
   } catch(e) { toast('Error', e.message); }
 }
- 
+
 // ── LOAD LIBRARY ──────────────────────────────────────────────────────────────
 async function loadLibrary() {
   try {
@@ -658,21 +658,21 @@ async function loadLibrary() {
       </div>`;
   }
 }
- 
+
 function buildCatFilters() {
   const cats = [...new Set(allBooks.map(b => b.category))].sort();
   document.getElementById('cat-filters').innerHTML =
     `<span class="filter-chip active" onclick="setCat('',this)">All</span>` +
     cats.map(c => `<span class="filter-chip" onclick="setCat('${c}',this)">${c}</span>`).join('');
 }
- 
+
 function setCat(cat, el) {
   activeCat = cat;
   document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
   el.classList.add('active');
   filterBooks();
 }
- 
+
 function filterBooks() {
   const q = document.getElementById('search-box').value.toLowerCase();
   const filtered = allBooks.filter(b =>
@@ -681,7 +681,7 @@ function filterBooks() {
   );
   renderBooks(filtered);
 }
- 
+
 function renderBooks(books) {
   const grid = document.getElementById('book-grid');
   if (!books.length) {
@@ -712,7 +712,7 @@ function renderBooks(books) {
     </div>`;
   }).join('');
 }
- 
+
 // ── CHECKOUT ──────────────────────────────────────────────────────────────────
 function openCheckout(id, title) {
   if (!currentUser) return toast('Select Your Name', 'Please select your name from the dropdown first.');
@@ -723,7 +723,7 @@ function openCheckout(id, title) {
   document.getElementById('co-due').value = due.toISOString().split('T')[0];
   document.getElementById('modal-checkout').classList.add('open');
 }
- 
+
 async function doCheckout() {
   const user = document.getElementById('co-user').value;
   const due  = document.getElementById('co-due').value;
@@ -737,14 +737,14 @@ async function doCheckout() {
     else toast('Error', data.error||'Something went wrong');
   } catch(e) { toast('Error', e.message); }
 }
- 
+
 // ── RETURN ────────────────────────────────────────────────────────────────────
 function openReturn(id, title) {
   pendingRet = { id, title };
   document.getElementById('ret-book-name').textContent = `Return "${title}"?`;
   document.getElementById('modal-return').classList.add('open');
 }
- 
+
 async function doReturn() {
   if (!pendingRet||!currentUser) return;
   try {
@@ -754,12 +754,12 @@ async function doReturn() {
     else toast('Error', data.error||'No open checkout found');
   } catch(e) { toast('Error', e.message); }
 }
- 
+
 function closeModal(id) {
   document.getElementById(id).classList.remove('open');
   pendingCO = null; pendingRet = null;
 }
- 
+
 // ── MY BOOKS ──────────────────────────────────────────────────────────────────
 async function loadMyBooks() {
   const wrap = document.getElementById('my-books-wrap');
@@ -804,7 +804,7 @@ async function loadMyBooks() {
     wrap.innerHTML = `<div class="empty"><div class="icon">⚠️</div><h3>${e.message}</h3></div>`;
   }
 }
- 
+
 // ── DASHBOARD ─────────────────────────────────────────────────────────────────
 async function loadDashboard() {
   try {
@@ -818,7 +818,7 @@ async function loadDashboard() {
       {label:'Total Points',  val:s.totalPoints||0,   sub:'earned by the team'},
       {label:'Active Readers',val:s.activeReaders||0, sub:'reading right now'},
     ].map(k=>`<div class="kpi-card"><div class="kpi-label">${k.label}</div><div class="kpi-value">${k.val}</div><div class="kpi-sub">${k.sub}</div></div>`).join('');
- 
+
     const lb = data.leaderboard||[];
     document.getElementById('dash-lb').innerHTML = lb.length
       ? lb.map((r,i)=>`<div class="lb-row">
@@ -827,7 +827,7 @@ async function loadDashboard() {
           <div class="lb-pts">⭐ ${r.totalPoints}</div>
         </div>`).join('')
       : `<div class="empty"><div class="icon">🏆</div><h3>No data yet</h3></div>`;
- 
+
     const rc = data.recentCheckouts||[];
     document.getElementById('dash-recent').innerHTML = rc.length
       ? rc.map(c=>`<div class="lb-row">
@@ -838,7 +838,7 @@ async function loadDashboard() {
       : `<div class="empty"><div class="icon">💤</div><h3>No activity yet</h3></div>`;
   } catch(e) { toast('Error','Could not load dashboard: '+e.message); }
 }
- 
+
 // ── ROSTER ────────────────────────────────────────────────────────────────────
 async function loadRoster() {
   const grid = document.getElementById('roster-grid');
@@ -867,7 +867,7 @@ async function loadRoster() {
     grid.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="icon">⚠️</div><h3>${e.message}</h3></div>`;
   }
 }
- 
+
 // ── ADMIN ─────────────────────────────────────────────────────────────────────
 async function loadAdminLog() {
   const wrap = document.getElementById('admin-log');
@@ -887,14 +887,14 @@ async function loadAdminLog() {
     wrap.innerHTML = `<div class="empty"><div class="icon">⚠️</div><h3>${e.message}</h3></div>`;
   }
 }
- 
+
 function populateAdminBookSel() {
   const sel = document.getElementById('admin-book-sel');
   if (!sel) return;
   sel.innerHTML = '<option value="">— Select a book —</option>' +
     allBooks.map(b=>`<option value="${b.id}">${b.title} (${b.impactPoints} pts)</option>`).join('');
 }
- 
+
 async function adminAddEmp() {
   const name = document.getElementById('admin-emp-name').value.trim();
   if (!name) return toast('Missing','Enter a name first.');
@@ -906,7 +906,7 @@ async function adminAddEmp() {
     toast(data.success?'Added!':'Note', data.success?data.message:data.error);
   } catch(e) { toast('Error',e.message); }
 }
- 
+
 async function adminSetPoints() {
   const bookId = document.getElementById('admin-book-sel').value;
   const points = document.getElementById('admin-pts').value;
@@ -917,7 +917,7 @@ async function adminSetPoints() {
     else toast('Error',data.error);
   } catch(e) { toast('Error',e.message); }
 }
- 
+
 async function runSetup() {
   const msg = document.getElementById('setup-msg');
   msg.style.color = 'var(--light-blue)';
@@ -938,10 +938,10 @@ async function runSetup() {
     msg.textContent = '✗ ' + e.message;
   }
 }
- 
+
 // ── HELPERS ───────────────────────────────────────────────────────────────────
 function esc(s) { return (s||'').replace(/'/g,"\\'"); }
- 
+
 document.querySelectorAll('.modal-overlay').forEach(o => {
   o.addEventListener('click', e => {
     if (e.target===o) {
@@ -950,7 +950,7 @@ document.querySelectorAll('.modal-overlay').forEach(o => {
     }
   });
 });
- 
+
 // ── BOOT ──────────────────────────────────────────────────────────────────────
 loadLibrary();
 </script>
