@@ -158,6 +158,7 @@ tr:hover td{background:rgba(48,83,113,0.1);}
     <button onclick="showPage('dashboard',this)">📊 Dashboard</button>
     <button onclick="showPage('mybooks',this)">🔖 My Books</button>
     <button onclick="showPage('roster',this)">👥 Leaderboard</button>
+    <button onclick="showPage('suggest',this)">💡 Suggest</button>
     <button id="btn-admin" onclick="showPage('admin',this)">⚙️ Admin</button>
   </nav>
   <div id="header-user">👤 <span id="hname">Not selected</span></div>
@@ -199,6 +200,29 @@ tr:hover td{background:rgba(48,83,113,0.1);}
     <div class="sh"><h1>👥 <span>Team</span> Leaderboard</h1><p>Impact points earned across Retirement Solutions.</p></div>
     <div id="rgrid" class="rgrid"><div class="ld" style="grid-column:1/-1"><div class="sp"></div>Loading...</div></div>
   </div>
+  <!-- SUGGEST PAGE -->
+  <div id="page-suggest" class="page">
+    <div class="sh"><h1>💡 <span>Suggest</span> a Book</h1><p>Have a book you think the team should read? Submit it here and we'll review it!</p></div>
+    <div class="ubar">
+      <label>👤 Your name:</label>
+      <select id="sug-user" onchange="setUser(this.value)"><option value="">— Select your name —</option></select>
+    </div>
+    <div style="max-width:600px;">
+      <div style="background:rgba(30,53,72,0.65);border:1px solid rgba(124,146,167,0.15);border-radius:18px;padding:28px;">
+        <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:var(--cream);margin-bottom:20px;">📚 Book Suggestion Form</h3>
+        <div class="fg"><label>Book Title *</label><input type="text" id="sug-title" placeholder="e.g. The Power of Habit"></div>
+        <div class="fg"><label>Author *</label><input type="text" id="sug-author" placeholder="e.g. Charles Duhigg"></div>
+        <div class="fg"><label>Why should we read it? *</label><textarea id="sug-reason" placeholder="Tell us why this book would be valuable for the team..." style="width:100%;background:rgba(15,31,45,0.8);border:1px solid rgba(124,146,167,0.25);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:13px;padding:10px 14px;border-radius:10px;outline:none;resize:vertical;min-height:100px;"></textarea></div>
+        <button class="btn btn-p" onclick="submitSug()">📨 Submit Suggestion</button>
+        <div id="sug-result" style="margin-top:14px;font-size:13px;"></div>
+      </div>
+      <div style="margin-top:28px;">
+        <h3 style="font-family:'Playfair Display',serif;font-size:18px;color:var(--cream);margin-bottom:14px;">📋 My Suggestions</h3>
+        <div id="my-suggestions"></div>
+      </div>
+    </div>
+  </div>
+
   <div id="page-admin" class="page">
     <div class="sh"><h1>⚙️ <span>Admin</span> Panel</h1><p>Manage employees, page counts, and impact points.</p></div>
     <div class="agrid">
@@ -231,7 +255,16 @@ tr:hover td{background:rgba(48,83,113,0.1);}
         <div id="pov" class="twrap"><div class="ld"><div class="sp"></div>Loading...</div></div>
       </div>
       <div class="apanel" style="grid-column:1/-1">
-        <h3>📋 Full Checkout Log</h3>
+        <h3>📚 Recommendations — Add to Library</h3>
+        <p style="font-size:13px;color:var(--lb);margin-bottom:16px;">Browse all 50 curated recommendations. Click "Add to Library" to move a book into your main library. It will disappear from this list and appear as a book card instantly.</p>
+        <div id="rec-filters" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;"></div>
+        <div id="rec-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;"></div>
+      </div>
+
+      <div class="apanel" style="grid-column:1/-1">
+        <h3>💡 Employee Suggestions</h3>
+        <div id="sug-admin-wrap" class="twrap"><div class="ld"><div class="sp"></div>Loading...</div></div>
+      </div>
         <div id="alog" class="twrap"><div class="ld"><div class="sp"></div>Loading...</div></div>
       </div>
       <div class="apanel">
@@ -295,9 +328,9 @@ function lClick(){lcc++;var h=document.getElementById('lc');var r=CLICKS-lcc;if(
 function rClicks(){lcc=0;if(lct)clearTimeout(lct);}
 function chkPin(){var v=document.getElementById('pinput').value.trim();if(v===PIN){aOn=true;closeMod('mpin');document.getElementById('btn-admin').style.display='inline-flex';document.getElementById('btn-admin').click();toast('🔓 Admin Unlocked','Welcome!');}else{document.getElementById('perr').textContent='✗ Incorrect PIN.';document.getElementById('pinput').value='';document.getElementById('pinput').focus();document.getElementById('pinput').style.borderColor='#ef5350';setTimeout(function(){document.getElementById('pinput').style.borderColor='';},1000);}}
 function lockAdmin(){aOn=false;document.getElementById('btn-admin').style.display='none';showPage('library',document.querySelector('nav button'));toast('🔒 Locked','Admin panel locked.');}
-function showPage(n,b){if(n==='admin'&&!aOn){document.getElementById('pinput').value='';document.getElementById('perr').textContent='';document.getElementById('mpin').classList.add('open');return;}document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});document.querySelectorAll('nav button').forEach(function(x){x.classList.remove('active');});document.getElementById('page-'+n).classList.add('active');if(b)b.classList.add('active');if(n==='dashboard')loadDash();if(n==='roster')loadRoster();if(n==='admin'){loadLog();loadOvr();}if(n==='mybooks')loadMy();}
+function showPage(n,b){if(n==='admin'&&!aOn){document.getElementById('pinput').value='';document.getElementById('perr').textContent='';document.getElementById('mpin').classList.add('open');return;}document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});document.querySelectorAll('nav button').forEach(function(x){x.classList.remove('active');});document.getElementById('page-'+n).classList.add('active');if(b)b.classList.add('active');if(n==='dashboard')loadDash();if(n==='roster')loadRoster();if(n==='admin'){loadLog();loadOvr();loadRecs();loadSugAdmin();}if(n==='mybooks')loadMy();if(n==='suggest'){loadMySugs();document.getElementById('sug-user').value=usr;}}
 function setUser(n){usr=n;localStorage.setItem('rs_u',n);document.getElementById('hname').textContent=n||'Not selected';['lusr','musr','cousr'].forEach(function(id){var e=document.getElementById(id);if(e)e.value=n;});}
-function fillUSel(){var o='<option value="">— Select your name —</option>'+emps.map(function(e){return '<option value="'+e+'">'+e+'</option>';}).join('');['lusr','musr','cousr'].forEach(function(id){var e=document.getElementById(id);if(e){e.innerHTML=o;e.value=usr;}});document.getElementById('hname').textContent=usr||'Not selected';}
+function fillUSel(){var o='<option value="">— Select your name —</option>'+emps.map(function(e){return '<option value="'+e+'">'+e+'</option>';}).join('');['lusr','musr','cousr','sug-user'].forEach(function(id){var e=document.getElementById(id);if(e){e.innerHTML=o;e.value=usr;}});document.getElementById('hname').textContent=usr||'Not selected';}
 async function addMe(){var i=document.getElementById('lnew');var n=i.value.trim();if(!n)return toast('Oops','Type your name first.');try{var d=await api({action:'addEmployee',name:n});if(emps.indexOf(n)<0)emps.push(n);fillUSel();setUser(n);i.value='';toast(d.success?'Welcome! 🎉':'Welcome back!',d.success?d.message:'Logged in as '+n);}catch(e){toast('Error',e.message);}}
 async function loadLib(){try{var res=await Promise.all([api({action:'getBooks'}),api({action:'getEmployees'})]);var bd=res[0],ed=res[1];if(!bd.success)throw new Error(bd.error||'Failed');bks=bd.books||[];emps=ed.employees||[];fillUSel();buildCats();renderBks(bks);fillAsel();}catch(e){document.getElementById('bgrid').innerHTML='<div class="empty" style="grid-column:1/-1"><div class="ic">⚠️</div><h3>Could not load library</h3><p style="font-size:13px;margin-top:8px;">'+e.message+'</p><button class="btn btn-p" style="margin-top:16px;" onclick="loadLib()">🔄 Try Again</button></div>';}}
 function buildCats(){var cs=[...new Set(bks.map(function(b){return b.category;}))].sort();document.getElementById('catf').innerHTML='<span class="fc active" onclick="sCat(\'\',this)">All</span>'+cs.map(function(c){return '<span class="fc" onclick="sCat(\''+c+'\',this)">'+c+'</span>';}).join('');}
@@ -340,8 +373,104 @@ async function runSetup(){var m=document.getElementById('smsg');m.style.color='v
 async function refAll(){await loadLib();loadOvr();toast('Refreshed!','Data reloaded.');}
 function esc(s){return(s||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'");}
 document.querySelectorAll('.mov').forEach(function(o){o.addEventListener('click',function(e){if(e.target===o){closeMod(o.id);if(o.id==='mpin')rClicks();}});});
+
+// ── SUGGESTIONS ───────────────────────────────────────────────────────────────
+async function submitSug(){
+  var u=document.getElementById('sug-user').value;
+  var t=document.getElementById('sug-title').value.trim();
+  var a=document.getElementById('sug-author').value.trim();
+  var r=document.getElementById('sug-reason').value.trim();
+  var res=document.getElementById('sug-result');
+  if(!u)return toast('Select Your Name','Please select your name first.');
+  if(!t||!r)return toast('Missing Fields','Please fill in the title and reason.');
+  try{
+    var d=await api({action:'submitSuggestion',employeeName:u,bookTitle:t,author:a,reason:r});
+    res.style.color=d.success?'#81c784':'#ef5350';
+    res.textContent=(d.success?'✓ ':'✗ ')+(d.success?d.message:d.error);
+    if(d.success){document.getElementById('sug-title').value='';document.getElementById('sug-author').value='';document.getElementById('sug-reason').value='';loadMySugs();}
+  }catch(e){toast('Error',e.message);}
+}
+async function loadMySugs(){
+  var w=document.getElementById('my-suggestions');
+  if(!usr){w.innerHTML='';return;}
+  try{
+    var d=await api({action:'getSuggestions'});
+    var mine=(d.suggestions||[]).filter(function(s){return s.employee===usr;});
+    if(!mine.length){w.innerHTML='<p style="font-size:13px;color:var(--lb);">No suggestions yet.</p>';return;}
+    w.innerHTML='<div class="twrap"><table><tr><th>Book</th><th>Author</th><th>Submitted</th><th>Status</th></tr>'
+      +mine.map(function(s){var c=s.status==='Approved'?'#81c784':s.status==='Not at this time'?'#ef5350':'#ffb74d';
+        return '<tr><td>'+s.title+'</td><td>'+s.author+'</td><td>'+s.date+'</td><td><span class="chip" style="color:'+c+';">'+s.status+'</span></td></tr>';}).join('')+'</table></div>';
+  }catch(e){w.innerHTML='<p style="font-size:13px;color:#ef5350;">Could not load.</p>';}
+}
+
+// ── RECOMMENDATIONS ───────────────────────────────────────────────────────────
+var allRecs=[],recCat='';
+async function loadRecs(){
+  var g=document.getElementById('rec-grid');
+  g.innerHTML='<div class="ld" style="grid-column:1/-1"><div class="sp"></div>Loading recommendations...</div>';
+  try{
+    var d=await api({action:'getRecommendations'});
+    allRecs=(d.recommendations||[]).filter(function(r){return !r.alreadyInLibrary;});
+    buildRecCats();renderRecs(allRecs);
+  }catch(e){
+    g.innerHTML='<div class="empty" style="grid-column:1/-1"><div class="ic">⚠️</div><h3>'+e.message+'</h3><p style="font-size:13px;margin-top:8px;">Run setupRecommendations in Apps Script first.</p></div>';
+  }
+}
+function buildRecCats(){
+  var cats=[...new Set(allRecs.map(function(r){return r.category;}))].sort();
+  document.getElementById('rec-filters').innerHTML='<span class="fc active" onclick="setRecCat(\'\',this)">All ('+allRecs.length+')</span>'
+    +cats.map(function(c){var n=allRecs.filter(function(r){return r.category===c;}).length;return '<span class="fc" onclick="setRecCat(\''+c+'\',this)">'+c+' ('+n+')</span>';}).join('');
+}
+function setRecCat(c,el){
+  recCat=c;
+  document.querySelectorAll('#rec-filters .fc').forEach(function(x){x.classList.remove('active');});
+  el.classList.add('active');
+  renderRecs(recCat?allRecs.filter(function(r){return r.category===recCat;}):allRecs);
+}
+function renderRecs(recs){
+  var g=document.getElementById('rec-grid');
+  if(!recs.length){g.innerHTML='<div class="empty" style="grid-column:1/-1"><div class="ic">🎉</div><h3>All recommendations added to library!</h3></div>';return;}
+  g.innerHTML=recs.map(function(r){return '<div style="background:rgba(15,31,45,0.6);border:1px solid rgba(124,146,167,0.2);border-radius:14px;padding:18px;">'
+    +'<div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:4px;">'+r.category+'</div>'
+    +'<div style="font-family:\'Playfair Display\',serif;font-size:15px;font-weight:700;color:var(--cream);margin-bottom:2px;">'+r.title+'</div>'
+    +'<div style="font-size:12px;color:var(--lb);margin-bottom:8px;">by '+r.author+'</div>'
+    +'<div style="font-size:11px;color:var(--g4);margin-bottom:12px;line-height:1.5;">'+r.whyRead+'</div>'
+    +'<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">'
+      +'<span style="font-size:12px;color:var(--gold);">'+(r.price||'')+' · '+(r.format||'')+'</span>'
+      +'<div style="display:flex;gap:6px;">'
+        +(r.amazonLink?'<button class="btn btn-s btn-sm" onclick="window.open(\''+r.amazonLink+'\',\'_blank\')">🛒</button>':'')
+        +'<button class="btn btn-p btn-sm" onclick="addToLib('+r.rowIndex+',\''+esc(r.title)+'\',\''+esc(r.author)+'\',\''+esc(r.category)+'\',\''+esc(r.amazonLink||'')+'\')">+ Add to Library</button>'
+      +'</div>'
+    +'</div></div>';}).join('');
+}
+async function addToLib(rowIndex,title,author,category,amazonLink){
+  try{
+    var d=await api({action:'addToLibrary',rowIndex:rowIndex,title:title,author:author,category:category,amazonLink:amazonLink,pages:0});
+    if(d.success){toast('Added! 📚',d.message,5000);await loadLib();await loadRecs();}
+    else toast('Error',d.error);
+  }catch(e){toast('Error',e.message);}
+}
+async function loadSugAdmin(){
+  var w=document.getElementById('sug-admin-wrap');
+  try{
+    var d=await api({action:'getSuggestions'});
+    var list=d.suggestions||[];
+    if(!list.length){w.innerHTML='<div class="empty"><div class="ic">💡</div><h3>No suggestions yet</h3><p>Employees submit from the Suggest tab.</p></div>';return;}
+    w.innerHTML='<table><tr><th>Employee</th><th>Book</th><th>Author</th><th>Reason</th><th>Date</th><th>Status</th><th>Action</th></tr>'
+      +list.map(function(s){return '<tr><td>'+s.employee+'</td><td style="font-weight:600;">'+s.title+'</td><td>'+s.author+'</td>'
+        +'<td style="max-width:180px;font-size:12px;">'+s.reason+'</td><td>'+s.date+'</td>'
+        +'<td><span class="chip '+(s.status==='Approved'?'cret':s.status==='Not at this time'?'cdue':'cout')+'">'+s.status+'</span></td>'
+        +'<td style="display:flex;gap:4px;"><button class="btn btn-ok btn-sm" onclick="updSug('+s.id+',\'Approved\')">✓ Approve</button>'
+        +'<button class="btn btn-w btn-sm" onclick="updSug('+s.id+',\'Not at this time\')">✗ Decline</button></td></tr>';}).join('')+'</table>';
+  }catch(e){w.innerHTML='<div class="empty"><div class="ic">⚠️</div><h3>'+e.message+'</h3></div>';}
+}
+async function updSug(id,status){
+  try{var d=await api({action:'updateSuggestionStatus',suggestionId:id,status:status});if(d.success){toast('Updated!',d.message);loadSugAdmin();}else toast('Error',d.error);}catch(e){toast('Error',e.message);}
+}
+
 loadLib();
 </script>
 </body>
 </html>
+
 
