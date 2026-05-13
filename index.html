@@ -32,7 +32,7 @@ body::before {
     radial-gradient(ellipse at 80% 80%, rgba(48,83,113,0.3) 0%, transparent 60%);
   pointer-events:none; z-index:0;
 }
-
+ 
 /* HEADER */
 header {
   position:sticky; top:0; z-index:100;
@@ -43,16 +43,22 @@ header {
   display:flex; align-items:center; justify-content:space-between;
   height:70px;
 }
-.logo { display:flex; align-items:center; gap:12px; }
+.logo {
+  display:flex; align-items:center; gap:12px;
+  cursor:pointer; user-select:none;
+}
 .logo-badge {
   width:40px; height:40px; border-radius:50%;
   background:linear-gradient(135deg,var(--orange),var(--gold));
   display:flex; align-items:center; justify-content:center;
   font-family:'Playfair Display',serif; font-weight:900; font-size:15px; color:white;
   box-shadow:0 0 20px rgba(242,153,52,0.3);
+  transition:transform 0.15s;
 }
+.logo:active .logo-badge { transform:scale(0.9); }
 .logo-text .top { font-size:10px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; }
 .logo-text .bottom { font-size:16px; font-weight:700; color:var(--cream); line-height:1; }
+ 
 nav { display:flex; gap:4px; }
 nav button {
   background:transparent; border:none; color:var(--light-blue);
@@ -60,26 +66,21 @@ nav button {
   padding:8px 14px; border-radius:8px; cursor:pointer; transition:all 0.2s;
 }
 nav button:hover, nav button.active { background:rgba(201,97,46,0.15); color:var(--gold); }
+#btn-admin { display:none; }
+ 
 #header-user { font-size:12px; color:var(--light-blue); }
 #header-user span { color:var(--gold); font-weight:600; }
-
-/* CONN STATUS */
-#conn-bar {
-  text-align:center; padding:6px; font-size:12px; font-weight:600;
-  display:none;
-}
-.conn-err { background:rgba(198,40,40,0.3); color:#ef5350; display:block !important; }
-
+ 
 /* MAIN */
 main { position:relative; z-index:1; max-width:1280px; margin:0 auto; padding:36px 32px; }
 .page { display:none; }
 .page.active { display:block; }
-
+ 
 .section-header { margin-bottom:28px; }
 .section-header h1 { font-family:'Playfair Display',serif; font-size:32px; font-weight:900; color:var(--cream); }
 .section-header h1 span { color:var(--gold); }
 .section-header p { color:var(--light-blue); font-size:14px; margin-top:5px; }
-
+ 
 /* USER BAR */
 .user-bar {
   background:rgba(48,83,113,0.2);
@@ -101,7 +102,7 @@ main { position:relative; z-index:1; max-width:1280px; margin:0 auto; padding:36
 .user-bar input[type=text]::placeholder { color:var(--gray-400); }
 .user-bar select:focus, .user-bar input:focus { border-color:var(--gold); }
 .or { color:var(--gray-400); font-size:12px; }
-
+ 
 /* BUTTONS */
 .btn {
   display:inline-flex; align-items:center; gap:6px;
@@ -117,7 +118,7 @@ main { position:relative; z-index:1; max-width:1280px; margin:0 auto; padding:36
 .btn-success:hover { transform:translateY(-1px); }
 .btn-sm { padding:6px 13px; font-size:12px; border-radius:8px; }
 .btn:disabled { opacity:0.4; cursor:not-allowed; transform:none !important; }
-
+ 
 /* FILTERS */
 .filter-bar { display:flex; gap:8px; margin-bottom:24px; flex-wrap:wrap; align-items:center; }
 .filter-chip {
@@ -135,7 +136,7 @@ main { position:relative; z-index:1; max-width:1280px; margin:0 auto; padding:36
 }
 .search-box:focus { border-color:var(--gold); }
 .search-box::placeholder { color:var(--gray-400); }
-
+ 
 /* BOOK GRID */
 .book-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:18px; }
 .book-card {
@@ -154,7 +155,7 @@ main { position:relative; z-index:1; max-width:1280px; margin:0 auto; padding:36
 .badge-out { padding:3px 10px; border-radius:99px; font-size:11px; font-weight:600; background:rgba(198,40,40,0.15); color:#e57373; border:1px solid rgba(198,40,40,0.25); }
 .pts-badge { font-size:12px; color:var(--gold); font-weight:600; }
 .book-actions { padding:0 18px 18px; display:flex; gap:8px; }
-
+ 
 /* KPI */
 .kpi-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:14px; margin-bottom:36px; }
 .kpi-card {
@@ -165,7 +166,7 @@ main { position:relative; z-index:1; max-width:1280px; margin:0 auto; padding:36
 .kpi-label { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--light-blue); margin-bottom:6px; }
 .kpi-value { font-family:'Playfair Display',serif; font-size:36px; font-weight:900; color:var(--gold); line-height:1; }
 .kpi-sub { font-size:11px; color:var(--gray-400); margin-top:3px; }
-
+ 
 /* DASH */
 .dash-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
 .dash-panel {
@@ -183,7 +184,7 @@ main { position:relative; z-index:1; max-width:1280px; margin:0 auto; padding:36
 .lb-name { flex:1; font-size:13px; font-weight:500; }
 .lb-sub { font-size:11px; color:var(--light-blue); }
 .lb-pts { font-family:'Playfair Display',serif; font-size:18px; font-weight:700; color:var(--gold); }
-
+ 
 /* TABLE */
 .table-wrap { overflow-x:auto; }
 table { width:100%; border-collapse:collapse; font-size:13px; }
@@ -194,7 +195,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
 .chip-ret{background:rgba(46,125,50,0.2);color:#81c784;}
 .chip-out{background:rgba(219,123,40,0.2);color:#ffb74d;}
 .chip-due{background:rgba(198,40,40,0.2);color:#ef5350;}
-
+ 
 /* ROSTER */
 .roster-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:14px; }
 .roster-card {
@@ -209,7 +210,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
 .r-stats { display:flex; justify-content:center; gap:14px; margin-top:10px; }
 .r-stat-val { font-size:15px; font-weight:700; }
 .r-stat-lbl { font-size:10px; color:var(--gray-400); text-transform:uppercase; }
-
+ 
 /* ADMIN */
 .admin-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
 .admin-panel { background:rgba(30,53,72,0.6); border:1px solid rgba(124,146,167,0.15); border-radius:18px; padding:26px; }
@@ -223,7 +224,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
   font-size:13px; padding:10px 14px; border-radius:10px; outline:none; transition:border-color 0.2s;
 }
 .form-group input:focus, .form-group select:focus { border-color:var(--gold); }
-
+ 
 /* MODAL */
 .modal-overlay { display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,0.75); backdrop-filter:blur(6px); align-items:center; justify-content:center; }
 .modal-overlay.open { display:flex; }
@@ -245,7 +246,34 @@ tr:hover td { background:rgba(48,83,113,0.1); }
 .modal-field select:focus, .modal-field input:focus { border-color:var(--gold); }
 .modal-actions { display:flex; gap:10px; margin-top:22px; }
 .modal-actions .btn { flex:1; justify-content:center; }
-
+ 
+/* PIN MODAL */
+#pin-modal .modal { max-width:380px; text-align:center; }
+#pin-modal .modal h2 { font-size:28px; margin-bottom:8px; }
+#pin-modal .modal-sub { margin-bottom:28px; }
+.pin-input {
+  width:100%; text-align:center; letter-spacing:12px;
+  font-size:28px; font-family:'Playfair Display',serif;
+  background:rgba(15,31,45,0.8); border:2px solid rgba(242,153,52,0.3);
+  color:var(--gold); padding:16px; border-radius:14px; outline:none;
+  transition:border-color 0.2s;
+}
+.pin-input:focus { border-color:var(--gold); }
+.pin-error { color:#ef5350; font-size:13px; margin-top:10px; min-height:20px; }
+.pin-hint {
+  font-size:11px; color:var(--gray-400); margin-top:16px;
+  padding:10px; background:rgba(48,83,113,0.2); border-radius:8px;
+}
+ 
+/* LOGO CLICK HINT */
+#logo-clicks {
+  position:fixed; bottom:20px; left:50%; transform:translateX(-50%);
+  background:rgba(48,83,113,0.9); border:1px solid rgba(242,153,52,0.3);
+  border-radius:99px; padding:8px 20px; font-size:12px; color:var(--gold);
+  opacity:0; transition:opacity 0.3s; pointer-events:none; z-index:200;
+}
+#logo-clicks.show { opacity:1; }
+ 
 /* TOAST */
 #toast {
   position:fixed; bottom:28px; right:28px; z-index:9999;
@@ -256,7 +284,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
 }
 #toast.show { transform:translateX(0); }
 .toast-title { font-weight:700; color:var(--gold); margin-bottom:2px; font-size:14px; }
-
+ 
 /* LOADING / EMPTY */
 .loading { display:flex; align-items:center; justify-content:center; padding:60px; color:var(--light-blue); flex-direction:column; gap:14px; }
 .spinner { width:32px; height:32px; border-radius:50%; border:3px solid rgba(124,146,167,0.2); border-top-color:var(--gold); animation:spin 0.8s linear infinite; }
@@ -264,18 +292,16 @@ tr:hover td { background:rgba(48,83,113,0.1); }
 .empty { text-align:center; padding:50px 20px; color:var(--light-blue); }
 .empty .icon { font-size:42px; margin-bottom:12px; }
 .empty h3 { font-family:'Playfair Display',serif; font-size:18px; color:var(--cream); margin-bottom:4px; }
-
+ 
 @media(max-width:900px){.dash-grid,.admin-grid{grid-template-columns:1fr;}}
 @media(max-width:768px){main{padding:20px 14px;}header{padding:0 14px;}nav button{padding:6px 8px;font-size:11px;}.book-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:500px){.book-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
-
-<div id="conn-bar"></div>
-
+ 
 <header>
-  <div class="logo">
+  <div class="logo" id="logo" onclick="handleLogoClick()">
     <div class="logo-badge">RS</div>
     <div class="logo-text">
       <div class="top">Retirement Solutions</div>
@@ -287,13 +313,16 @@ tr:hover td { background:rgba(48,83,113,0.1); }
     <button onclick="showPage('dashboard',this)">📊 Dashboard</button>
     <button onclick="showPage('mybooks',this)">🔖 My Books</button>
     <button onclick="showPage('roster',this)">👥 Leaderboard</button>
-    <button onclick="showPage('admin',this)">⚙️ Admin</button>
+    <button id="btn-admin" onclick="showPage('admin',this)">⚙️ Admin</button>
   </nav>
   <div id="header-user">👤 <span id="hdr-name">Not selected</span></div>
 </header>
-
+ 
+<!-- Logo click hint -->
+<div id="logo-clicks"></div>
+ 
 <main>
-
+ 
   <!-- LIBRARY -->
   <div id="page-library" class="page active">
     <div class="section-header">
@@ -317,7 +346,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
       <div class="loading" style="grid-column:1/-1"><div class="spinner"></div>Loading library...</div>
     </div>
   </div>
-
+ 
   <!-- DASHBOARD -->
   <div id="page-dashboard" class="page">
     <div class="section-header">
@@ -330,7 +359,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
       <div class="dash-panel"><h3>🕐 Recent Activity</h3><div id="dash-recent"></div></div>
     </div>
   </div>
-
+ 
   <!-- MY BOOKS -->
   <div id="page-mybooks" class="page">
     <div class="section-header">
@@ -345,7 +374,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
     </div>
     <div id="my-books-wrap"></div>
   </div>
-
+ 
   <!-- ROSTER -->
   <div id="page-roster" class="page">
     <div class="section-header">
@@ -356,7 +385,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
       <div class="loading" style="grid-column:1/-1"><div class="spinner"></div>Loading...</div>
     </div>
   </div>
-
+ 
   <!-- ADMIN -->
   <div id="page-admin" class="page">
     <div class="section-header">
@@ -387,14 +416,15 @@ tr:hover td { background:rgba(48,83,113,0.1); }
         <div style="display:flex;gap:10px;flex-wrap:wrap;">
           <button class="btn btn-primary" onclick="runSetup()">🛠 Initialize Sheets</button>
           <button class="btn btn-secondary" onclick="loadLibrary()">🔄 Refresh Data</button>
+          <button class="btn btn-secondary" onclick="lockAdmin()">🔒 Lock Admin</button>
         </div>
         <div id="setup-msg" style="margin-top:12px;font-size:13px;"></div>
       </div>
     </div>
   </div>
-
+ 
 </main>
-
+ 
 <!-- CHECKOUT MODAL -->
 <div class="modal-overlay" id="modal-checkout">
   <div class="modal">
@@ -414,7 +444,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
     </div>
   </div>
 </div>
-
+ 
 <!-- RETURN MODAL -->
 <div class="modal-overlay" id="modal-return">
   <div class="modal">
@@ -429,29 +459,49 @@ tr:hover td { background:rgba(48,83,113,0.1); }
     </div>
   </div>
 </div>
-
+ 
+<!-- PIN MODAL -->
+<div class="modal-overlay" id="pin-modal">
+  <div class="modal" style="text-align:center;">
+    <h2>🔐 Admin Access</h2>
+    <div class="modal-sub">Enter your PIN to continue</div>
+    <input class="pin-input" type="password" id="pin-input" maxlength="10"
+      placeholder="••••" onkeydown="if(event.key==='Enter')checkPin()">
+    <div class="pin-error" id="pin-error"></div>
+    <div class="pin-hint">🔒 Restricted access — authorized personnel only</div>
+    <div class="modal-actions" style="margin-top:24px;">
+      <button class="btn btn-secondary" onclick="closeModal('pin-modal');resetLogoClicks()">Cancel</button>
+      <button class="btn btn-primary" onclick="checkPin()">Unlock →</button>
+    </div>
+  </div>
+</div>
+ 
 <div id="toast"><div class="toast-title" id="toast-title"></div><div id="toast-msg"></div></div>
-
+ 
 <script>
 // ── CONFIG ────────────────────────────────────────────────────────────────────
 const API = "https://script.google.com/macros/s/AKfycbwOZtqrYrmQuddpF7EvVqw3CwzJQMTg_2_sHsbnfRHgOxd0x4fS3aMoV2P8aNvNhfP5/exec";
-
+const ADMIN_PIN = "4243";
+const CLICKS_NEEDED = 3;
+ 
 // ── STATE ─────────────────────────────────────────────────────────────────────
 let currentUser = localStorage.getItem('rs_user') || '';
 let allBooks = [], allEmployees = [];
 let pendingCO = null, pendingRet = null, activeCat = '';
-
-// ── API — uses fetch with redirect following ──────────────────────────────────
+let adminUnlocked = false;
+let logoClickCount = 0;
+let logoClickTimer = null;
+let hintTimer = null;
+ 
+// ── API ───────────────────────────────────────────────────────────────────────
 async function api(params) {
   const qs = new URLSearchParams(params).toString();
-  const url = `${API}?${qs}`;
-  // Google Apps Script redirects — we follow them
-  const res = await fetch(url, { redirect: 'follow' });
+  const res = await fetch(`${API}?${qs}`, { redirect:'follow' });
   const text = await res.text();
   try { return JSON.parse(text); }
-  catch(e) { throw new Error('Bad response: ' + text.substring(0, 200)); }
+  catch(e) { throw new Error('Bad response: ' + text.substring(0,200)); }
 }
-
+ 
 // ── TOAST ─────────────────────────────────────────────────────────────────────
 function toast(title, msg, dur=3500) {
   document.getElementById('toast-title').textContent = title;
@@ -460,19 +510,95 @@ function toast(title, msg, dur=3500) {
   t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), dur);
 }
-
+ 
+// ── SECRET LOGO CLICK HANDLER ─────────────────────────────────────────────────
+function handleLogoClick() {
+  logoClickCount++;
+  const hint = document.getElementById('logo-clicks');
+ 
+  // Show hint after first click
+  const remaining = CLICKS_NEEDED - logoClickCount;
+  if (remaining > 0) {
+    hint.textContent = `🔐 ${remaining} more click${remaining !== 1 ? 's' : ''}...`;
+    hint.classList.add('show');
+    if (hintTimer) clearTimeout(hintTimer);
+    hintTimer = setTimeout(() => hint.classList.remove('show'), 2000);
+  }
+ 
+  // Reset if too slow (3 seconds between clicks)
+  if (logoClickTimer) clearTimeout(logoClickTimer);
+  logoClickTimer = setTimeout(() => {
+    logoClickCount = 0;
+    hint.classList.remove('show');
+  }, 3000);
+ 
+  // Unlock after 3 clicks
+  if (logoClickCount >= CLICKS_NEEDED) {
+    logoClickCount = 0;
+    clearTimeout(logoClickTimer);
+    hint.classList.remove('show');
+    // Show PIN modal
+    document.getElementById('pin-input').value = '';
+    document.getElementById('pin-error').textContent = '';
+    document.getElementById('pin-modal').classList.add('open');
+    setTimeout(() => document.getElementById('pin-input').focus(), 300);
+  }
+}
+ 
+function resetLogoClicks() {
+  logoClickCount = 0;
+  if (logoClickTimer) clearTimeout(logoClickTimer);
+}
+ 
+// ── PIN CHECK ─────────────────────────────────────────────────────────────────
+function checkPin() {
+  const entered = document.getElementById('pin-input').value.trim();
+  if (entered === ADMIN_PIN) {
+    adminUnlocked = true;
+    closeModal('pin-modal');
+    // Reveal admin button
+    const btn = document.getElementById('btn-admin');
+    btn.style.display = 'inline-flex';
+    // Navigate to admin
+    btn.click();
+    toast('🔓 Admin Unlocked', 'Welcome! Admin panel is now accessible.');
+  } else {
+    document.getElementById('pin-error').textContent = '✗ Incorrect PIN. Try again.';
+    document.getElementById('pin-input').value = '';
+    document.getElementById('pin-input').focus();
+    // Shake animation
+    const input = document.getElementById('pin-input');
+    input.style.borderColor = '#ef5350';
+    setTimeout(() => input.style.borderColor = '', 1000);
+  }
+}
+ 
+function lockAdmin() {
+  adminUnlocked = false;
+  document.getElementById('btn-admin').style.display = 'none';
+  showPage('library', document.querySelector('nav button'));
+  toast('🔒 Locked', 'Admin panel has been locked.');
+}
+ 
 // ── NAV ───────────────────────────────────────────────────────────────────────
 function showPage(name, btn) {
+  // Guard admin access
+  if (name === 'admin' && !adminUnlocked) {
+    document.getElementById('pin-input').value = '';
+    document.getElementById('pin-error').textContent = '';
+    document.getElementById('pin-modal').classList.add('open');
+    return;
+  }
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
   document.getElementById('page-' + name).classList.add('active');
-  btn.classList.add('active');
+  if (btn) btn.classList.add('active');
   if (name === 'dashboard') loadDashboard();
   if (name === 'roster')    loadRoster();
   if (name === 'admin')     loadAdminLog();
   if (name === 'mybooks')   loadMyBooks();
 }
-
+ 
 // ── USER ──────────────────────────────────────────────────────────────────────
 function setUser(name) {
   currentUser = name;
@@ -483,7 +609,7 @@ function setUser(name) {
     if (el) el.value = name;
   });
 }
-
+ 
 function populateUserSelects() {
   const opts = '<option value="">— Select your name —</option>' +
     allEmployees.map(e => `<option value="${e}">${e}</option>`).join('');
@@ -493,13 +619,13 @@ function populateUserSelects() {
   });
   document.getElementById('hdr-name').textContent = currentUser || 'Not selected';
 }
-
+ 
 async function addMe() {
   const inp = document.getElementById('lib-new-name');
   const name = inp.value.trim();
   if (!name) return toast('Oops', 'Please type your name first.');
   try {
-    const data = await api({ action: 'addEmployee', name });
+    const data = await api({ action:'addEmployee', name });
     if (!allEmployees.includes(name)) allEmployees.push(name);
     populateUserSelects();
     setUser(name);
@@ -507,13 +633,13 @@ async function addMe() {
     toast(data.success ? 'Welcome! 🎉' : 'Welcome back!', data.success ? data.message : `Logged in as ${name}`);
   } catch(e) { toast('Error', e.message); }
 }
-
+ 
 // ── LOAD LIBRARY ──────────────────────────────────────────────────────────────
 async function loadLibrary() {
   try {
     const [bData, eData] = await Promise.all([
-      api({ action: 'getBooks' }),
-      api({ action: 'getEmployees' })
+      api({ action:'getBooks' }),
+      api({ action:'getEmployees' })
     ]);
     if (!bData.success) throw new Error(bData.error || 'Failed to load books');
     allBooks = bData.books || [];
@@ -528,27 +654,25 @@ async function loadLibrary() {
         <div class="icon">⚠️</div>
         <h3>Could not load library</h3>
         <p style="margin-top:8px;font-size:13px;">${e.message}</p>
-        <p style="margin-top:8px;font-size:12px;color:var(--gray-400);">Go to Admin → Initialize Sheets if this is your first time.</p>
         <button class="btn btn-primary" style="margin-top:16px;" onclick="loadLibrary()">🔄 Try Again</button>
       </div>`;
-    toast('Error', e.message);
   }
 }
-
+ 
 function buildCatFilters() {
   const cats = [...new Set(allBooks.map(b => b.category))].sort();
   document.getElementById('cat-filters').innerHTML =
     `<span class="filter-chip active" onclick="setCat('',this)">All</span>` +
     cats.map(c => `<span class="filter-chip" onclick="setCat('${c}',this)">${c}</span>`).join('');
 }
-
+ 
 function setCat(cat, el) {
   activeCat = cat;
   document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
   el.classList.add('active');
   filterBooks();
 }
-
+ 
 function filterBooks() {
   const q = document.getElementById('search-box').value.toLowerCase();
   const filtered = allBooks.filter(b =>
@@ -557,7 +681,7 @@ function filterBooks() {
   );
   renderBooks(filtered);
 }
-
+ 
 function renderBooks(books) {
   const grid = document.getElementById('book-grid');
   if (!books.length) {
@@ -588,54 +712,54 @@ function renderBooks(books) {
     </div>`;
   }).join('');
 }
-
+ 
 // ── CHECKOUT ──────────────────────────────────────────────────────────────────
 function openCheckout(id, title) {
   if (!currentUser) return toast('Select Your Name', 'Please select your name from the dropdown first.');
   pendingCO = { id, title };
   document.getElementById('co-book-name').textContent = `"${title}"`;
   document.getElementById('co-user').value = currentUser;
-  const due = new Date(); due.setDate(due.getDate() + 90);
+  const due = new Date(); due.setDate(due.getDate()+90);
   document.getElementById('co-due').value = due.toISOString().split('T')[0];
   document.getElementById('modal-checkout').classList.add('open');
 }
-
+ 
 async function doCheckout() {
   const user = document.getElementById('co-user').value;
   const due  = document.getElementById('co-due').value;
-  if (!user) return toast('Select Name', 'Please select your name.');
+  if (!user) return toast('Select Name','Please select your name.');
   if (!pendingCO) return;
   setUser(user);
   try {
     const data = await api({ action:'checkoutBook', employeeName:user, bookId:pendingCO.id, bookTitle:pendingCO.title, dueDate:due });
     closeModal('modal-checkout');
     if (data.success) { toast('Checked Out! 📚', data.message); loadLibrary(); }
-    else toast('Error', data.error || 'Something went wrong');
+    else toast('Error', data.error||'Something went wrong');
   } catch(e) { toast('Error', e.message); }
 }
-
+ 
 // ── RETURN ────────────────────────────────────────────────────────────────────
 function openReturn(id, title) {
   pendingRet = { id, title };
   document.getElementById('ret-book-name').textContent = `Return "${title}"?`;
   document.getElementById('modal-return').classList.add('open');
 }
-
+ 
 async function doReturn() {
-  if (!pendingRet || !currentUser) return;
+  if (!pendingRet||!currentUser) return;
   try {
     const data = await api({ action:'returnBook', employeeName:currentUser, bookId:pendingRet.id });
     closeModal('modal-return');
     if (data.success) { toast('Returned! ⭐', data.message, 5000); loadLibrary(); loadMyBooks(); }
-    else toast('Error', data.error || 'No open checkout found');
+    else toast('Error', data.error||'No open checkout found');
   } catch(e) { toast('Error', e.message); }
 }
-
+ 
 function closeModal(id) {
   document.getElementById(id).classList.remove('open');
   pendingCO = null; pendingRet = null;
 }
-
+ 
 // ── MY BOOKS ──────────────────────────────────────────────────────────────────
 async function loadMyBooks() {
   const wrap = document.getElementById('my-books-wrap');
@@ -645,13 +769,12 @@ async function loadMyBooks() {
   }
   wrap.innerHTML = `<div class="loading"><div class="spinner"></div>Loading your books...</div>`;
   try {
-    const data = await api({ action: 'getCheckouts' });
+    const data = await api({ action:'getCheckouts' });
     const mine    = (data.checkouts||[]).filter(c => c.employee === currentUser);
     const active  = mine.filter(c => c.status !== 'Returned');
     const history = mine.filter(c => c.status === 'Returned');
-    const totalPts = history.reduce((s,c) => s + (Number(c.pointsAwarded)||0), 0);
+    const totalPts = history.reduce((s,c) => s+(Number(c.pointsAwarded)||0), 0);
     let html = '';
-
     if (active.length) {
       html += `<h3 style="font-family:'Playfair Display',serif;font-size:18px;color:var(--cream);margin-bottom:14px;">📤 Currently Checked Out</h3>
       <div class="table-wrap" style="margin-bottom:30px;"><table>
@@ -665,7 +788,6 @@ async function loadMyBooks() {
     } else {
       html += `<div class="empty" style="margin-bottom:24px;"><div class="icon">✅</div><h3>No active checkouts</h3><p>Head to the Library to check out your next book!</p></div>`;
     }
-
     if (history.length) {
       html += `<h3 style="font-family:'Playfair Display',serif;font-size:18px;color:var(--cream);margin-bottom:6px;">📚 Reading History</h3>
       <p style="font-size:13px;color:var(--light-blue);margin-bottom:14px;">Total earned: <strong style="color:var(--gold);">⭐ ${totalPts} impact points</strong></p>
@@ -682,22 +804,22 @@ async function loadMyBooks() {
     wrap.innerHTML = `<div class="empty"><div class="icon">⚠️</div><h3>${e.message}</h3></div>`;
   }
 }
-
+ 
 // ── DASHBOARD ─────────────────────────────────────────────────────────────────
 async function loadDashboard() {
   try {
-    const data = await api({ action: 'getDashboard' });
-    const s = data.stats || {};
+    const data = await api({ action:'getDashboard' });
+    const s = data.stats||{};
     document.getElementById('kpi-grid').innerHTML = [
-      {label:'Total Books',  val:s.totalBooks||0,    sub:'in the library'},
-      {label:'Available',    val:s.available||0,     sub:'ready to check out'},
-      {label:'Checked Out',  val:s.checkedOut||0,    sub:'currently reading'},
-      {label:'Overdue',      val:s.overdue||0,       sub:'need returning'},
-      {label:'Total Points', val:s.totalPoints||0,   sub:'earned by the team'},
-      {label:'Active Readers',val:s.activeReaders||0,sub:'reading right now'},
+      {label:'Total Books',   val:s.totalBooks||0,    sub:'in the library'},
+      {label:'Available',     val:s.available||0,     sub:'ready to check out'},
+      {label:'Checked Out',   val:s.checkedOut||0,    sub:'currently reading'},
+      {label:'Overdue',       val:s.overdue||0,       sub:'need returning'},
+      {label:'Total Points',  val:s.totalPoints||0,   sub:'earned by the team'},
+      {label:'Active Readers',val:s.activeReaders||0, sub:'reading right now'},
     ].map(k=>`<div class="kpi-card"><div class="kpi-label">${k.label}</div><div class="kpi-value">${k.val}</div><div class="kpi-sub">${k.sub}</div></div>`).join('');
-
-    const lb = data.leaderboard || [];
+ 
+    const lb = data.leaderboard||[];
     document.getElementById('dash-lb').innerHTML = lb.length
       ? lb.map((r,i)=>`<div class="lb-row">
           <div class="rank ${i===0?'r1':i===1?'r2':i===2?'r3':'rn'}">${i+1}</div>
@@ -705,8 +827,8 @@ async function loadDashboard() {
           <div class="lb-pts">⭐ ${r.totalPoints}</div>
         </div>`).join('')
       : `<div class="empty"><div class="icon">🏆</div><h3>No data yet</h3></div>`;
-
-    const rc = data.recentCheckouts || [];
+ 
+    const rc = data.recentCheckouts||[];
     document.getElementById('dash-recent').innerHTML = rc.length
       ? rc.map(c=>`<div class="lb-row">
           <div style="font-size:20px;">${c.status==='Returned'?'✅':c.status==='Overdue'?'🔴':'📖'}</div>
@@ -716,14 +838,14 @@ async function loadDashboard() {
       : `<div class="empty"><div class="icon">💤</div><h3>No activity yet</h3></div>`;
   } catch(e) { toast('Error','Could not load dashboard: '+e.message); }
 }
-
+ 
 // ── ROSTER ────────────────────────────────────────────────────────────────────
 async function loadRoster() {
   const grid = document.getElementById('roster-grid');
   grid.innerHTML = `<div class="loading" style="grid-column:1/-1"><div class="spinner"></div>Loading...</div>`;
   try {
-    const data = await api({ action: 'getRoster' });
-    const roster = data.roster || [];
+    const data = await api({ action:'getRoster' });
+    const roster = data.roster||[];
     if (!roster.length) {
       grid.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="icon">👥</div><h3>No team members yet</h3><p>Add employees in the Admin panel.</p></div>`;
       return;
@@ -745,12 +867,12 @@ async function loadRoster() {
     grid.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="icon">⚠️</div><h3>${e.message}</h3></div>`;
   }
 }
-
+ 
 // ── ADMIN ─────────────────────────────────────────────────────────────────────
 async function loadAdminLog() {
   const wrap = document.getElementById('admin-log');
   try {
-    const data = await api({ action: 'getCheckouts' });
+    const data = await api({ action:'getCheckouts' });
     const list = (data.checkouts||[]).reverse();
     wrap.innerHTML = list.length
       ? `<table><tr><th>Employee</th><th>Book</th><th>Checked Out</th><th>Due</th><th>Returned</th><th>Points</th><th>Status</th></tr>
@@ -765,14 +887,14 @@ async function loadAdminLog() {
     wrap.innerHTML = `<div class="empty"><div class="icon">⚠️</div><h3>${e.message}</h3></div>`;
   }
 }
-
+ 
 function populateAdminBookSel() {
   const sel = document.getElementById('admin-book-sel');
   if (!sel) return;
   sel.innerHTML = '<option value="">— Select a book —</option>' +
     allBooks.map(b=>`<option value="${b.id}">${b.title} (${b.impactPoints} pts)</option>`).join('');
 }
-
+ 
 async function adminAddEmp() {
   const name = document.getElementById('admin-emp-name').value.trim();
   if (!name) return toast('Missing','Enter a name first.');
@@ -784,7 +906,7 @@ async function adminAddEmp() {
     toast(data.success?'Added!':'Note', data.success?data.message:data.error);
   } catch(e) { toast('Error',e.message); }
 }
-
+ 
 async function adminSetPoints() {
   const bookId = document.getElementById('admin-book-sel').value;
   const points = document.getElementById('admin-pts').value;
@@ -795,13 +917,13 @@ async function adminSetPoints() {
     else toast('Error',data.error);
   } catch(e) { toast('Error',e.message); }
 }
-
+ 
 async function runSetup() {
   const msg = document.getElementById('setup-msg');
   msg.style.color = 'var(--light-blue)';
   msg.textContent = '⟳ Running setup...';
   try {
-    const data = await api({ action: 'setup' });
+    const data = await api({ action:'setup' });
     if (data.success) {
       msg.style.color = '#81c784';
       msg.textContent = '✓ ' + data.msg;
@@ -810,22 +932,25 @@ async function runSetup() {
     } else {
       msg.style.color = '#ef5350';
       msg.textContent = '✗ ' + data.error;
-      toast('Setup Error', data.error);
     }
   } catch(e) {
     msg.style.color = '#ef5350';
     msg.textContent = '✗ ' + e.message;
-    toast('Error', e.message);
   }
 }
-
+ 
 // ── HELPERS ───────────────────────────────────────────────────────────────────
 function esc(s) { return (s||'').replace(/'/g,"\\'"); }
-
+ 
 document.querySelectorAll('.modal-overlay').forEach(o => {
-  o.addEventListener('click', e => { if(e.target===o) closeModal(o.id); });
+  o.addEventListener('click', e => {
+    if (e.target===o) {
+      closeModal(o.id);
+      if (o.id==='pin-modal') resetLogoClicks();
+    }
+  });
 });
-
+ 
 // ── BOOT ──────────────────────────────────────────────────────────────────────
 loadLibrary();
 </script>
