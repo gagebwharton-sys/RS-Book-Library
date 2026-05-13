@@ -58,7 +58,6 @@ header {
 .logo:active .logo-badge { transform:scale(0.9); }
 .logo-text .top { font-size:10px; letter-spacing:3px; color:var(--gold); text-transform:uppercase; }
 .logo-text .bottom { font-size:16px; font-weight:700; color:var(--cream); line-height:1; }
-
 nav { display:flex; gap:4px; }
 nav button {
   background:transparent; border:none; color:var(--light-blue);
@@ -67,7 +66,6 @@ nav button {
 }
 nav button:hover, nav button.active { background:rgba(201,97,46,0.15); color:var(--gold); }
 #btn-admin { display:none; }
-
 #header-user { font-size:12px; color:var(--light-blue); }
 #header-user span { color:var(--gold); font-weight:600; }
 
@@ -83,19 +81,15 @@ main { position:relative; z-index:1; max-width:1280px; margin:0 auto; padding:36
 
 /* USER BAR */
 .user-bar {
-  background:rgba(48,83,113,0.2);
-  border:1px solid rgba(124,146,167,0.2);
+  background:rgba(48,83,113,0.2); border:1px solid rgba(124,146,167,0.2);
   border-radius:14px; padding:18px 22px;
-  display:flex; align-items:center; gap:14px;
-  margin-bottom:28px; flex-wrap:wrap;
+  display:flex; align-items:center; gap:14px; margin-bottom:28px; flex-wrap:wrap;
 }
 .user-bar label { font-size:13px; color:var(--light-blue); font-weight:500; white-space:nowrap; }
 .user-bar select, .user-bar input[type=text] {
-  background:rgba(15,31,45,0.8);
-  border:1px solid rgba(242,153,52,0.3);
+  background:rgba(15,31,45,0.8); border:1px solid rgba(242,153,52,0.3);
   color:var(--cream); font-family:'DM Sans',sans-serif;
-  font-size:14px; padding:9px 14px; border-radius:10px;
-  outline:none; transition:border-color 0.2s; cursor:pointer;
+  font-size:14px; padding:9px 14px; border-radius:10px; outline:none; transition:border-color 0.2s; cursor:pointer;
 }
 .user-bar select { min-width:200px; }
 .user-bar input[type=text] { width:180px; }
@@ -116,6 +110,7 @@ main { position:relative; z-index:1; max-width:1280px; margin:0 auto; padding:36
 .btn-secondary:hover { background:rgba(48,83,113,0.6); }
 .btn-success { background:linear-gradient(135deg,#2E7D32,#388E3C); color:white; }
 .btn-success:hover { transform:translateY(-1px); }
+.btn-warn { background:linear-gradient(135deg,#E65100,#F57C00); color:white; }
 .btn-sm { padding:6px 13px; font-size:12px; border-radius:8px; }
 .btn:disabled { opacity:0.4; cursor:not-allowed; transform:none !important; }
 
@@ -124,8 +119,7 @@ main { position:relative; z-index:1; max-width:1280px; margin:0 auto; padding:36
 .filter-chip {
   padding:6px 16px; border-radius:99px;
   background:rgba(48,83,113,0.3); border:1px solid rgba(124,146,167,0.2);
-  color:var(--light-blue); font-size:12px; font-weight:500;
-  cursor:pointer; transition:all 0.2s;
+  color:var(--light-blue); font-size:12px; font-weight:500; cursor:pointer; transition:all 0.2s;
 }
 .filter-chip:hover, .filter-chip.active { background:rgba(201,97,46,0.2); border-color:var(--orange); color:var(--gold); }
 .search-box {
@@ -154,6 +148,10 @@ main { position:relative; z-index:1; max-width:1280px; margin:0 auto; padding:36
 .badge-avail { padding:3px 10px; border-radius:99px; font-size:11px; font-weight:600; background:rgba(46,125,50,0.2); color:#81c784; border:1px solid rgba(46,125,50,0.3); }
 .badge-out { padding:3px 10px; border-radius:99px; font-size:11px; font-weight:600; background:rgba(198,40,40,0.15); color:#e57373; border:1px solid rgba(198,40,40,0.25); }
 .pts-badge { font-size:12px; color:var(--gold); font-weight:600; }
+.override-tag { font-size:10px; color:var(--orange); font-style:italic; }
+.book-details { display:flex; gap:12px; margin-top:8px; flex-wrap:wrap; }
+.book-detail { font-size:11px; color:var(--light-blue); }
+.book-detail span { color:var(--cream); font-weight:600; }
 .book-actions { padding:0 18px 18px; display:flex; gap:8px; }
 
 /* KPI */
@@ -195,6 +193,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
 .chip-ret{background:rgba(46,125,50,0.2);color:#81c784;}
 .chip-out{background:rgba(219,123,40,0.2);color:#ffb74d;}
 .chip-due{background:rgba(198,40,40,0.2);color:#ef5350;}
+.chip-override{background:rgba(201,97,46,0.2);color:var(--orange);font-size:10px;}
 
 /* ROSTER */
 .roster-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:14px; }
@@ -218,21 +217,23 @@ tr:hover td { background:rgba(48,83,113,0.1); }
 .form-group { margin-bottom:14px; }
 .form-group label { display:block; font-size:11px; color:var(--light-blue); margin-bottom:5px; font-weight:600; letter-spacing:1px; text-transform:uppercase; }
 .form-group input, .form-group select {
-  width:100%; background:rgba(15,31,45,0.8);
-  border:1px solid rgba(124,146,167,0.25);
-  color:var(--cream); font-family:'DM Sans',sans-serif;
-  font-size:13px; padding:10px 14px; border-radius:10px; outline:none; transition:border-color 0.2s;
+  width:100%; background:rgba(15,31,45,0.8); border:1px solid rgba(124,146,167,0.25);
+  color:var(--cream); font-family:'DM Sans',sans-serif; font-size:13px; padding:10px 14px; border-radius:10px; outline:none; transition:border-color 0.2s;
 }
 .form-group input:focus, .form-group select:focus { border-color:var(--gold); }
+.form-hint { font-size:11px; color:var(--light-blue); margin-top:5px; font-style:italic; }
+.info-box {
+  background:rgba(48,83,113,0.25); border:1px solid rgba(124,146,167,0.2);
+  border-radius:10px; padding:12px 14px; margin-bottom:14px; font-size:12px; color:var(--light-blue); line-height:1.6;
+}
+.info-box strong { color:var(--cream); }
 
 /* MODAL */
 .modal-overlay { display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,0.75); backdrop-filter:blur(6px); align-items:center; justify-content:center; }
 .modal-overlay.open { display:flex; }
 .modal {
-  background:linear-gradient(135deg,#1e3548,#0f1f2d);
-  border:1px solid rgba(242,153,52,0.25); border-radius:22px; padding:34px;
-  max-width:460px; width:90%;
-  animation:popIn 0.3s cubic-bezier(.34,1.56,.64,1);
+  background:linear-gradient(135deg,#1e3548,#0f1f2d); border:1px solid rgba(242,153,52,0.25); border-radius:22px; padding:34px;
+  max-width:460px; width:90%; animation:popIn 0.3s cubic-bezier(.34,1.56,.64,1);
 }
 @keyframes popIn{from{transform:scale(0.85) translateY(16px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
 .modal h2 { font-family:'Playfair Display',serif; font-size:22px; color:var(--cream); margin-bottom:4px; }
@@ -247,25 +248,19 @@ tr:hover td { background:rgba(48,83,113,0.1); }
 .modal-actions { display:flex; gap:10px; margin-top:22px; }
 .modal-actions .btn { flex:1; justify-content:center; }
 
-/* PIN MODAL */
+/* PIN */
 #pin-modal .modal { max-width:380px; text-align:center; }
-#pin-modal .modal h2 { font-size:28px; margin-bottom:8px; }
-#pin-modal .modal-sub { margin-bottom:28px; }
 .pin-input {
   width:100%; text-align:center; letter-spacing:12px;
   font-size:28px; font-family:'Playfair Display',serif;
   background:rgba(15,31,45,0.8); border:2px solid rgba(242,153,52,0.3);
-  color:var(--gold); padding:16px; border-radius:14px; outline:none;
-  transition:border-color 0.2s;
+  color:var(--gold); padding:16px; border-radius:14px; outline:none; transition:border-color 0.2s;
 }
 .pin-input:focus { border-color:var(--gold); }
 .pin-error { color:#ef5350; font-size:13px; margin-top:10px; min-height:20px; }
-.pin-hint {
-  font-size:11px; color:var(--gray-400); margin-top:16px;
-  padding:10px; background:rgba(48,83,113,0.2); border-radius:8px;
-}
+.pin-hint { font-size:11px; color:var(--gray-400); margin-top:16px; padding:10px; background:rgba(48,83,113,0.2); border-radius:8px; }
 
-/* LOGO CLICK HINT */
+/* LOGO HINT */
 #logo-clicks {
   position:fixed; bottom:20px; left:50%; transform:translateX(-50%);
   background:rgba(48,83,113,0.9); border:1px solid rgba(242,153,52,0.3);
@@ -318,7 +313,6 @@ tr:hover td { background:rgba(48,83,113,0.1); }
   <div id="header-user">👤 <span id="hdr-name">Not selected</span></div>
 </header>
 
-<!-- Logo click hint -->
 <div id="logo-clicks"></div>
 
 <main>
@@ -331,9 +325,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
     </div>
     <div class="user-bar">
       <label>👤 Who are you?</label>
-      <select id="lib-user" onchange="setUser(this.value)">
-        <option value="">— Select your name —</option>
-      </select>
+      <select id="lib-user" onchange="setUser(this.value)"><option value="">— Select your name —</option></select>
       <span class="or">or add yourself:</span>
       <input type="text" id="lib-new-name" placeholder="Your name..." onkeydown="if(event.key==='Enter')addMe()">
       <button class="btn btn-primary btn-sm" onclick="addMe()">+ Add Me</button>
@@ -368,9 +360,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
     </div>
     <div class="user-bar">
       <label>👤 Your name:</label>
-      <select id="my-user" onchange="setUser(this.value);loadMyBooks()">
-        <option value="">— Select your name —</option>
-      </select>
+      <select id="my-user" onchange="setUser(this.value);loadMyBooks()"><option value="">— Select your name —</option></select>
     </div>
     <div id="my-books-wrap"></div>
   </div>
@@ -390,36 +380,83 @@ tr:hover td { background:rgba(48,83,113,0.1); }
   <div id="page-admin" class="page">
     <div class="section-header">
       <h1>⚙️ <span>Admin</span> Panel</h1>
-      <p>Manage employees, assign impact points, and view full logs.</p>
+      <p>Manage employees, page counts, impact points, and overrides.</p>
     </div>
     <div class="admin-grid">
+
+      <!-- Add Employee -->
       <div class="admin-panel">
         <h3>➕ Add Employee</h3>
         <div class="form-group"><label>Full Name</label><input type="text" id="admin-emp-name" placeholder="e.g. Sarah Johnson"></div>
         <button class="btn btn-primary" onclick="adminAddEmp()">Add to Team</button>
       </div>
+
+      <!-- Set Page Count -->
       <div class="admin-panel">
-        <h3>⭐ Set Impact Points</h3>
-        <div class="form-group"><label>Book</label><select id="admin-book-sel"></select></div>
-        <div class="form-group"><label>Points Value</label><input type="number" id="admin-pts" placeholder="e.g. 5" min="0"></div>
-        <button class="btn btn-primary" onclick="adminSetPoints()">💾 Save Points</button>
+        <h3>📄 Set Page Count</h3>
+        <div class="info-box">
+          Setting pages <strong>auto-calculates</strong> impact points and checkout days.<br>
+          <strong>1–99</strong> = 1 pt / 20 days &nbsp;|&nbsp;
+          <strong>100–199</strong> = 1 pt / 30 days<br>
+          <strong>200–299</strong> = 3 pts / 45 days &nbsp;|&nbsp;
+          <strong>300–399</strong> = 4 pts / 60 days<br>
+          <strong>400+</strong> = 5 pts / 75 days
+        </div>
+        <div class="form-group"><label>Book</label><select id="admin-pages-book"></select></div>
+        <div class="form-group">
+          <label>Page Count</label>
+          <input type="number" id="admin-pages-val" placeholder="e.g. 288" min="1">
+        </div>
+        <button class="btn btn-primary" onclick="adminSetPages()">📄 Set Pages & Auto-Calc</button>
+        <div id="pages-result" style="margin-top:10px;font-size:12px;color:var(--light-blue);"></div>
       </div>
+
+      <!-- Manual Points Override -->
+      <div class="admin-panel">
+        <h3>⭐ Override Impact Points</h3>
+        <div class="info-box">
+          Use this to <strong>manually override</strong> the auto-calculated points for a specific book. Leave blank or set to 0 to use auto-calc.
+        </div>
+        <div class="form-group"><label>Book</label><select id="admin-override-book"></select></div>
+        <div class="form-group">
+          <label>Override Points (0 = use auto)</label>
+          <input type="number" id="admin-override-val" placeholder="e.g. 10" min="0">
+        </div>
+        <div style="display:flex;gap:10px;">
+          <button class="btn btn-primary" onclick="adminSetOverride()">💾 Set Override</button>
+          <button class="btn btn-warn btn-sm" onclick="adminClearOverride()">✕ Clear Override</button>
+        </div>
+        <div id="override-result" style="margin-top:10px;font-size:12px;color:var(--light-blue);"></div>
+      </div>
+
+      <!-- Book Status Overview -->
+      <div class="admin-panel">
+        <h3>📊 Points Overview</h3>
+        <div id="points-overview" class="table-wrap">
+          <div class="loading"><div class="spinner"></div>Loading...</div>
+        </div>
+      </div>
+
+      <!-- Full Checkout Log -->
       <div class="admin-panel" style="grid-column:1/-1">
         <h3>📋 Full Checkout Log</h3>
         <div id="admin-log" class="table-wrap"><div class="loading"><div class="spinner"></div>Loading...</div></div>
       </div>
+
+      <!-- Setup -->
       <div class="admin-panel">
         <h3>🛠 Setup & Tools</h3>
         <p style="font-size:13px;color:var(--light-blue);margin-bottom:16px;line-height:1.6;">
-          Run <strong style="color:var(--cream);">Initialize Sheets</strong> to set up Google Sheet tabs and load all 38 books. Only needed once.
+          Run <strong style="color:var(--cream);">Initialize Sheets</strong> to set up all Google Sheet tabs with all 38 books and page-based points pre-loaded.
         </p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;">
           <button class="btn btn-primary" onclick="runSetup()">🛠 Initialize Sheets</button>
-          <button class="btn btn-secondary" onclick="loadLibrary()">🔄 Refresh Data</button>
+          <button class="btn btn-secondary" onclick="refreshAll()">🔄 Refresh Data</button>
           <button class="btn btn-secondary" onclick="lockAdmin()">🔒 Lock Admin</button>
         </div>
         <div id="setup-msg" style="margin-top:12px;font-size:13px;"></div>
       </div>
+
     </div>
   </div>
 
@@ -430,12 +467,13 @@ tr:hover td { background:rgba(48,83,113,0.1); }
   <div class="modal">
     <h2>📖 Check Out Book</h2>
     <div class="modal-sub" id="co-book-name">—</div>
+    <div id="co-book-info" style="font-size:12px;color:var(--light-blue);margin-bottom:18px;"></div>
     <div class="modal-field">
       <label>Your Name</label>
       <select id="co-user"><option value="">— Select —</option></select>
     </div>
     <div class="modal-field">
-      <label>Due Date (default 90 days)</label>
+      <label>Due Date (auto-set by page count)</label>
       <input type="date" id="co-due">
     </div>
     <div class="modal-actions">
@@ -451,7 +489,7 @@ tr:hover td { background:rgba(48,83,113,0.1); }
     <h2>↩️ Return Book</h2>
     <div class="modal-sub" id="ret-book-name">—</div>
     <p style="font-size:13px;color:var(--light-blue);line-height:1.6;margin-top:8px;">
-      Returning this book will automatically award your impact points based on the value set by admin.
+      Returning this book will automatically award your impact points based on the page count of this book.
     </p>
     <div class="modal-actions" style="margin-top:22px;">
       <button class="btn btn-secondary" onclick="closeModal('modal-return')">Cancel</button>
@@ -479,19 +517,15 @@ tr:hover td { background:rgba(48,83,113,0.1); }
 <div id="toast"><div class="toast-title" id="toast-title"></div><div id="toast-msg"></div></div>
 
 <script>
-// ── CONFIG ────────────────────────────────────────────────────────────────────
 const API = "https://script.google.com/macros/s/AKfycbwOZtqrYrmQuddpF7EvVqw3CwzJQMTg_2_sHsbnfRHgOxd0x4fS3aMoV2P8aNvNhfP5/exec";
 const ADMIN_PIN = "4243";
 const CLICKS_NEEDED = 3;
 
-// ── STATE ─────────────────────────────────────────────────────────────────────
 let currentUser = localStorage.getItem('rs_user') || '';
 let allBooks = [], allEmployees = [];
 let pendingCO = null, pendingRet = null, activeCat = '';
 let adminUnlocked = false;
-let logoClickCount = 0;
-let logoClickTimer = null;
-let hintTimer = null;
+let logoClickCount = 0, logoClickTimer = null, hintTimer = null;
 
 // ── API ───────────────────────────────────────────────────────────────────────
 async function api(params) {
@@ -511,68 +545,46 @@ function toast(title, msg, dur=3500) {
   setTimeout(() => t.classList.remove('show'), dur);
 }
 
-// ── SECRET LOGO CLICK HANDLER ─────────────────────────────────────────────────
+// ── LOGO CLICK ────────────────────────────────────────────────────────────────
 function handleLogoClick() {
   logoClickCount++;
   const hint = document.getElementById('logo-clicks');
-
-  // Show hint after first click
   const remaining = CLICKS_NEEDED - logoClickCount;
   if (remaining > 0) {
-    hint.textContent = `🔐 ${remaining} more click${remaining !== 1 ? 's' : ''}...`;
+    hint.textContent = `🔐 ${remaining} more click${remaining!==1?'s':''}...`;
     hint.classList.add('show');
     if (hintTimer) clearTimeout(hintTimer);
     hintTimer = setTimeout(() => hint.classList.remove('show'), 2000);
   }
-
-  // Reset if too slow (3 seconds between clicks)
   if (logoClickTimer) clearTimeout(logoClickTimer);
-  logoClickTimer = setTimeout(() => {
-    logoClickCount = 0;
-    hint.classList.remove('show');
-  }, 3000);
-
-  // Unlock after 3 clicks
+  logoClickTimer = setTimeout(() => { logoClickCount = 0; hint.classList.remove('show'); }, 3000);
   if (logoClickCount >= CLICKS_NEEDED) {
-    logoClickCount = 0;
-    clearTimeout(logoClickTimer);
-    hint.classList.remove('show');
-    // Show PIN modal
+    logoClickCount = 0; clearTimeout(logoClickTimer); hint.classList.remove('show');
     document.getElementById('pin-input').value = '';
     document.getElementById('pin-error').textContent = '';
     document.getElementById('pin-modal').classList.add('open');
     setTimeout(() => document.getElementById('pin-input').focus(), 300);
   }
 }
+function resetLogoClicks() { logoClickCount = 0; if(logoClickTimer) clearTimeout(logoClickTimer); }
 
-function resetLogoClicks() {
-  logoClickCount = 0;
-  if (logoClickTimer) clearTimeout(logoClickTimer);
-}
-
-// ── PIN CHECK ─────────────────────────────────────────────────────────────────
+// ── PIN ───────────────────────────────────────────────────────────────────────
 function checkPin() {
   const entered = document.getElementById('pin-input').value.trim();
   if (entered === ADMIN_PIN) {
     adminUnlocked = true;
     closeModal('pin-modal');
-    // Reveal admin button
-    const btn = document.getElementById('btn-admin');
-    btn.style.display = 'inline-flex';
-    // Navigate to admin
-    btn.click();
+    document.getElementById('btn-admin').style.display = 'inline-flex';
+    document.getElementById('btn-admin').click();
     toast('🔓 Admin Unlocked', 'Welcome! Admin panel is now accessible.');
   } else {
     document.getElementById('pin-error').textContent = '✗ Incorrect PIN. Try again.';
     document.getElementById('pin-input').value = '';
     document.getElementById('pin-input').focus();
-    // Shake animation
-    const input = document.getElementById('pin-input');
-    input.style.borderColor = '#ef5350';
-    setTimeout(() => input.style.borderColor = '', 1000);
+    document.getElementById('pin-input').style.borderColor = '#ef5350';
+    setTimeout(() => document.getElementById('pin-input').style.borderColor = '', 1000);
   }
 }
-
 function lockAdmin() {
   adminUnlocked = false;
   document.getElementById('btn-admin').style.display = 'none';
@@ -582,7 +594,6 @@ function lockAdmin() {
 
 // ── NAV ───────────────────────────────────────────────────────────────────────
 function showPage(name, btn) {
-  // Guard admin access
   if (name === 'admin' && !adminUnlocked) {
     document.getElementById('pin-input').value = '';
     document.getElementById('pin-error').textContent = '';
@@ -591,11 +602,11 @@ function showPage(name, btn) {
   }
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-  document.getElementById('page-' + name).classList.add('active');
+  document.getElementById('page-'+name).classList.add('active');
   if (btn) btn.classList.add('active');
   if (name === 'dashboard') loadDashboard();
   if (name === 'roster')    loadRoster();
-  if (name === 'admin')     loadAdminLog();
+  if (name === 'admin')     { loadAdminLog(); loadPointsOverview(); }
   if (name === 'mybooks')   loadMyBooks();
 }
 
@@ -609,7 +620,6 @@ function setUser(name) {
     if (el) el.value = name;
   });
 }
-
 function populateUserSelects() {
   const opts = '<option value="">— Select your name —</option>' +
     allEmployees.map(e => `<option value="${e}">${e}</option>`).join('');
@@ -619,7 +629,6 @@ function populateUserSelects() {
   });
   document.getElementById('hdr-name').textContent = currentUser || 'Not selected';
 }
-
 async function addMe() {
   const inp = document.getElementById('lib-new-name');
   const name = inp.value.trim();
@@ -630,7 +639,7 @@ async function addMe() {
     populateUserSelects();
     setUser(name);
     inp.value = '';
-    toast(data.success ? 'Welcome! 🎉' : 'Welcome back!', data.success ? data.message : `Logged in as ${name}`);
+    toast(data.success?'Welcome! 🎉':'Welcome back!', data.success?data.message:`Logged in as ${name}`);
   } catch(e) { toast('Error', e.message); }
 }
 
@@ -647,12 +656,11 @@ async function loadLibrary() {
     populateUserSelects();
     buildCatFilters();
     renderBooks(allBooks);
-    populateAdminBookSel();
+    populateAdminSelects();
   } catch(e) {
     document.getElementById('book-grid').innerHTML = `
       <div class="empty" style="grid-column:1/-1">
-        <div class="icon">⚠️</div>
-        <h3>Could not load library</h3>
+        <div class="icon">⚠️</div><h3>Could not load library</h3>
         <p style="margin-top:8px;font-size:13px;">${e.message}</p>
         <button class="btn btn-primary" style="margin-top:16px;" onclick="loadLibrary()">🔄 Try Again</button>
       </div>`;
@@ -665,21 +673,18 @@ function buildCatFilters() {
     `<span class="filter-chip active" onclick="setCat('',this)">All</span>` +
     cats.map(c => `<span class="filter-chip" onclick="setCat('${c}',this)">${c}</span>`).join('');
 }
-
 function setCat(cat, el) {
   activeCat = cat;
   document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
   el.classList.add('active');
   filterBooks();
 }
-
 function filterBooks() {
   const q = document.getElementById('search-box').value.toLowerCase();
-  const filtered = allBooks.filter(b =>
+  renderBooks(allBooks.filter(b =>
     (!activeCat || b.category === activeCat) &&
     (b.title.toLowerCase().includes(q) || b.author.toLowerCase().includes(q))
-  );
-  renderBooks(filtered);
+  ));
 }
 
 function renderBooks(books) {
@@ -690,6 +695,7 @@ function renderBooks(books) {
   }
   grid.innerHTML = books.map(b => {
     const avail = b.status === 'Available';
+    const hasOverride = b.overridePoints > 0;
     return `
     <div class="book-card">
       <div class="book-spine ${avail?'':'out'}"></div>
@@ -699,13 +705,20 @@ function renderBooks(books) {
         <div class="book-author">by ${b.author}</div>
         <div class="book-meta">
           <span class="${avail?'badge-avail':'badge-out'}">${avail?`✓ ${b.available} Available`:'✗ Checked Out'}</span>
-          <span class="pts-badge">⭐ ${b.impactPoints||'?'} pts</span>
+          <div>
+            <span class="pts-badge">⭐ ${b.impactPoints} pt${b.impactPoints!==1?'s':''}</span>
+            ${hasOverride?`<div class="override-tag">override</div>`:''}
+          </div>
         </div>
-        ${b.shelfLocation?`<div style="font-size:11px;color:var(--light-blue);margin-top:8px;">📦 ${b.shelfLocation}</div>`:''}
+        <div class="book-details">
+          ${b.pages?`<div class="book-detail">📄 <span>${b.pages}</span> pages</div>`:''}
+          <div class="book-detail">⏱ <span>${b.checkoutDays}</span> day checkout</div>
+          ${b.shelfLocation?`<div class="book-detail">📦 <span>${b.shelfLocation}</span></div>`:''}
+        </div>
       </div>
       <div class="book-actions">
         ${avail
-          ? `<button class="btn btn-primary btn-sm" onclick="openCheckout(${b.id},'${esc(b.title)}')">📤 Check Out</button>`
+          ? `<button class="btn btn-primary btn-sm" onclick="openCheckout(${b.id},'${esc(b.title)}',${b.checkoutDays},${b.impactPoints})">📤 Check Out</button>`
           : `<button class="btn btn-secondary btn-sm" disabled>📤 Unavailable</button>`}
         ${b.amazonLink?`<button class="btn btn-secondary btn-sm" onclick="window.open('${b.amazonLink}','_blank')">🛒</button>`:''}
       </div>
@@ -714,16 +727,16 @@ function renderBooks(books) {
 }
 
 // ── CHECKOUT ──────────────────────────────────────────────────────────────────
-function openCheckout(id, title) {
+function openCheckout(id, title, days, pts) {
   if (!currentUser) return toast('Select Your Name', 'Please select your name from the dropdown first.');
   pendingCO = { id, title };
   document.getElementById('co-book-name').textContent = `"${title}"`;
+  document.getElementById('co-book-info').textContent = `⭐ ${pts} pt${pts!==1?'s':''} awarded on return  ·  ⏱ ${days}-day checkout period`;
   document.getElementById('co-user').value = currentUser;
-  const due = new Date(); due.setDate(due.getDate()+90);
+  const due = new Date(); due.setDate(due.getDate() + (days||45));
   document.getElementById('co-due').value = due.toISOString().split('T')[0];
   document.getElementById('modal-checkout').classList.add('open');
 }
-
 async function doCheckout() {
   const user = document.getElementById('co-user').value;
   const due  = document.getElementById('co-due').value;
@@ -744,7 +757,6 @@ function openReturn(id, title) {
   document.getElementById('ret-book-name').textContent = `Return "${title}"?`;
   document.getElementById('modal-return').classList.add('open');
 }
-
 async function doReturn() {
   if (!pendingRet||!currentUser) return;
   try {
@@ -754,7 +766,6 @@ async function doReturn() {
     else toast('Error', data.error||'No open checkout found');
   } catch(e) { toast('Error', e.message); }
 }
-
 function closeModal(id) {
   document.getElementById(id).classList.remove('open');
   pendingCO = null; pendingRet = null;
@@ -763,11 +774,8 @@ function closeModal(id) {
 // ── MY BOOKS ──────────────────────────────────────────────────────────────────
 async function loadMyBooks() {
   const wrap = document.getElementById('my-books-wrap');
-  if (!currentUser) {
-    wrap.innerHTML = `<div class="empty"><div class="icon">👤</div><h3>Select your name above</h3></div>`;
-    return;
-  }
-  wrap.innerHTML = `<div class="loading"><div class="spinner"></div>Loading your books...</div>`;
+  if (!currentUser) { wrap.innerHTML = `<div class="empty"><div class="icon">👤</div><h3>Select your name above</h3></div>`; return; }
+  wrap.innerHTML = `<div class="loading"><div class="spinner"></div>Loading...</div>`;
   try {
     const data = await api({ action:'getCheckouts' });
     const mine    = (data.checkouts||[]).filter(c => c.employee === currentUser);
@@ -786,7 +794,7 @@ async function loadMyBooks() {
         </tr>`).join('')}
       </table></div>`;
     } else {
-      html += `<div class="empty" style="margin-bottom:24px;"><div class="icon">✅</div><h3>No active checkouts</h3><p>Head to the Library to check out your next book!</p></div>`;
+      html += `<div class="empty" style="margin-bottom:24px;"><div class="icon">✅</div><h3>No active checkouts</h3><p>Head to the Library!</p></div>`;
     }
     if (history.length) {
       html += `<h3 style="font-family:'Playfair Display',serif;font-size:18px;color:var(--cream);margin-bottom:6px;">📚 Reading History</h3>
@@ -800,9 +808,7 @@ async function loadMyBooks() {
       </table></div>`;
     }
     wrap.innerHTML = html || `<div class="empty"><div class="icon">📖</div><h3>No history yet</h3></div>`;
-  } catch(e) {
-    wrap.innerHTML = `<div class="empty"><div class="icon">⚠️</div><h3>${e.message}</h3></div>`;
-  }
+  } catch(e) { wrap.innerHTML = `<div class="empty"><div class="icon">⚠️</div><h3>${e.message}</h3></div>`; }
 }
 
 // ── DASHBOARD ─────────────────────────────────────────────────────────────────
@@ -847,7 +853,7 @@ async function loadRoster() {
     const data = await api({ action:'getRoster' });
     const roster = data.roster||[];
     if (!roster.length) {
-      grid.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="icon">👥</div><h3>No team members yet</h3><p>Add employees in the Admin panel.</p></div>`;
+      grid.innerHTML = `<div class="empty" style="grid-column:1/-1"><div class="icon">👥</div><h3>No team members yet</h3></div>`;
       return;
     }
     grid.innerHTML = roster.map((r,i)=>`
@@ -869,6 +875,15 @@ async function loadRoster() {
 }
 
 // ── ADMIN ─────────────────────────────────────────────────────────────────────
+function populateAdminSelects() {
+  const opts = '<option value="">— Select a book —</option>' +
+    allBooks.map(b=>`<option value="${b.id}">${b.title} (${b.pages||'?'} pgs · ${b.impactPoints} pts${b.overridePoints>0?' ⚡override':''})</option>`).join('');
+  ['admin-pages-book','admin-override-book'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = opts;
+  });
+}
+
 async function loadAdminLog() {
   const wrap = document.getElementById('admin-log');
   try {
@@ -883,16 +898,22 @@ async function loadAdminLog() {
           <td><span class="chip chip-${c.status==='Returned'?'ret':c.status==='Overdue'?'due':'out'}">${c.status}</span></td>
         </tr>`).join('')}</table>`
       : `<div class="empty"><div class="icon">📋</div><h3>No checkouts yet</h3></div>`;
-  } catch(e) {
-    wrap.innerHTML = `<div class="empty"><div class="icon">⚠️</div><h3>${e.message}</h3></div>`;
-  }
+  } catch(e) { wrap.innerHTML = `<div class="empty"><div class="icon">⚠️</div><h3>${e.message}</h3></div>`; }
 }
 
-function populateAdminBookSel() {
-  const sel = document.getElementById('admin-book-sel');
-  if (!sel) return;
-  sel.innerHTML = '<option value="">— Select a book —</option>' +
-    allBooks.map(b=>`<option value="${b.id}">${b.title} (${b.impactPoints} pts)</option>`).join('');
+async function loadPointsOverview() {
+  const wrap = document.getElementById('points-overview');
+  try {
+    wrap.innerHTML = `<table><tr><th>Book</th><th>Pages</th><th>Auto Pts</th><th>Override</th><th>Final Pts</th><th>Days</th></tr>
+      ${allBooks.map(b=>`<tr>
+        <td style="max-width:180px;font-size:12px;">${b.title}</td>
+        <td style="text-align:center;">${b.pages||'—'}</td>
+        <td style="text-align:center;color:var(--light-blue);">${b.autoPoints}</td>
+        <td style="text-align:center;">${b.overridePoints>0?`<span class="chip chip-override">⚡ ${b.overridePoints}</span>`:'—'}</td>
+        <td style="text-align:center;color:var(--gold);font-weight:700;">⭐ ${b.impactPoints}</td>
+        <td style="text-align:center;">${b.checkoutDays}d</td>
+      </tr>`).join('')}</table>`;
+  } catch(e) { wrap.innerHTML = `<div class="empty"><div class="icon">⚠️</div><h3>${e.message}</h3></div>`; }
 }
 
 async function adminAddEmp() {
@@ -907,14 +928,62 @@ async function adminAddEmp() {
   } catch(e) { toast('Error',e.message); }
 }
 
-async function adminSetPoints() {
-  const bookId = document.getElementById('admin-book-sel').value;
-  const points = document.getElementById('admin-pts').value;
+async function adminSetPages() {
+  const bookId = document.getElementById('admin-pages-book').value;
+  const pages  = document.getElementById('admin-pages-val').value;
+  const res    = document.getElementById('pages-result');
+  if (!bookId||!pages) return toast('Missing','Select a book and enter page count.');
+  try {
+    const data = await api({ action:'updatePages', bookId, pages });
+    if (data.success) {
+      res.style.color = '#81c784';
+      res.textContent = '✓ ' + data.message;
+      toast('Pages Set! 📄', data.message);
+      await loadLibrary();
+      loadPointsOverview();
+    } else {
+      res.style.color = '#ef5350';
+      res.textContent = '✗ ' + data.error;
+    }
+  } catch(e) { toast('Error',e.message); }
+}
+
+async function adminSetOverride() {
+  const bookId = document.getElementById('admin-override-book').value;
+  const points = document.getElementById('admin-override-val').value;
+  const res    = document.getElementById('override-result');
   if (!bookId||points==='') return toast('Missing','Select a book and enter points.');
   try {
     const data = await api({ action:'updatePoints', bookId, points });
-    if (data.success) { toast('Saved! ⭐',data.message); loadLibrary(); }
-    else toast('Error',data.error);
+    if (data.success) {
+      res.style.color = '#81c784';
+      res.textContent = '✓ ' + data.message;
+      toast('Override Set! ⭐', data.message);
+      await loadLibrary();
+      loadPointsOverview();
+    } else {
+      res.style.color = '#ef5350';
+      res.textContent = '✗ ' + data.error;
+    }
+  } catch(e) { toast('Error',e.message); }
+}
+
+async function adminClearOverride() {
+  const bookId = document.getElementById('admin-override-book').value;
+  const res    = document.getElementById('override-result');
+  if (!bookId) return toast('Missing','Select a book first.');
+  try {
+    const data = await api({ action:'resetOverride', bookId });
+    if (data.success) {
+      res.style.color = '#81c784';
+      res.textContent = '✓ ' + data.message;
+      toast('Override Cleared!', data.message);
+      await loadLibrary();
+      loadPointsOverview();
+    } else {
+      res.style.color = '#ef5350';
+      res.textContent = '✗ ' + data.error;
+    }
   } catch(e) { toast('Error',e.message); }
 }
 
@@ -927,32 +996,31 @@ async function runSetup() {
     if (data.success) {
       msg.style.color = '#81c784';
       msg.textContent = '✓ ' + data.msg;
-      toast('Setup Complete! 🎉','All Google Sheet tabs created with 38 books loaded!');
+      toast('Setup Complete! 🎉','All Google Sheet tabs created with page-based points!');
       setTimeout(loadLibrary, 800);
     } else {
       msg.style.color = '#ef5350';
       msg.textContent = '✗ ' + data.error;
     }
-  } catch(e) {
-    msg.style.color = '#ef5350';
-    msg.textContent = '✗ ' + e.message;
-  }
+  } catch(e) { msg.style.color = '#ef5350'; msg.textContent = '✗ '+e.message; }
 }
 
-// ── HELPERS ───────────────────────────────────────────────────────────────────
+async function refreshAll() {
+  await loadLibrary();
+  loadPointsOverview();
+  toast('Refreshed!','Data reloaded from Google Sheets.');
+}
+
 function esc(s) { return (s||'').replace(/'/g,"\\'"); }
 
 document.querySelectorAll('.modal-overlay').forEach(o => {
   o.addEventListener('click', e => {
-    if (e.target===o) {
-      closeModal(o.id);
-      if (o.id==='pin-modal') resetLogoClicks();
-    }
+    if (e.target===o) { closeModal(o.id); if(o.id==='pin-modal') resetLogoClicks(); }
   });
 });
 
-// ── BOOT ──────────────────────────────────────────────────────────────────────
 loadLibrary();
 </script>
 </body>
 </html>
+
