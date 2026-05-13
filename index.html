@@ -710,7 +710,7 @@ function renderBooks(books) {
             ${hasOverride?`<div class="override-tag">override</div>`:''}
           </div>
         </div>
-        <div class="book-details">
+        <div class="book-details" style="margin-top:10px;">
           ${b.pages?`<div class="book-detail">📄 <span>${b.pages}</span> pages</div>`:''}
           <div class="book-detail">⏱ <span>${b.checkoutDays}</span> day checkout</div>
           ${b.shelfLocation?`<div class="book-detail">📦 <span>${b.shelfLocation}</span></div>`:''}
@@ -720,7 +720,6 @@ function renderBooks(books) {
         ${avail
           ? `<button class="btn btn-primary btn-sm" onclick="openCheckout(${b.id},'${esc(b.title)}',${b.checkoutDays},${b.impactPoints})">📤 Check Out</button>`
           : `<button class="btn btn-secondary btn-sm" disabled>📤 Unavailable</button>`}
-        ${b.amazonLink?`<button class="btn btn-secondary btn-sm" onclick="window.open('${b.amazonLink}','_blank')">🛒</button>`:''}
       </div>
     </div>`;
   }).join('');
@@ -904,7 +903,7 @@ async function loadAdminLog() {
 async function loadPointsOverview() {
   const wrap = document.getElementById('points-overview');
   try {
-    wrap.innerHTML = `<table><tr><th>Book</th><th>Pages</th><th>Auto Pts</th><th>Override</th><th>Final Pts</th><th>Days</th></tr>
+    wrap.innerHTML = `<table><tr><th>Book</th><th>Pages</th><th>Auto Pts</th><th>Override</th><th>Final Pts</th><th>Days</th><th>Amazon</th></tr>
       ${allBooks.map(b=>`<tr>
         <td style="max-width:180px;font-size:12px;">${b.title}</td>
         <td style="text-align:center;">${b.pages||'—'}</td>
@@ -912,6 +911,7 @@ async function loadPointsOverview() {
         <td style="text-align:center;">${b.overridePoints>0?`<span class="chip chip-override">⚡ ${b.overridePoints}</span>`:'—'}</td>
         <td style="text-align:center;color:var(--gold);font-weight:700;">⭐ ${b.impactPoints}</td>
         <td style="text-align:center;">${b.checkoutDays}d</td>
+        <td style="text-align:center;">${b.amazonLink?`<button class="btn btn-secondary btn-sm" onclick="window.open('${b.amazonLink}','_blank')">🛒 Buy</button>`:'—'}</td>
       </tr>`).join('')}</table>`;
   } catch(e) { wrap.innerHTML = `<div class="empty"><div class="icon">⚠️</div><h3>${e.message}</h3></div>`; }
 }
@@ -1023,4 +1023,5 @@ loadLibrary();
 </script>
 </body>
 </html>
+
 
