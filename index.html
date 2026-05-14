@@ -454,9 +454,9 @@ async function loadSugAdmin(){
   var w=document.getElementById('sug-admin-wrap');
   try{
     var d=await api({action:'getSuggestions'});
-    var list=d.suggestions||[];
-    if(!list.length){w.innerHTML='<div class="empty"><div class="ic">💡</div><h3>No suggestions yet</h3><p>Employees submit from the Suggest tab.</p></div>';return;}
-    w.innerHTML='<table><tr><th>Employee</th><th>Book</th><th>Author</th><th>Reason</th><th>Date</th><th>Status</th><th>Action</th></tr>'
+    var list=(d.suggestions||[]).filter(function(s){return s.status==='Pending';});
+    if(!list.length){w.innerHTML='<div class="empty"><div class="ic">💡</div><h3>No pending suggestions</h3><p>All caught up! Full history is in Google Sheets.</p></div>';return;}
+    w.innerHTML='<table><tr><th>Employee</th><th>Book</th><th>Author</th><th>Reason</th><th>Date</th><th>Action</th></tr>'
       +list.map(function(s){return '<tr><td>'+s.employee+'</td><td style="font-weight:600;">'+s.title+'</td><td>'+s.author+'</td>'
         +'<td style="max-width:180px;font-size:12px;">'+s.reason+'</td><td>'+s.date+'</td>'
         +'<td><span class="chip '+(s.status==='Approved'?'cret':s.status==='Not at this time'?'cdue':'cout')+'">'+s.status+'</span></td>'
