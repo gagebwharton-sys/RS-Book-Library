@@ -465,12 +465,17 @@ async function loadSugAdmin(){
   }catch(e){w.innerHTML='<div class="empty"><div class="ic">⚠️</div><h3>'+e.message+'</h3></div>';}
 }
 async function updSug(id,status){
-  try{var d=await api({action:'updateSuggestionStatus',suggestionId:id,status:status});if(d.success){toast('Updated!',d.message);loadSugAdmin();}else toast('Error',d.error);}catch(e){toast('Error',e.message);}
+  try{
+    var d=await api({action:'updateSuggestionStatus',suggestionId:id,status:status});
+    if(d.success){
+      toast(status==='Approved'?'Approved and Added! 📚':'Updated!',d.message,5000);
+      loadSugAdmin();
+      if(status==='Approved'){await loadLib();}
+    }else toast('Error',d.error);
+  }catch(e){toast('Error',e.message);}
 }
 
 loadLib();
 </script>
 </body>
 </html>
-
-
