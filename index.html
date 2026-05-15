@@ -10,34 +10,29 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'DM Sans',sans-serif;background:var(--navy-deep);color:var(--cream);min-height:100vh;overflow-x:hidden;}
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 20% 20%,rgba(201,97,46,0.08) 0%,transparent 60%),radial-gradient(ellipse at 80% 80%,rgba(48,83,113,0.3) 0%,transparent 60%);pointer-events:none;z-index:0;}
-header{position:sticky;top:0;z-index:100;background:rgba(15,31,45,0.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(242,153,52,0.2);padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:70px;}
+header{position:sticky;top:0;z-index:100;background:rgba(15,31,45,0.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(242,153,52,0.2);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:70px;}
 .logo{display:flex;align-items:center;gap:12px;cursor:pointer;user-select:none;}
 .logo-badge{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--gold));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:15px;color:white;transition:transform 0.15s;}
 .logo:active .logo-badge{transform:scale(0.9);}
 .logo-text .top{font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;}
 .logo-text .bottom{font-size:16px;font-weight:700;color:var(--cream);line-height:1;}
-nav{display:flex;gap:4px;}
-nav button{background:transparent;border:none;color:var(--lb);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;padding:8px 14px;border-radius:8px;cursor:pointer;transition:all 0.2s;}
+nav{display:flex;gap:2px;flex-wrap:wrap;}
+nav button{background:transparent;border:none;color:var(--lb);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:7px 12px;border-radius:8px;cursor:pointer;transition:all 0.2s;}
 nav button:hover,nav button.active{background:rgba(201,97,46,0.15);color:var(--gold);}
 #btn-admin{display:none;}
-#header-user{font-size:12px;color:var(--lb);}
+#header-user{font-size:12px;color:var(--lb);white-space:nowrap;}
 #header-user span{color:var(--gold);font-weight:600;}
-main{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:36px 32px;}
-.page{display:none;}
-.page.active{display:block;}
-.sh{margin-bottom:28px;}
-.sh h1{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:var(--cream);}
-.sh h1 span{color:var(--gold);}
-.sh p{color:var(--lb);font-size:14px;margin-top:5px;}
-.ubar{background:rgba(48,83,113,0.2);border:1px solid rgba(124,146,167,0.2);border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:14px;margin-bottom:28px;flex-wrap:wrap;}
+main{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:32px 24px;}
+.page{display:none;}.page.active{display:block;}
+.sh{margin-bottom:24px;}.sh h1{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--cream);}.sh h1 span{color:var(--gold);}.sh p{color:var(--lb);font-size:13px;margin-top:4px;}
+.ubar{background:rgba(48,83,113,0.2);border:1px solid rgba(124,146,167,0.2);border-radius:14px;padding:16px 20px;display:flex;align-items:center;gap:12px;margin-bottom:24px;flex-wrap:wrap;}
 .ubar label{font-size:13px;color:var(--lb);font-weight:500;white-space:nowrap;}
-.ubar select,.ubar input[type=text]{background:rgba(15,31,45,0.8);border:1px solid rgba(242,153,52,0.3);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:14px;padding:9px 14px;border-radius:10px;outline:none;transition:border-color 0.2s;cursor:pointer;}
-.ubar select{min-width:200px;}
-.ubar input[type=text]{width:180px;}
+.ubar select,.ubar input[type=text]{background:rgba(15,31,45,0.8);border:1px solid rgba(242,153,52,0.3);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:13px;padding:8px 12px;border-radius:10px;outline:none;transition:border-color 0.2s;cursor:pointer;}
+.ubar select{min-width:180px;}.ubar input[type=text]{width:160px;}
 .ubar input[type=text]::placeholder{color:var(--g4);}
 .ubar select:focus,.ubar input:focus{border-color:var(--gold);}
 .or{color:var(--g4);font-size:12px;}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;border-radius:10px;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s;}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:10px;border:none;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s;}
 .btn-p{background:linear-gradient(135deg,var(--orange),var(--orange-mid));color:white;box-shadow:0 4px 14px rgba(201,97,46,0.3);}
 .btn-p:hover{transform:translateY(-1px);}
 .btn-s{background:rgba(48,83,113,0.4);border:1px solid rgba(124,146,167,0.3);color:var(--cream);}
@@ -45,102 +40,104 @@ main{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:36px 32p
 .btn-ok{background:linear-gradient(135deg,#2E7D32,#388E3C);color:white;}
 .btn-ok:hover{transform:translateY(-1px);}
 .btn-w{background:linear-gradient(135deg,#E65100,#F57C00);color:white;}
-.btn-sm{padding:6px 13px;font-size:12px;border-radius:8px;}
+.btn-sm{padding:5px 12px;font-size:12px;border-radius:8px;}
 .btn:disabled{opacity:0.4;cursor:not-allowed;transform:none!important;}
-.fbar{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap;align-items:center;}
-.fc{padding:6px 16px;border-radius:99px;background:rgba(48,83,113,0.3);border:1px solid rgba(124,146,167,0.2);color:var(--lb);font-size:12px;font-weight:500;cursor:pointer;transition:all 0.2s;}
+.fbar{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;align-items:center;}
+.fc{padding:5px 14px;border-radius:99px;background:rgba(48,83,113,0.3);border:1px solid rgba(124,146,167,0.2);color:var(--lb);font-size:12px;font-weight:500;cursor:pointer;transition:all 0.2s;}
 .fc:hover,.fc.active{background:rgba(201,97,46,0.2);border-color:var(--orange);color:var(--gold);}
-.sb{background:rgba(15,31,45,0.8);border:1px solid rgba(124,146,167,0.2);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:13px;padding:7px 14px;border-radius:99px;outline:none;width:220px;transition:border-color 0.2s;}
-.sb:focus{border-color:var(--gold);}
-.sb::placeholder{color:var(--g4);}
-.bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;}
-.bcard{background:rgba(30,53,72,0.65);border:1px solid rgba(124,146,167,0.15);border-radius:18px;overflow:hidden;transition:all 0.3s;}
-.bcard:hover{transform:translateY(-4px);border-color:rgba(242,153,52,0.35);box-shadow:0 12px 40px rgba(0,0,0,0.3);}
-.bspine{height:6px;background:linear-gradient(90deg,var(--orange),var(--gold));}
+.sb{background:rgba(15,31,45,0.8);border:1px solid rgba(124,146,167,0.2);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:13px;padding:6px 14px;border-radius:99px;outline:none;width:200px;transition:border-color 0.2s;}
+.sb:focus{border-color:var(--gold);}.sb::placeholder{color:var(--g4);}
+.bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;}
+.bcard{background:rgba(30,53,72,0.65);border:1px solid rgba(124,146,167,0.15);border-radius:16px;overflow:hidden;transition:all 0.3s;}
+.bcard:hover{transform:translateY(-3px);border-color:rgba(242,153,52,0.35);box-shadow:0 10px 36px rgba(0,0,0,0.3);}
+.bspine{height:5px;background:linear-gradient(90deg,var(--orange),var(--gold));}
 .bspine.out{background:linear-gradient(90deg,#455a64,#607d8b);}
-.bbody{padding:18px;}
-.bcat{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px;}
-.btitle{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--cream);line-height:1.3;margin-bottom:3px;}
-.bauthor{font-size:12px;color:var(--lb);margin-bottom:12px;}
-.bavail{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.bbody{padding:16px;}
+.bcat{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:5px;}
+.btitle{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--cream);line-height:1.3;margin-bottom:2px;}
+.bauthor{font-size:12px;color:var(--lb);margin-bottom:10px;}
+.bavail{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:0;}
 .ayes{padding:3px 10px;border-radius:99px;font-size:11px;font-weight:600;background:rgba(46,125,50,0.2);color:#81c784;border:1px solid rgba(46,125,50,0.3);white-space:nowrap;}
 .ano{padding:3px 10px;border-radius:99px;font-size:11px;font-weight:600;background:rgba(198,40,40,0.15);color:#e57373;border:1px solid rgba(198,40,40,0.25);white-space:nowrap;}
 .bpts{font-size:12px;color:var(--gold);font-weight:600;white-space:nowrap;}
-.binfo{margin-top:10px;padding-top:10px;border-top:1px solid rgba(124,146,167,0.15);display:flex;gap:14px;flex-wrap:wrap;}
-.bi{font-size:11px;color:var(--lb);}
-.bi strong{color:var(--cream);}
-.bact{padding:0 18px 18px;display:flex;gap:8px;}
-.kgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;margin-bottom:36px;}
-.kcard{background:rgba(30,53,72,0.6);border:1px solid rgba(124,146,167,0.15);border-radius:14px;padding:22px 18px;transition:all 0.3s;}
+.binfo{margin-top:8px;padding-top:8px;border-top:1px solid rgba(124,146,167,0.15);display:flex;gap:12px;flex-wrap:wrap;}
+.bi{font-size:11px;color:var(--lb);}.bi strong{color:var(--cream);}
+.bact{padding:0 16px 16px;display:flex;gap:8px;}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-bottom:32px;}
+.kcard{background:rgba(30,53,72,0.6);border:1px solid rgba(124,146,167,0.15);border-radius:14px;padding:20px 16px;transition:all 0.3s;}
 .kcard:hover{border-color:rgba(242,153,52,0.3);transform:translateY(-2px);}
-.klbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--lb);margin-bottom:6px;}
-.kval{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:var(--gold);line-height:1;}
-.ksub{font-size:11px;color:var(--g4);margin-top:3px;}
-.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
-.dpanel{background:rgba(30,53,72,0.6);border:1px solid rgba(124,146,167,0.15);border-radius:18px;padding:26px;}
-.dpanel h3{font-family:'Playfair Display',serif;font-size:17px;color:var(--cream);margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid rgba(124,146,167,0.2);}
-.lrow{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid rgba(124,146,167,0.08);}
+.klbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--lb);margin-bottom:5px;}
+.kval{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:var(--gold);line-height:1;}
+.ksub{font-size:11px;color:var(--g4);margin-top:2px;}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.dpanel{background:rgba(30,53,72,0.6);border:1px solid rgba(124,146,167,0.15);border-radius:16px;padding:24px;}
+.dpanel h3{font-family:'Playfair Display',serif;font-size:16px;color:var(--cream);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid rgba(124,146,167,0.2);}
+.lrow{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid rgba(124,146,167,0.08);}
 .lrow:last-child{border:none;}
-.rnk{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex-shrink:0;}
+.rnk{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex-shrink:0;}
 .r1{background:linear-gradient(135deg,#FFD700,#FFA000);color:#111;}
 .r2{background:linear-gradient(135deg,#CFD8DC,#90A4AE);color:#111;}
 .r3{background:linear-gradient(135deg,#BCAAA4,#8D6E63);color:white;}
 .rn{background:rgba(48,83,113,0.5);color:var(--lb);}
-.lbn{flex:1;font-size:13px;font-weight:500;}
-.lbs{font-size:11px;color:var(--lb);}
-.lbp{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--gold);}
+.lbn{flex:1;font-size:13px;font-weight:500;}.lbs{font-size:11px;color:var(--lb);}
+.lbp{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--gold);}
 .twrap{overflow-x:auto;}
 table{width:100%;border-collapse:collapse;font-size:13px;}
-th{background:rgba(48,83,113,0.5);color:var(--lb);font-weight:600;padding:11px 14px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;}
-td{padding:11px 14px;border-bottom:1px solid rgba(124,146,167,0.1);color:var(--cream);}
+th{background:rgba(48,83,113,0.5);color:var(--lb);font-weight:600;padding:10px 12px;text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;}
+td{padding:10px 12px;border-bottom:1px solid rgba(124,146,167,0.1);color:var(--cream);}
 tr:hover td{background:rgba(48,83,113,0.1);}
 .chip{padding:3px 9px;border-radius:99px;font-size:11px;font-weight:600;}
 .cret{background:rgba(46,125,50,0.2);color:#81c784;}
 .cout{background:rgba(219,123,40,0.2);color:#ffb74d;}
 .cdue{background:rgba(198,40,40,0.2);color:#ef5350;}
 .cov{background:rgba(201,97,46,0.2);color:var(--orange);font-size:10px;}
-.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;}
-.rcard{background:rgba(30,53,72,0.6);border:1px solid rgba(124,146,167,0.15);border-radius:14px;padding:20px;text-align:center;transition:all 0.3s;}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;}
+.rcard{background:rgba(30,53,72,0.6);border:1px solid rgba(124,146,167,0.15);border-radius:14px;padding:18px;text-align:center;transition:all 0.3s;}
 .rcard:hover{border-color:rgba(242,153,52,0.3);transform:translateY(-2px);}
-.ava{width:48px;height:48px;border-radius:50%;margin:0 auto 10px;background:linear-gradient(135deg,var(--navy),var(--orange));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:white;}
-.agrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
-.apanel{background:rgba(30,53,72,0.6);border:1px solid rgba(124,146,167,0.15);border-radius:18px;padding:26px;}
-.apanel h3{font-family:'Playfair Display',serif;font-size:17px;color:var(--cream);margin-bottom:18px;}
-.fg{margin-bottom:14px;}
-.fg label{display:block;font-size:11px;color:var(--lb);margin-bottom:5px;font-weight:600;letter-spacing:1px;text-transform:uppercase;}
-.fg input,.fg select{width:100%;background:rgba(15,31,45,0.8);border:1px solid rgba(124,146,167,0.25);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:13px;padding:10px 14px;border-radius:10px;outline:none;transition:border-color 0.2s;}
-.fg input:focus,.fg select:focus{border-color:var(--gold);}
-.ibox{background:rgba(48,83,113,0.25);border:1px solid rgba(124,146,167,0.2);border-radius:10px;padding:12px 14px;margin-bottom:14px;font-size:12px;color:var(--lb);line-height:1.6;}
+.ava{width:44px;height:44px;border-radius:50%;margin:0 auto 8px;background:linear-gradient(135deg,var(--navy),var(--orange));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:white;}
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.apanel{background:rgba(30,53,72,0.6);border:1px solid rgba(124,146,167,0.15);border-radius:16px;padding:24px;}
+.apanel h3{font-family:'Playfair Display',serif;font-size:16px;color:var(--cream);margin-bottom:16px;}
+.fg{margin-bottom:12px;}
+.fg label{display:block;font-size:11px;color:var(--lb);margin-bottom:4px;font-weight:600;letter-spacing:1px;text-transform:uppercase;}
+.fg input,.fg select,.fg textarea{width:100%;background:rgba(15,31,45,0.8);border:1px solid rgba(124,146,167,0.25);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:13px;padding:9px 12px;border-radius:10px;outline:none;transition:border-color 0.2s;}
+.fg textarea{resize:vertical;min-height:80px;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold);}
+.ibox{background:rgba(48,83,113,0.25);border:1px solid rgba(124,146,167,0.2);border-radius:10px;padding:10px 12px;margin-bottom:12px;font-size:12px;color:var(--lb);line-height:1.6;}
 .ibox strong{color:var(--cream);}
-.mov{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.75);backdrop-filter:blur(6px);align-items:center;justify-content:center;}
+.mov{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.8);backdrop-filter:blur(6px);align-items:center;justify-content:center;}
 .mov.open{display:flex;}
-.modal{background:linear-gradient(135deg,#1e3548,#0f1f2d);border:1px solid rgba(242,153,52,0.25);border-radius:22px;padding:34px;max-width:460px;width:90%;animation:pi 0.3s cubic-bezier(.34,1.56,.64,1);}
+.modal{background:linear-gradient(135deg,#1e3548,#0f1f2d);border:1px solid rgba(242,153,52,0.25);border-radius:20px;padding:30px;max-width:520px;width:92%;animation:pi 0.3s cubic-bezier(.34,1.56,.64,1);max-height:90vh;overflow-y:auto;}
 @keyframes pi{from{transform:scale(0.85) translateY(16px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
-.modal h2{font-family:'Playfair Display',serif;font-size:22px;color:var(--cream);margin-bottom:4px;}
-.msub{font-size:13px;color:var(--lb);margin-bottom:22px;}
-.mf{margin-bottom:14px;}
-.mf label{display:block;font-size:11px;color:var(--lb);margin-bottom:5px;font-weight:600;letter-spacing:1px;text-transform:uppercase;}
-.mf select,.mf input{width:100%;background:rgba(15,31,45,0.8);border:1px solid rgba(124,146,167,0.25);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:13px;padding:11px 14px;border-radius:10px;outline:none;}
-.mf select:focus,.mf input:focus{border-color:var(--gold);}
-.mac{display:flex;gap:10px;margin-top:22px;}
+.modal h2{font-family:'Playfair Display',serif;font-size:20px;color:var(--cream);margin-bottom:4px;}
+.msub{font-size:13px;color:var(--lb);margin-bottom:18px;}
+.mf{margin-bottom:12px;}
+.mf label{display:block;font-size:11px;color:var(--lb);margin-bottom:4px;font-weight:600;letter-spacing:1px;text-transform:uppercase;}
+.mf select,.mf input,.mf textarea{width:100%;background:rgba(15,31,45,0.8);border:1px solid rgba(124,146,167,0.25);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:13px;padding:10px 12px;border-radius:10px;outline:none;}
+.mf textarea{resize:vertical;min-height:70px;}
+.mf select:focus,.mf input:focus,.mf textarea:focus{border-color:var(--gold);}
+.mac{display:flex;gap:10px;margin-top:18px;}
 .mac .btn{flex:1;justify-content:center;}
-.pinp{width:100%;text-align:center;letter-spacing:12px;font-size:28px;font-family:'Playfair Display',serif;background:rgba(15,31,45,0.8);border:2px solid rgba(242,153,52,0.3);color:var(--gold);padding:16px;border-radius:14px;outline:none;transition:border-color 0.2s;}
+.pinp{width:100%;text-align:center;letter-spacing:12px;font-size:26px;font-family:'Playfair Display',serif;background:rgba(15,31,45,0.8);border:2px solid rgba(242,153,52,0.3);color:var(--gold);padding:14px;border-radius:14px;outline:none;transition:border-color 0.2s;}
 .pinp:focus{border-color:var(--gold);}
-.perr{color:#ef5350;font-size:13px;margin-top:10px;min-height:20px;}
-.phint{font-size:11px;color:var(--g4);margin-top:16px;padding:10px;background:rgba(48,83,113,0.2);border-radius:8px;}
-#lc{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:rgba(48,83,113,0.9);border:1px solid rgba(242,153,52,0.3);border-radius:99px;padding:8px 20px;font-size:12px;color:var(--gold);opacity:0;transition:opacity 0.3s;pointer-events:none;z-index:200;}
+.perr{color:#ef5350;font-size:13px;margin-top:8px;min-height:18px;}
+.phint{font-size:11px;color:var(--g4);margin-top:14px;padding:8px;background:rgba(48,83,113,0.2);border-radius:8px;}
+#lc{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:rgba(48,83,113,0.9);border:1px solid rgba(242,153,52,0.3);border-radius:99px;padding:7px 18px;font-size:12px;color:var(--gold);opacity:0;transition:opacity 0.3s;pointer-events:none;z-index:200;}
 #lc.show{opacity:1;}
-#toast{position:fixed;bottom:28px;right:28px;z-index:9999;background:linear-gradient(135deg,var(--navy-dark),var(--navy));border:1px solid rgba(242,153,52,0.4);border-radius:12px;padding:14px 22px;font-size:13px;color:var(--cream);box-shadow:0 8px 32px rgba(0,0,0,0.4);transform:translateX(130%);transition:transform 0.4s cubic-bezier(.34,1.56,.64,1);max-width:340px;}
+#toast{position:fixed;bottom:24px;right:24px;z-index:9999;background:linear-gradient(135deg,var(--navy-dark),var(--navy));border:1px solid rgba(242,153,52,0.4);border-radius:12px;padding:12px 20px;font-size:13px;color:var(--cream);box-shadow:0 8px 32px rgba(0,0,0,0.4);transform:translateX(130%);transition:transform 0.4s cubic-bezier(.34,1.56,.64,1);max-width:320px;}
 #toast.show{transform:translateX(0);}
 .ttl{font-weight:700;color:var(--gold);margin-bottom:2px;font-size:14px;}
-.ld{display:flex;align-items:center;justify-content:center;padding:60px;color:var(--lb);flex-direction:column;gap:14px;}
-.sp{width:32px;height:32px;border-radius:50%;border:3px solid rgba(124,146,167,0.2);border-top-color:var(--gold);animation:spin 0.8s linear infinite;}
+.ld{display:flex;align-items:center;justify-content:center;padding:50px;color:var(--lb);flex-direction:column;gap:12px;}
+.sp{width:30px;height:30px;border-radius:50%;border:3px solid rgba(124,146,167,0.2);border-top-color:var(--gold);animation:spin 0.8s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg)}}
-.empty{text-align:center;padding:50px 20px;color:var(--lb);}
-.empty .ic{font-size:42px;margin-bottom:12px;}
-.empty h3{font-family:'Playfair Display',serif;font-size:18px;color:var(--cream);margin-bottom:4px;}
+.empty{text-align:center;padding:40px 20px;color:var(--lb);}
+.empty .ic{font-size:40px;margin-bottom:10px;}
+.empty h3{font-family:'Playfair Display',serif;font-size:17px;color:var(--cream);margin-bottom:4px;}
+.report-form{background:rgba(30,53,72,0.65);border:1px solid rgba(242,153,52,0.2);border-radius:16px;padding:24px;max-width:640px;}
+.report-form h3{font-family:'Playfair Display',serif;font-size:18px;color:var(--cream);margin-bottom:4px;}
+.impl-grid{display:grid;gap:10px;margin-top:4px;}
 @media(max-width:900px){.dgrid,.agrid{grid-template-columns:1fr;}}
-@media(max-width:768px){main{padding:20px 14px;}header{padding:0 14px;}nav button{padding:6px 8px;font-size:11px;}.bgrid{grid-template-columns:1fr 1fr;}}
+@media(max-width:768px){main{padding:18px 12px;}header{padding:0 12px;}nav button{padding:5px 8px;font-size:11px;}.bgrid{grid-template-columns:1fr 1fr;}}
 @media(max-width:500px){.bgrid{grid-template-columns:1fr;}}
 </style>
 </head>
@@ -148,10 +145,7 @@ tr:hover td{background:rgba(48,83,113,0.1);}
 <header>
   <div class="logo" id="logo" onclick="lClick()">
     <div class="logo-badge">RS</div>
-    <div class="logo-text">
-      <div class="top">Retirement Solutions</div>
-      <div class="bottom">Book Library</div>
-    </div>
+    <div class="logo-text"><div class="top">Retirement Solutions</div><div class="bottom">Book Library</div></div>
   </div>
   <nav>
     <button class="active" onclick="showPage('library',this)">📚 Library</button>
@@ -165,8 +159,10 @@ tr:hover td{background:rgba(48,83,113,0.1);}
 </header>
 <div id="lc"></div>
 <main>
+
+  <!-- LIBRARY -->
   <div id="page-library" class="page active">
-    <div class="sh"><h1>📚 <span>Our</span> Book Library</h1><p>Select your name, browse, and check out. Points auto-award on return.</p></div>
+    <div class="sh"><h1>📚 <span>Our</span> Book Library</h1><p>Select your name, browse alphabetically, and check out. Complete your book report on return to earn points!</p></div>
     <div class="ubar">
       <label>👤 Who are you?</label>
       <select id="lusr" onchange="setUser(this.value)"><option value="">— Select your name —</option></select>
@@ -180,6 +176,8 @@ tr:hover td{background:rgba(48,83,113,0.1);}
     </div>
     <div id="bgrid" class="bgrid"><div class="ld" style="grid-column:1/-1"><div class="sp"></div>Loading library...</div></div>
   </div>
+
+  <!-- DASHBOARD -->
   <div id="page-dashboard" class="page">
     <div class="sh"><h1>📊 <span>Live</span> Dashboard</h1><p>Real-time stats for the RS reading program.</p></div>
     <div id="kgrid" class="kgrid"></div>
@@ -188,103 +186,139 @@ tr:hover td{background:rgba(48,83,113,0.1);}
       <div class="dpanel"><h3>🕐 Recent Activity</h3><div id="drc"></div></div>
     </div>
   </div>
+
+  <!-- MY BOOKS -->
   <div id="page-mybooks" class="page">
-    <div class="sh"><h1>🔖 <span>My</span> Books</h1><p>Your checkouts and reading history.</p></div>
+    <div class="sh"><h1>🔖 <span>My</span> Books</h1><p>Your checkouts, book reports, and reading history.</p></div>
     <div class="ubar">
       <label>👤 Your name:</label>
       <select id="musr" onchange="setUser(this.value);loadMy()"><option value="">— Select your name —</option></select>
     </div>
     <div id="mywrap"></div>
   </div>
+
+  <!-- ROSTER -->
   <div id="page-roster" class="page">
     <div class="sh"><h1>👥 <span>Team</span> Leaderboard</h1><p>Impact points earned across Retirement Solutions.</p></div>
     <div id="rgrid" class="rgrid"><div class="ld" style="grid-column:1/-1"><div class="sp"></div>Loading...</div></div>
   </div>
-  <!-- SUGGEST PAGE -->
+
+  <!-- SUGGEST -->
   <div id="page-suggest" class="page">
-    <div class="sh"><h1>💡 <span>Suggest</span> a Book</h1><p>Have a book you think the team should read? Submit it here and we'll review it!</p></div>
+    <div class="sh"><h1>💡 <span>Suggest</span> a Book</h1><p>Have a book the team should read? Submit it here!</p></div>
     <div class="ubar">
       <label>👤 Your name:</label>
-      <select id="sug-user" onchange="setUser(this.value)"><option value="">— Select your name —</option></select>
+      <select id="susr" onchange="setUser(this.value)"><option value="">— Select your name —</option></select>
     </div>
     <div style="max-width:600px;">
-      <div style="background:rgba(30,53,72,0.65);border:1px solid rgba(124,146,167,0.15);border-radius:18px;padding:28px;">
-        <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:var(--cream);margin-bottom:20px;">📚 Book Suggestion Form</h3>
+      <div class="report-form">
+        <h3>📚 Book Suggestion Form</h3>
+        <p style="font-size:13px;color:var(--lb);margin-bottom:18px;margin-top:4px;">Share a book you think would benefit the team!</p>
         <div class="fg"><label>Book Title *</label><input type="text" id="sug-title" placeholder="e.g. The Power of Habit"></div>
         <div class="fg"><label>Author *</label><input type="text" id="sug-author" placeholder="e.g. Charles Duhigg"></div>
-        <div class="fg"><label>Why should we read it? *</label><textarea id="sug-reason" placeholder="Tell us why this book would be valuable for the team..." style="width:100%;background:rgba(15,31,45,0.8);border:1px solid rgba(124,146,167,0.25);color:var(--cream);font-family:'DM Sans',sans-serif;font-size:13px;padding:10px 14px;border-radius:10px;outline:none;resize:vertical;min-height:100px;"></textarea></div>
+        <div class="fg"><label>Why should we read it? *</label><textarea id="sug-reason" placeholder="Tell us why this book would be valuable for the team..."></textarea></div>
         <button class="btn btn-p" onclick="submitSug()">📨 Submit Suggestion</button>
-        <div id="sug-result" style="margin-top:14px;font-size:13px;"></div>
+        <div id="sug-result" style="margin-top:12px;font-size:13px;"></div>
       </div>
-      <div style="margin-top:28px;">
-        <h3 style="font-family:'Playfair Display',serif;font-size:18px;color:var(--cream);margin-bottom:14px;">📋 My Suggestions</h3>
-        <div id="my-suggestions"></div>
+      <div style="margin-top:24px;">
+        <h3 style="font-family:'Playfair Display',serif;font-size:17px;color:var(--cream);margin-bottom:12px;">📋 My Suggestions</h3>
+        <div id="my-sug"></div>
       </div>
     </div>
   </div>
 
+  <!-- ADMIN -->
   <div id="page-admin" class="page">
-    <div class="sh"><h1>⚙️ <span>Admin</span> Panel</h1><p>Manage employees, page counts, and impact points.</p></div>
+    <div class="sh"><h1>⚙️ <span>Admin</span> Panel</h1><p>Manage employees, books, points, availability, and reports.</p></div>
     <div class="agrid">
+
       <div class="apanel">
         <h3>➕ Add Employee</h3>
         <div class="fg"><label>Full Name</label><input type="text" id="aen" placeholder="e.g. Sarah Johnson"></div>
         <button class="btn btn-p" onclick="aAddEmp()">Add to Team</button>
       </div>
+
       <div class="apanel">
         <h3>📄 Set Page Count</h3>
         <div class="ibox"><strong>Auto-calculates</strong> points and checkout days.<br>1-99=1pt/20d | 100-199=1pt/30d | 200-299=3pts/45d | 300-399=4pts/60d | 400+=5pts/75d</div>
         <div class="fg"><label>Book</label><select id="apb"></select></div>
         <div class="fg"><label>Page Count</label><input type="number" id="apv" placeholder="e.g. 288" min="1"></div>
         <button class="btn btn-p" onclick="aSetPages()">📄 Set Pages</button>
-        <div id="apr" style="margin-top:10px;font-size:12px;color:var(--lb);"></div>
+        <div id="apr" style="margin-top:8px;font-size:12px;color:var(--lb);"></div>
       </div>
+
       <div class="apanel">
         <h3>⭐ Override Points</h3>
         <div class="ibox">Manually override auto-calculated points. Set 0 to return to auto.</div>
         <div class="fg"><label>Book</label><select id="aob"></select></div>
         <div class="fg"><label>Override Points (0=auto)</label><input type="number" id="aov" placeholder="e.g. 10" min="0"></div>
-        <div style="display:flex;gap:10px;">
+        <div style="display:flex;gap:8px;">
           <button class="btn btn-p" onclick="aSetOvr()">💾 Set Override</button>
           <button class="btn btn-w btn-sm" onclick="aClrOvr()">✕ Clear</button>
         </div>
-        <div id="aor" style="margin-top:10px;font-size:12px;color:var(--lb);"></div>
+        <div id="aor" style="margin-top:8px;font-size:12px;color:var(--lb);"></div>
       </div>
+
       <div class="apanel">
+        <h3>🔒 Book Availability</h3>
+        <div class="ibox">Toggle a book on or off the shelf. Useful for damaged, lost, or ordered books.</div>
+        <div class="fg"><label>Book</label><select id="avb"></select></div>
+        <div style="display:flex;gap:8px;margin-top:4px;">
+          <button class="btn btn-ok" onclick="aToggleAvail(true)">✓ Mark Available</button>
+          <button class="btn btn-w" onclick="aToggleAvail(false)">✗ Mark Unavailable</button>
+        </div>
+        <div id="avr" style="margin-top:8px;font-size:12px;color:var(--lb);"></div>
+      </div>
+
+      <div class="apanel" style="grid-column:1/-1">
         <h3>📊 Points Overview</h3>
         <div id="pov" class="twrap"><div class="ld"><div class="sp"></div>Loading...</div></div>
       </div>
+
       <div class="apanel" style="grid-column:1/-1">
         <h3>📚 Recommendations — Add to Library</h3>
-        <p style="font-size:13px;color:var(--lb);margin-bottom:16px;">Browse all 50 curated recommendations. Click "Add to Library" to move a book into your main library. It will disappear from this list and appear as a book card instantly.</p>
-        <div id="rec-filters" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;"></div>
-        <div id="rec-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;"></div>
+        <p style="font-size:13px;color:var(--lb);margin-bottom:14px;">Browse curated recommendations and add to library instantly.</p>
+        <div id="rec-filters" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;"></div>
+        <div id="rec-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;"></div>
       </div>
 
       <div class="apanel" style="grid-column:1/-1">
         <h3>💡 Employee Suggestions</h3>
-        <div id="sug-admin-wrap" class="twrap"><div class="ld"><div class="sp"></div>Loading...</div></div>
+        <div id="sug-admin" class="twrap"><div class="ld"><div class="sp"></div>Loading...</div></div>
       </div>
+
+      <div class="apanel" style="grid-column:1/-1">
+        <h3>📖 Book Reports</h3>
+        <div id="reports-wrap" class="twrap"><div class="ld"><div class="sp"></div>Loading...</div></div>
+      </div>
+
+      <div class="apanel" style="grid-column:1/-1">
+        <h3>📋 Full Checkout Log</h3>
         <div id="alog" class="twrap"><div class="ld"><div class="sp"></div>Loading...</div></div>
       </div>
+
       <div class="apanel">
         <h3>🛠 Setup and Tools</h3>
-        <p style="font-size:13px;color:var(--lb);margin-bottom:16px;line-height:1.6;">Run <strong style="color:var(--cream);">Initialize Sheets</strong> to set up all Google Sheet tabs with 38 books pre-loaded.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <p style="font-size:13px;color:var(--lb);margin-bottom:14px;line-height:1.6;">Run <strong style="color:var(--cream);">Initialize Sheets</strong> to set up all Google Sheet tabs.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
           <button class="btn btn-p" onclick="runSetup()">🛠 Initialize Sheets</button>
           <button class="btn btn-s" onclick="refAll()">🔄 Refresh Data</button>
           <button class="btn btn-s" onclick="lockAdmin()">🔒 Lock Admin</button>
         </div>
-        <div id="smsg" style="margin-top:12px;font-size:13px;"></div>
+        <div id="smsg" style="margin-top:10px;font-size:13px;"></div>
       </div>
+
     </div>
   </div>
+
 </main>
+
+<!-- CHECKOUT MODAL -->
 <div class="mov" id="mco">
   <div class="modal">
     <h2>📖 Check Out Book</h2>
     <div class="msub" id="coname">—</div>
-    <div id="coinfo" style="font-size:12px;color:var(--lb);margin-bottom:18px;"></div>
+    <div id="coinfo" style="font-size:12px;color:var(--lb);margin-bottom:16px;"></div>
     <div class="mf"><label>Your Name</label><select id="cousr"><option value="">— Select —</option></select></div>
     <div class="mf"><label>Due Date (auto-set by pages)</label><input type="date" id="codue"></div>
     <div class="mac">
@@ -293,188 +327,388 @@ tr:hover td{background:rgba(48,83,113,0.1);}
     </div>
   </div>
 </div>
-<div class="mov" id="mret">
+
+<!-- BOOK REPORT MODAL -->
+<div class="mov" id="mrep">
   <div class="modal">
-    <h2>↩️ Return Book</h2>
-    <div class="msub" id="retname">—</div>
-    <p style="font-size:13px;color:var(--lb);line-height:1.6;margin-top:8px;">Returning this book will automatically award your impact points.</p>
-    <div class="mac" style="margin-top:22px;">
-      <button class="btn btn-s" onclick="closeMod('mret')">Cancel</button>
-      <button class="btn btn-ok" onclick="doRet()">✓ Return and Earn Points</button>
+    <h2>📝 Book Report</h2>
+    <div class="msub" id="rep-book-name">Complete your report to earn your impact points!</div>
+    <div id="rep-pts-info" style="font-size:12px;color:var(--gold);margin-bottom:16px;font-weight:600;"></div>
+    <div class="mf"><label>What did you like about this book?</label><textarea id="rep-liked" placeholder="Share what resonated with you..."></textarea></div>
+    <div class="mf"><label>What did you learn?</label><textarea id="rep-learned" placeholder="Key lessons or insights..."></textarea></div>
+    <div id="rep-impl-wrap"></div>
+    <div class="mac">
+      <button class="btn btn-s" onclick="closeMod('mrep')">Cancel</button>
+      <button class="btn btn-ok" onclick="doReport()">✓ Submit Report & Earn Points</button>
     </div>
   </div>
 </div>
+
+<!-- PIN MODAL -->
 <div class="mov" id="mpin">
-  <div class="modal" style="text-align:center;max-width:380px;">
+  <div class="modal" style="text-align:center;max-width:360px;">
     <h2>🔐 Admin Access</h2>
     <div class="msub">Enter your PIN to continue</div>
     <input class="pinp" type="password" id="pinput" maxlength="10" placeholder="••••" onkeydown="if(event.key==='Enter')chkPin()">
     <div class="perr" id="perr"></div>
     <div class="phint">🔒 Restricted access — authorized personnel only</div>
-    <div class="mac" style="margin-top:24px;">
+    <div class="mac" style="margin-top:20px;">
       <button class="btn btn-s" onclick="closeMod('mpin');rClicks()">Cancel</button>
       <button class="btn btn-p" onclick="chkPin()">Unlock</button>
     </div>
   </div>
 </div>
+
 <div id="toast"><div class="ttl" id="ttl"></div><div id="tmsg"></div></div>
+
 <script>
 var API="https://script.google.com/macros/s/AKfycbwOZtqrYrmQuddpF7EvVqw3CwzJQMTg_2_sHsbnfRHgOxd0x4fS3aMoV2P8aNvNhfP5/exec";
 var PIN="4243",CLICKS=3;
-var usr=localStorage.getItem('rs_u')||'',bks=[],emps=[],pCO=null,pRet=null,cat='',aOn=false,lcc=0,lct=null,ht=null;
-async function api(p){var q=new URLSearchParams(p).toString();var r=await fetch(API+'?'+q,{redirect:'follow'});var t=await r.text();try{return JSON.parse(t);}catch(e){throw new Error('Bad response');}}
+var usr=localStorage.getItem('rs_u')||'',bks=[],emps=[],pCO=null,pRet=null,cat='',aOn=false,lcc=0,lct=null,ht=null,allRecs=[],recCat='';
+
+async function api(p){
+  var q=new URLSearchParams(p).toString();
+  var r=await fetch(API+'?'+q,{redirect:'follow'});
+  var t=await r.text();
+  try{return JSON.parse(t);}catch(e){throw new Error('Bad response: '+t.substring(0,150));}
+}
+
 function toast(a,b,d){d=d||3500;document.getElementById('ttl').textContent=a;document.getElementById('tmsg').textContent=b||'';var t=document.getElementById('toast');t.classList.add('show');setTimeout(function(){t.classList.remove('show');},d);}
-function lClick(){lcc++;var h=document.getElementById('lc');var r=CLICKS-lcc;if(r>0){h.textContent='🔐 '+r+' more click'+(r!==1?'s':'')+'...';h.classList.add('show');if(ht)clearTimeout(ht);ht=setTimeout(function(){h.classList.remove('show');},2000);}if(lct)clearTimeout(lct);lct=setTimeout(function(){lcc=0;h.classList.remove('show');},3000);if(lcc>=CLICKS){lcc=0;clearTimeout(lct);h.classList.remove('show');document.getElementById('pinput').value='';document.getElementById('perr').textContent='';document.getElementById('mpin').classList.add('open');setTimeout(function(){document.getElementById('pinput').focus();},300);}}
+
+function lClick(){
+  lcc++;var h=document.getElementById('lc');var r=CLICKS-lcc;
+  if(r>0){h.textContent='🔐 '+r+' more click'+(r!==1?'s':'')+'...';h.classList.add('show');if(ht)clearTimeout(ht);ht=setTimeout(function(){h.classList.remove('show');},2000);}
+  if(lct)clearTimeout(lct);lct=setTimeout(function(){lcc=0;h.classList.remove('show');},3000);
+  if(lcc>=CLICKS){lcc=0;clearTimeout(lct);h.classList.remove('show');document.getElementById('pinput').value='';document.getElementById('perr').textContent='';document.getElementById('mpin').classList.add('open');setTimeout(function(){document.getElementById('pinput').focus();},300);}
+}
 function rClicks(){lcc=0;if(lct)clearTimeout(lct);}
-function chkPin(){var v=document.getElementById('pinput').value.trim();if(v===PIN){aOn=true;closeMod('mpin');document.getElementById('btn-admin').style.display='inline-flex';document.getElementById('btn-admin').click();toast('🔓 Admin Unlocked','Welcome!');}else{document.getElementById('perr').textContent='✗ Incorrect PIN.';document.getElementById('pinput').value='';document.getElementById('pinput').focus();document.getElementById('pinput').style.borderColor='#ef5350';setTimeout(function(){document.getElementById('pinput').style.borderColor='';},1000);}}
+
+function chkPin(){
+  var v=document.getElementById('pinput').value.trim();
+  if(v===PIN){aOn=true;closeMod('mpin');document.getElementById('btn-admin').style.display='inline-flex';document.getElementById('btn-admin').click();toast('🔓 Admin Unlocked','Welcome!');}
+  else{document.getElementById('perr').textContent='✗ Incorrect PIN.';document.getElementById('pinput').value='';document.getElementById('pinput').focus();document.getElementById('pinput').style.borderColor='#ef5350';setTimeout(function(){document.getElementById('pinput').style.borderColor='';},1000);}
+}
 function lockAdmin(){aOn=false;document.getElementById('btn-admin').style.display='none';showPage('library',document.querySelector('nav button'));toast('🔒 Locked','Admin panel locked.');}
-function showPage(n,b){if(n==='admin'&&!aOn){document.getElementById('pinput').value='';document.getElementById('perr').textContent='';document.getElementById('mpin').classList.add('open');return;}document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});document.querySelectorAll('nav button').forEach(function(x){x.classList.remove('active');});document.getElementById('page-'+n).classList.add('active');if(b)b.classList.add('active');if(n==='dashboard')loadDash();if(n==='roster')loadRoster();if(n==='admin'){loadLog();loadOvr();loadRecs();loadSugAdmin();}if(n==='mybooks')loadMy();if(n==='suggest'){loadMySugs();document.getElementById('sug-user').value=usr;}}
-function setUser(n){usr=n;localStorage.setItem('rs_u',n);document.getElementById('hname').textContent=n||'Not selected';['lusr','musr','cousr'].forEach(function(id){var e=document.getElementById(id);if(e)e.value=n;});}
-function fillUSel(){var o='<option value="">— Select your name —</option>'+emps.map(function(e){return '<option value="'+e+'">'+e+'</option>';}).join('');['lusr','musr','cousr','sug-user'].forEach(function(id){var e=document.getElementById(id);if(e){e.innerHTML=o;e.value=usr;}});document.getElementById('hname').textContent=usr||'Not selected';}
-async function addMe(){var i=document.getElementById('lnew');var n=i.value.trim();if(!n)return toast('Oops','Type your name first.');try{var d=await api({action:'addEmployee',name:n});if(emps.indexOf(n)<0)emps.push(n);fillUSel();setUser(n);i.value='';toast(d.success?'Welcome! 🎉':'Welcome back!',d.success?d.message:'Logged in as '+n);}catch(e){toast('Error',e.message);}}
-async function loadLib(){try{var res=await Promise.all([api({action:'getBooks'}),api({action:'getEmployees'})]);var bd=res[0],ed=res[1];if(!bd.success)throw new Error(bd.error||'Failed');bks=bd.books||[];emps=ed.employees||[];fillUSel();buildCats();renderBks(bks);fillAsel();}catch(e){document.getElementById('bgrid').innerHTML='<div class="empty" style="grid-column:1/-1"><div class="ic">⚠️</div><h3>Could not load library</h3><p style="font-size:13px;margin-top:8px;">'+e.message+'</p><button class="btn btn-p" style="margin-top:16px;" onclick="loadLib()">🔄 Try Again</button></div>';}}
-function buildCats(){var cs=[...new Set(bks.map(function(b){return b.category;}))].sort();document.getElementById('catf').innerHTML='<span class="fc active" onclick="sCat(\'\',this)">All</span>'+cs.map(function(c){return '<span class="fc" onclick="sCat(\''+c+'\',this)">'+c+'</span>';}).join('');}
+
+function showPage(n,b){
+  if(n==='admin'&&!aOn){document.getElementById('pinput').value='';document.getElementById('perr').textContent='';document.getElementById('mpin').classList.add('open');return;}
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('nav button').forEach(function(x){x.classList.remove('active');});
+  document.getElementById('page-'+n).classList.add('active');
+  if(b)b.classList.add('active');
+  if(n==='dashboard')loadDash();
+  if(n==='roster')loadRoster();
+  if(n==='admin'){loadLog();loadOvr();loadRecs();loadSugAdmin();loadReports();}
+  if(n==='mybooks')loadMy();
+  if(n==='suggest'){loadMySugs();document.getElementById('susr').value=usr;}
+}
+
+function setUser(n){usr=n;localStorage.setItem('rs_u',n);document.getElementById('hname').textContent=n||'Not selected';['lusr','musr','cousr','susr'].forEach(function(id){var e=document.getElementById(id);if(e)e.value=n;});}
+
+function fillUSel(){
+  var o='<option value="">— Select your name —</option>'+emps.map(function(e){return '<option value="'+e+'">'+e+'</option>';}).join('');
+  ['lusr','musr','cousr','susr'].forEach(function(id){var e=document.getElementById(id);if(e){e.innerHTML=o;e.value=usr;}});
+  document.getElementById('hname').textContent=usr||'Not selected';
+}
+
+async function addMe(){
+  var inp=document.getElementById('lnew');var n=inp.value.trim();
+  if(!n)return toast('Oops','Type your name first.');
+  try{var d=await api({action:'addEmployee',name:n});if(emps.indexOf(n)<0)emps.push(n);fillUSel();setUser(n);inp.value='';toast(d.success?'Welcome! 🎉':'Welcome back!',d.success?d.message:'Logged in as '+n);}
+  catch(e){toast('Error',e.message);}
+}
+
+async function loadLib(){
+  try{
+    var res=await Promise.all([api({action:'getBooks'}),api({action:'getEmployees'})]);
+    var bd=res[0],ed=res[1];
+    if(!bd.success)throw new Error(bd.error||'Failed');
+    // Sort books alphabetically
+    bks=(bd.books||[]).sort(function(a,b){return a.title.localeCompare(b.title);});
+    emps=ed.employees||[];
+    fillUSel();buildCats();renderBks(bks);fillAsel();
+  }catch(e){
+    document.getElementById('bgrid').innerHTML='<div class="empty" style="grid-column:1/-1"><div class="ic">⚠️</div><h3>Could not load library</h3><p style="font-size:13px;margin-top:6px;">'+e.message+'</p><button class="btn btn-p" style="margin-top:14px;" onclick="loadLib()">🔄 Try Again</button></div>';
+  }
+}
+
+function buildCats(){
+  var cats=[...new Set(bks.map(function(b){return b.category;}))].sort();
+  document.getElementById('catf').innerHTML='<span class="fc active" onclick="sCat(\'\',this)">All</span>'+cats.map(function(c){return '<span class="fc" onclick="sCat(\''+c+'\',this)">'+c+'</span>';}).join('');
+}
 function sCat(c,el){cat=c;document.querySelectorAll('.fc').forEach(function(x){x.classList.remove('active');});el.classList.add('active');filterBooks();}
-function filterBooks(){var q=document.getElementById('sbox').value.toLowerCase();renderBks(bks.filter(function(b){return(!cat||b.category===cat)&&(b.title.toLowerCase().includes(q)||b.author.toLowerCase().includes(q));}));}
+function filterBooks(){
+  var q=document.getElementById('sbox').value.toLowerCase();
+  renderBks(bks.filter(function(b){return(!cat||b.category===cat)&&(b.title.toLowerCase().includes(q)||b.author.toLowerCase().includes(q));}));
+}
+
 function renderBks(bs){
   var g=document.getElementById('bgrid');
   if(!bs.length){g.innerHTML='<div class="empty" style="grid-column:1/-1"><div class="ic">📭</div><h3>No books found</h3></div>';return;}
   var h='';
   for(var i=0;i<bs.length;i++){
-    var b=bs[i];
-    var av=b.status==='Available';
+    var b=bs[i];var av=b.status==='Available';
     var badge=av?'<span class="ayes">✓ '+b.available+' Available</span>':'<span class="ano">✗ Checked Out</span>';
     var pts='<span class="bpts">⭐ '+b.impactPoints+' pt'+(b.impactPoints!==1?'s':'')+'</span>';
     var info='';
     if(b.pages)info+='<span class="bi">📄 <strong>'+b.pages+'</strong> pages</span>';
     info+='<span class="bi">⏱ <strong>'+b.checkoutDays+'</strong> day checkout</span>';
-    if(b.shelfLocation)info+='<span class="bi">📦 <strong>'+b.shelfLocation+'</strong></span>';
+    if(b.shelfLocation&&b.shelfLocation!=='Not in Office')info+='<span class="bi">📦 <strong>'+b.shelfLocation+'</strong></span>';
     var btn=av?'<button class="btn btn-p btn-sm" onclick="oCO('+b.id+',\''+esc(b.title)+'\','+b.checkoutDays+','+b.impactPoints+')">📤 Check Out</button>':'<button class="btn btn-s btn-sm" disabled>📤 Unavailable</button>';
     h+='<div class="bcard"><div class="bspine'+(av?'':' out')+'"></div><div class="bbody"><div class="bcat">'+b.category+'</div><div class="btitle">'+b.title+'</div><div class="bauthor">by '+b.author+'</div><div class="bavail">'+badge+pts+'</div><div class="binfo">'+info+'</div></div><div class="bact">'+btn+'</div></div>';
   }
   g.innerHTML=h;
 }
-function oCO(id,title,days,pts){if(!usr)return toast('Select Your Name','Please select your name first.');pCO={id:id,title:title};document.getElementById('coname').textContent='"'+title+'"';document.getElementById('coinfo').textContent='⭐ '+pts+' pt'+(pts!==1?'s':'')+' on return · ⏱ '+days+' day checkout';document.getElementById('cousr').value=usr;var d=new Date();d.setDate(d.getDate()+(days||45));document.getElementById('codue').value=d.toISOString().split('T')[0];document.getElementById('mco').classList.add('open');}
-async function doCO(){var u=document.getElementById('cousr').value;var due=document.getElementById('codue').value;if(!u)return toast('Select Name','Please select your name.');if(!pCO)return;setUser(u);try{var d=await api({action:'checkoutBook',employeeName:u,bookId:pCO.id,bookTitle:pCO.title,dueDate:due});closeMod('mco');if(d.success){toast('Checked Out! 📚',d.message);loadLib();}else toast('Error',d.error||'Something went wrong');}catch(e){toast('Error',e.message);}}
-function oRet(id,title){pRet={id:id,title:title};document.getElementById('retname').textContent='Return "'+title+'"?';document.getElementById('mret').classList.add('open');}
-async function doRet(){if(!pRet||!usr)return;try{var d=await api({action:'returnBook',employeeName:usr,bookId:pRet.id});closeMod('mret');if(d.success){toast('Returned! ⭐',d.message,5000);loadLib();loadMy();}else toast('Error',d.error||'No open checkout found');}catch(e){toast('Error',e.message);}}
-function closeMod(id){document.getElementById(id).classList.remove('open');pCO=null;pRet=null;}
-async function loadMy(){var w=document.getElementById('mywrap');if(!usr){w.innerHTML='<div class="empty"><div class="ic">👤</div><h3>Select your name above</h3></div>';return;}w.innerHTML='<div class="ld"><div class="sp"></div>Loading...</div>';try{var d=await api({action:'getCheckouts'});var mine=(d.checkouts||[]).filter(function(c){return c.employee===usr;});var act=mine.filter(function(c){return c.status!=='Returned';});var hist=mine.filter(function(c){return c.status==='Returned';});var tp=hist.reduce(function(s,c){return s+(Number(c.pointsAwarded)||0);},0);var h='';if(act.length){h+='<h3 style="font-family:\'Playfair Display\',serif;font-size:18px;color:var(--cream);margin-bottom:14px;">📤 Currently Checked Out</h3><div class="twrap" style="margin-bottom:30px;"><table><tr><th>Book</th><th>Checked Out</th><th>Due Date</th><th>Status</th><th>Action</th></tr>'+act.map(function(c){return '<tr><td>'+c.bookTitle+'</td><td>'+c.checkoutDate+'</td><td>'+c.dueDate+'</td><td><span class="chip '+(c.status==='Overdue'?'cdue':'cout')+'">'+c.status+'</span></td><td><button class="btn btn-ok btn-sm" onclick="oRet('+c.bookId+',\''+esc(c.bookTitle)+'\')">↩ Return</button></td></tr>';}).join('')+'</table></div>';}else{h+='<div class="empty" style="margin-bottom:24px;"><div class="ic">✅</div><h3>No active checkouts</h3><p>Head to the Library!</p></div>';}if(hist.length){h+='<h3 style="font-family:\'Playfair Display\',serif;font-size:18px;color:var(--cream);margin-bottom:6px;">📚 Reading History</h3><p style="font-size:13px;color:var(--lb);margin-bottom:14px;">Total earned: <strong style="color:var(--gold);">⭐ '+tp+' impact points</strong></p><div class="twrap"><table><tr><th>Book</th><th>Returned</th><th>Points Earned</th></tr>'+hist.map(function(c){return '<tr><td>'+c.bookTitle+'</td><td>'+c.returnDate+'</td><td style="color:var(--gold);font-weight:700;">⭐ '+c.pointsAwarded+'</td></tr>';}).join('')+'</table></div>';}w.innerHTML=h||'<div class="empty"><div class="ic">📖</div><h3>No history yet</h3></div>';}catch(e){w.innerHTML='<div class="empty"><div class="ic">⚠️</div><h3>'+e.message+'</h3></div>';}}
-async function loadDash(){try{var d=await api({action:'getDashboard'});var s=d.stats||{};document.getElementById('kgrid').innerHTML=[{l:'Total Books',v:s.totalBooks||0,sub:'in the library'},{l:'Available',v:s.available||0,sub:'ready to check out'},{l:'Checked Out',v:s.checkedOut||0,sub:'currently reading'},{l:'Overdue',v:s.overdue||0,sub:'need returning'},{l:'Total Points',v:s.totalPoints||0,sub:'earned by the team'},{l:'Active Readers',v:s.activeReaders||0,sub:'reading right now'},].map(function(k){return '<div class="kcard"><div class="klbl">'+k.l+'</div><div class="kval">'+k.v+'</div><div class="ksub">'+k.sub+'</div></div>';}).join('');var lb=d.leaderboard||[];document.getElementById('dlb').innerHTML=lb.length?lb.map(function(r,i){return '<div class="lrow"><div class="rnk '+(i===0?'r1':i===1?'r2':i===2?'r3':'rn')+'">'+(i+1)+'</div><div><div class="lbn">'+r.name+'</div><div class="lbs">'+r.booksCompleted+' book'+(r.booksCompleted!==1?'s':'')+'</div></div><div class="lbp">⭐ '+r.totalPoints+'</div></div>';}).join(''):'<div class="empty"><div class="ic">🏆</div><h3>No data yet</h3></div>';var rc=d.recentCheckouts||[];document.getElementById('drc').innerHTML=rc.length?rc.map(function(c){return '<div class="lrow"><div style="font-size:20px;">'+(c.status==='Returned'?'✅':c.status==='Overdue'?'🔴':'📖')+'</div><div style="flex:1;"><div style="font-size:13px;font-weight:600;">'+c.employee+'</div><div style="font-size:12px;color:var(--lb);">'+c.bookTitle+'</div></div><span class="chip '+(c.status==='Returned'?'cret':c.status==='Overdue'?'cdue':'cout')+'">'+c.status+'</span></div>';}).join(''):'<div class="empty"><div class="ic">💤</div><h3>No activity yet</h3></div>';}catch(e){toast('Error','Could not load dashboard: '+e.message);}}
-async function loadRoster(){var g=document.getElementById('rgrid');g.innerHTML='<div class="ld" style="grid-column:1/-1"><div class="sp"></div>Loading...</div>';try{var d=await api({action:'getRoster'});var r=d.roster||[];if(!r.length){g.innerHTML='<div class="empty" style="grid-column:1/-1"><div class="ic">👥</div><h3>No team members yet</h3></div>';return;}g.innerHTML=r.map(function(m,i){return '<div class="rcard"><div class="ava">'+m.name.charAt(0).toUpperCase()+'</div>'+(i===0?'<div style="font-size:11px;color:var(--gold);margin-bottom:4px;">🏆 Top Reader</div>':'')+'<div style="font-weight:600;font-size:14px;margin-bottom:4px;">'+m.name+'</div><div style="font-family:\'Playfair Display\',serif;font-size:26px;font-weight:900;color:var(--gold);">'+m.totalPoints+'</div><div style="font-size:10px;color:var(--lb);text-transform:uppercase;letter-spacing:1px;">Impact Points</div><div style="display:flex;justify-content:center;gap:14px;margin-top:10px;"><div><div style="font-size:15px;font-weight:700;">'+m.booksCompleted+'</div><div style="font-size:10px;color:var(--g4);text-transform:uppercase;">Read</div></div><div><div style="font-size:15px;font-weight:700;">'+m.currentlyOut+'</div><div style="font-size:10px;color:var(--g4);text-transform:uppercase;">Out</div></div></div>'+(m.lastBook!=='None yet'?'<div style="font-size:11px;color:var(--lb);margin-top:8px;font-style:italic;">'+m.lastBook+'</div>':'')+'</div>';}).join('');}catch(e){g.innerHTML='<div class="empty" style="grid-column:1/-1"><div class="ic">⚠️</div><h3>'+e.message+'</h3></div>';}}
-function fillAsel(){var o='<option value="">— Select a book —</option>'+bks.map(function(b){return '<option value="'+b.id+'">'+b.title+' ('+(b.pages||'?')+' pgs · '+b.impactPoints+' pts'+(b.overridePoints>0?' ⚡':'')+')</option>';}).join('');['apb','aob'].forEach(function(id){var e=document.getElementById(id);if(e)e.innerHTML=o;});}
-async function loadLog(){var w=document.getElementById('alog');try{var d=await api({action:'getCheckouts'});var l=(d.checkouts||[]).reverse();w.innerHTML=l.length?'<table><tr><th>Employee</th><th>Book</th><th>Checked Out</th><th>Due</th><th>Returned</th><th>Points</th><th>Status</th></tr>'+l.map(function(c){return '<tr><td>'+c.employee+'</td><td>'+c.bookTitle+'</td><td>'+c.checkoutDate+'</td><td>'+c.dueDate+'</td><td>'+(c.returnDate||'—')+'</td><td style="color:var(--gold);font-weight:700;">'+(c.pointsAwarded?'⭐ '+c.pointsAwarded:'—')+'</td><td><span class="chip '+(c.status==='Returned'?'cret':c.status==='Overdue'?'cdue':'cout')+'">'+c.status+'</span></td></tr>';}).join('')+'</table>':'<div class="empty"><div class="ic">📋</div><h3>No checkouts yet</h3></div>';}catch(e){w.innerHTML='<div class="empty"><div class="ic">⚠️</div><h3>'+e.message+'</h3></div>';}}
-function loadOvr(){var w=document.getElementById('pov');w.innerHTML='<table><tr><th>Book</th><th>Pages</th><th>Auto</th><th>Override</th><th>Final</th><th>Days</th><th>Amazon</th></tr>'+bks.map(function(b){return '<tr><td style="max-width:160px;font-size:12px;">'+b.title+'</td><td style="text-align:center;">'+(b.pages||'—')+'</td><td style="text-align:center;color:var(--lb);">'+b.autoPoints+'</td><td style="text-align:center;">'+(b.overridePoints>0?'<span class="chip cov">⚡ '+b.overridePoints+'</span>':'—')+'</td><td style="text-align:center;color:var(--gold);font-weight:700;">⭐ '+b.impactPoints+'</td><td style="text-align:center;">'+b.checkoutDays+'d</td><td style="text-align:center;">'+(b.amazonLink?'<button class="btn btn-s btn-sm" onclick="window.open(\''+b.amazonLink+'\',\'_blank\')">🛒 Buy</button>':'—')+'</td></tr>';}).join('')+'</table>';}
-async function aAddEmp(){var n=document.getElementById('aen').value.trim();if(!n)return toast('Missing','Enter a name first.');try{var d=await api({action:'addEmployee',name:n});if(emps.indexOf(n)<0)emps.push(n);fillUSel();document.getElementById('aen').value='';toast(d.success?'Added!':'Note',d.success?d.message:d.error);}catch(e){toast('Error',e.message);}}
-async function aSetPages(){var bid=document.getElementById('apb').value;var pg=document.getElementById('apv').value;var r=document.getElementById('apr');if(!bid||!pg)return toast('Missing','Select a book and enter page count.');try{var d=await api({action:'updatePages',bookId:bid,pages:pg});r.style.color=d.success?'#81c784':'#ef5350';r.textContent=(d.success?'✓ ':'✗ ')+(d.success?d.message:d.error);if(d.success){toast('Pages Set! 📄',d.message);await loadLib();loadOvr();}}catch(e){toast('Error',e.message);}}
-async function aSetOvr(){var bid=document.getElementById('aob').value;var pts=document.getElementById('aov').value;var r=document.getElementById('aor');if(!bid||pts==='')return toast('Missing','Select a book and enter points.');try{var d=await api({action:'updatePoints',bookId:bid,points:pts});r.style.color=d.success?'#81c784':'#ef5350';r.textContent=(d.success?'✓ ':'✗ ')+(d.success?d.message:d.error);if(d.success){toast('Override Set! ⭐',d.message);await loadLib();loadOvr();}}catch(e){toast('Error',e.message);}}
-async function aClrOvr(){var bid=document.getElementById('aob').value;var r=document.getElementById('aor');if(!bid)return toast('Missing','Select a book first.');try{var d=await api({action:'resetOverride',bookId:bid});r.style.color=d.success?'#81c784':'#ef5350';r.textContent=(d.success?'✓ ':'✗ ')+(d.success?d.message:d.error);if(d.success){toast('Override Cleared!',d.message);await loadLib();loadOvr();}}catch(e){toast('Error',e.message);}}
-async function runSetup(){var m=document.getElementById('smsg');m.style.color='var(--lb)';m.textContent='⟳ Running setup...';try{var d=await api({action:'setup'});m.style.color=d.success?'#81c784':'#ef5350';m.textContent=(d.success?'✓ ':'✗ ')+(d.success?d.msg:d.error);if(d.success){toast('Setup Complete! 🎉','All Google Sheet tabs created!');setTimeout(loadLib,800);}}catch(e){m.style.color='#ef5350';m.textContent='✗ '+e.message;}}
-async function refAll(){await loadLib();loadOvr();toast('Refreshed!','Data reloaded.');}
-function esc(s){return(s||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'");}
-document.querySelectorAll('.mov').forEach(function(o){o.addEventListener('click',function(e){if(e.target===o){closeMod(o.id);if(o.id==='mpin')rClicks();}});});
 
-// ── SUGGESTIONS ───────────────────────────────────────────────────────────────
-async function submitSug(){
-  var u=document.getElementById('sug-user').value;
-  var t=document.getElementById('sug-title').value.trim();
-  var a=document.getElementById('sug-author').value.trim();
-  var r=document.getElementById('sug-reason').value.trim();
-  var res=document.getElementById('sug-result');
-  if(!u)return toast('Select Your Name','Please select your name first.');
-  if(!t||!r)return toast('Missing Fields','Please fill in the title and reason.');
+function oCO(id,title,days,pts){
+  if(!usr)return toast('Select Your Name','Please select your name first.');
+  pCO={id:id,title:title};
+  document.getElementById('coname').textContent='"'+title+'"';
+  document.getElementById('coinfo').textContent='⭐ '+pts+' pt'+(pts!==1?'s':'')+' on return (after book report) · ⏱ '+days+' day checkout';
+  document.getElementById('cousr').value=usr;
+  var d=new Date();d.setDate(d.getDate()+(days||45));
+  document.getElementById('codue').value=d.toISOString().split('T')[0];
+  document.getElementById('mco').classList.add('open');
+}
+async function doCO(){
+  var u=document.getElementById('cousr').value;var due=document.getElementById('codue').value;
+  if(!u)return toast('Select Name','Please select your name.');if(!pCO)return;
+  setUser(u);
+  try{var d=await api({action:'checkoutBook',employeeName:u,bookId:pCO.id,bookTitle:pCO.title,dueDate:due});closeMod('mco');if(d.success){toast('Checked Out! 📚',d.message);loadLib();}else toast('Error',d.error||'Something went wrong');}
+  catch(e){toast('Error',e.message);}
+}
+
+// RETURN — triggers book report
+function oRet(id,title,pages){
+  pRet={id:id,title:title,pages:pages};
+  // Find book info
+  var book=bks.filter(function(b){return b.id==id;})[0];
+  var implN=book?book.implCount:3;
+  var pts=book?book.impactPoints:1;
+  document.getElementById('rep-book-name').textContent='"'+title+'" by '+(book?book.author:'');
+  document.getElementById('rep-pts-info').textContent='⭐ You will earn '+pts+' impact point'+(pts!==1?'s':'')+' upon submitting this report!';
+  // Build implementation fields
+  var implHtml='<div class="mf"><label>'+implN+' Things to Implement at Retirement Solutions</label><div class="impl-grid">';
+  for(var i=1;i<=implN;i++){
+    implHtml+='<input type="text" id="rep-impl-'+i+'" placeholder="'+i+'. Something you can apply at RS...">';
+  }
+  implHtml+='</div></div>';
+  document.getElementById('rep-impl-wrap').innerHTML=implHtml;
+  document.getElementById('rep-liked').value='';
+  document.getElementById('rep-learned').value='';
+  document.getElementById('mrep').classList.add('open');
+}
+
+async function doReport(){
+  if(!pRet||!usr)return;
+  var liked=document.getElementById('rep-liked').value.trim();
+  var learned=document.getElementById('rep-learned').value.trim();
+  if(!liked||!learned)return toast('Missing Fields','Please fill in what you liked and what you learned.');
+  var book=bks.filter(function(b){return b.id==pRet.id;})[0];
+  var implN=book?book.implCount:3;
+  var impls=[];
+  for(var i=1;i<=implN;i++){
+    var v=document.getElementById('rep-impl-'+i);
+    if(v&&v.value.trim())impls.push(v.value.trim());
+  }
+  if(impls.length<implN)return toast('Missing Fields','Please fill in all '+implN+' implementation items.');
   try{
-    var d=await api({action:'submitSuggestion',employeeName:u,bookTitle:t,author:a,reason:r});
-    res.style.color=d.success?'#81c784':'#ef5350';
-    res.textContent=(d.success?'✓ ':'✗ ')+(d.success?d.message:d.error);
-    if(d.success){document.getElementById('sug-title').value='';document.getElementById('sug-author').value='';document.getElementById('sug-reason').value='';loadMySugs();}
+    var d=await api({
+      action:'submitReport',
+      employeeName:usr,
+      bookId:pRet.id,
+      bookTitle:pRet.title,
+      author:book?book.author:'',
+      whatLiked:liked,
+      whatLearned:learned,
+      implementations:JSON.stringify(impls)
+    });
+    closeMod('mrep');
+    if(d.success){toast('Report Submitted! ⭐',d.message,6000);loadLib();loadMy();}
+    else toast('Error',d.error||'Something went wrong');
   }catch(e){toast('Error',e.message);}
 }
-async function loadMySugs(){
-  var w=document.getElementById('my-suggestions');
-  if(!usr){w.innerHTML='';return;}
+
+function closeMod(id){document.getElementById(id).classList.remove('open');pCO=null;pRet=null;}
+
+async function loadMy(){
+  var w=document.getElementById('mywrap');
+  if(!usr){w.innerHTML='<div class="empty"><div class="ic">👤</div><h3>Select your name above</h3></div>';return;}
+  w.innerHTML='<div class="ld"><div class="sp"></div>Loading...</div>';
   try{
-    var d=await api({action:'getSuggestions'});
-    var mine=(d.suggestions||[]).filter(function(s){return s.employee===usr;});
-    if(!mine.length){w.innerHTML='<p style="font-size:13px;color:var(--lb);">No suggestions yet.</p>';return;}
-    w.innerHTML='<div class="twrap"><table><tr><th>Book</th><th>Author</th><th>Submitted</th><th>Status</th></tr>'
-      +mine.map(function(s){var c=s.status==='Approved'?'#81c784':s.status==='Not at this time'?'#ef5350':'#ffb74d';
-        return '<tr><td>'+s.title+'</td><td>'+s.author+'</td><td>'+s.date+'</td><td><span class="chip" style="color:'+c+';">'+s.status+'</span></td></tr>';}).join('')+'</table></div>';
-  }catch(e){w.innerHTML='<p style="font-size:13px;color:#ef5350;">Could not load.</p>';}
+    var res=await Promise.all([api({action:'getCheckouts'}),api({action:'getReports'})]);
+    var cd=res[0],rd=res[1];
+    var mine=(cd.checkouts||[]).filter(function(c){return c.employee===usr;});
+    var act=mine.filter(function(c){return c.status==='Checked Out'||c.status==='Overdue'||c.status==='Pending Report';});
+    var hist=mine.filter(function(c){return c.status==='Returned';});
+    var myReps=(rd.reports||[]).filter(function(r){return r.employee===usr;});
+    var tp=hist.reduce(function(s,c){return s+(Number(c.pointsAwarded)||0);},0);
+    var h='';
+    if(act.length){
+      h+='<h3 style="font-family:\'Playfair Display\',serif;font-size:17px;color:var(--cream);margin-bottom:12px;">📤 Currently Checked Out</h3><div class="twrap" style="margin-bottom:24px;"><table><tr><th>Book</th><th>Checked Out</th><th>Due Date</th><th>Status</th><th>Action</th></tr>';
+      act.forEach(function(c){
+        var book=bks.filter(function(b){return b.id==c.bookId;})[0];
+        var pages=book?book.pages:0;
+        var isPending=c.status==='Pending Report';
+        h+='<tr><td>'+c.bookTitle+'</td><td>'+c.checkoutDate+'</td><td>'+c.dueDate+'</td><td><span class="chip '+(c.status==='Overdue'?'cdue':isPending?'cout':'cout')+'">'+c.status+'</span></td><td>';
+        if(isPending){h+='<button class="btn btn-ok btn-sm" onclick="oRet('+c.bookId+',\''+esc(c.bookTitle)+'\','+pages+')">📝 Submit Report</button>';}
+        else{h+='<button class="btn btn-ok btn-sm" onclick="oRet('+c.bookId+',\''+esc(c.bookTitle)+'\','+pages+')">↩ Return</button>';}
+        h+='</td></tr>';
+      });
+      h+='</table></div>';
+    }else{h+='<div class="empty" style="margin-bottom:20px;"><div class="ic">✅</div><h3>No active checkouts</h3><p>Head to the Library!</p></div>';}
+    if(hist.length){
+      h+='<h3 style="font-family:\'Playfair Display\',serif;font-size:17px;color:var(--cream);margin-bottom:6px;">📚 Reading History</h3><p style="font-size:13px;color:var(--lb);margin-bottom:12px;">Total earned: <strong style="color:var(--gold);">⭐ '+tp+' impact points</strong></p><div class="twrap" style="margin-bottom:24px;"><table><tr><th>Book</th><th>Returned</th><th>Points Earned</th></tr>';
+      hist.forEach(function(c){h+='<tr><td>'+c.bookTitle+'</td><td>'+c.returnDate+'</td><td style="color:var(--gold);font-weight:700;">⭐ '+c.pointsAwarded+'</td></tr>';});
+      h+='</table></div>';
+    }
+    if(myReps.length){
+      h+='<h3 style="font-family:\'Playfair Display\',serif;font-size:17px;color:var(--cream);margin-bottom:12px;">📝 My Book Reports</h3>';
+      myReps.forEach(function(r){
+        h+='<div style="background:rgba(30,53,72,0.6);border:1px solid rgba(124,146,167,0.15);border-radius:14px;padding:18px;margin-bottom:12px;">';
+        h+='<div style="font-family:\'Playfair Display\',serif;font-size:15px;font-weight:700;color:var(--cream);margin-bottom:2px;">'+r.title+'</div>';
+        h+='<div style="font-size:12px;color:var(--lb);margin-bottom:12px;">'+r.date+' · ⭐ '+r.points+' pts earned</div>';
+        h+='<div style="font-size:12px;margin-bottom:8px;"><strong style="color:var(--gold);">What I liked:</strong> <span style="color:var(--cream);">'+r.whatLiked+'</span></div>';
+        h+='<div style="font-size:12px;margin-bottom:8px;"><strong style="color:var(--gold);">What I learned:</strong> <span style="color:var(--cream);">'+r.whatLearned+'</span></div>';
+        if(r.implementations.length){h+='<div style="font-size:12px;"><strong style="color:var(--gold);">Implementations:</strong><ul style="margin-top:4px;padding-left:16px;">';r.implementations.forEach(function(x){h+='<li style="color:var(--cream);margin-bottom:2px;">'+x+'</li>';});h+='</ul></div>';}
+        h+='</div>';
+      });
+    }
+    w.innerHTML=h||'<div class="empty"><div class="ic">📖</div><h3>No history yet</h3></div>';
+  }catch(e){w.innerHTML='<div class="empty"><div class="ic">⚠️</div><h3>'+e.message+'</h3></div>';}
 }
 
-// ── RECOMMENDATIONS ───────────────────────────────────────────────────────────
-var allRecs=[],recCat='';
-async function loadRecs(){
-  var g=document.getElementById('rec-grid');
-  g.innerHTML='<div class="ld" style="grid-column:1/-1"><div class="sp"></div>Loading recommendations...</div>';
+async function loadDash(){
   try{
-    var d=await api({action:'getRecommendations'});
-    allRecs=(d.recommendations||[]).filter(function(r){return !r.alreadyInLibrary;});
-    buildRecCats();renderRecs(allRecs);
-  }catch(e){
-    g.innerHTML='<div class="empty" style="grid-column:1/-1"><div class="ic">⚠️</div><h3>'+e.message+'</h3><p style="font-size:13px;margin-top:8px;">Run setupRecommendations in Apps Script first.</p></div>';
-  }
+    var d=await api({action:'getDashboard'});var s=d.stats||{};
+    document.getElementById('kgrid').innerHTML=[{l:'Total Books',v:s.totalBooks||0,sub:'in the library'},{l:'Available',v:s.available||0,sub:'ready to check out'},{l:'Checked Out',v:s.checkedOut||0,sub:'currently reading'},{l:'Overdue',v:s.overdue||0,sub:'need returning'},{l:'Total Points',v:s.totalPoints||0,sub:'earned by the team'},{l:'Active Readers',v:s.activeReaders||0,sub:'reading right now'},].map(function(k){return '<div class="kcard"><div class="klbl">'+k.l+'</div><div class="kval">'+k.v+'</div><div class="ksub">'+k.sub+'</div></div>';}).join('');
+    var lb=d.leaderboard||[];
+    document.getElementById('dlb').innerHTML=lb.length?lb.map(function(r,i){return '<div class="lrow"><div class="rnk '+(i===0?'r1':i===1?'r2':i===2?'r3':'rn')+'">'+(i+1)+'</div><div><div class="lbn">'+r.name+'</div><div class="lbs">'+r.booksCompleted+' book'+(r.booksCompleted!==1?'s':'')+'</div></div><div class="lbp">⭐ '+r.totalPoints+'</div></div>';}).join(''):'<div class="empty"><div class="ic">🏆</div><h3>No data yet</h3></div>';
+    var rc=d.recentCheckouts||[];
+    document.getElementById('drc').innerHTML=rc.length?rc.map(function(c){return '<div class="lrow"><div style="font-size:18px;">'+(c.status==='Returned'?'✅':c.status==='Overdue'?'🔴':'📖')+'</div><div style="flex:1;"><div style="font-size:13px;font-weight:600;">'+c.employee+'</div><div style="font-size:12px;color:var(--lb);">'+c.bookTitle+'</div></div><span class="chip '+(c.status==='Returned'?'cret':c.status==='Overdue'?'cdue':'cout')+'">'+c.status+'</span></div>';}).join(''):'<div class="empty"><div class="ic">💤</div><h3>No activity yet</h3></div>';
+  }catch(e){toast('Error','Could not load dashboard: '+e.message);}
+}
+
+async function loadRoster(){
+  var g=document.getElementById('rgrid');g.innerHTML='<div class="ld" style="grid-column:1/-1"><div class="sp"></div>Loading...</div>';
+  try{
+    var d=await api({action:'getRoster'});var r=d.roster||[];
+    if(!r.length){g.innerHTML='<div class="empty" style="grid-column:1/-1"><div class="ic">👥</div><h3>No team members yet</h3></div>';return;}
+    g.innerHTML=r.map(function(m,i){return '<div class="rcard"><div class="ava">'+m.name.charAt(0).toUpperCase()+'</div>'+(i===0?'<div style="font-size:11px;color:var(--gold);margin-bottom:4px;">🏆 Top Reader</div>':'')+'<div style="font-weight:600;font-size:14px;margin-bottom:3px;">'+m.name+'</div><div style="font-family:\'Playfair Display\',serif;font-size:24px;font-weight:900;color:var(--gold);">'+m.totalPoints+'</div><div style="font-size:10px;color:var(--lb);text-transform:uppercase;letter-spacing:1px;">Impact Points</div><div style="display:flex;justify-content:center;gap:12px;margin-top:8px;"><div><div style="font-size:14px;font-weight:700;">'+m.booksCompleted+'</div><div style="font-size:10px;color:var(--g4);text-transform:uppercase;">Read</div></div><div><div style="font-size:14px;font-weight:700;">'+m.currentlyOut+'</div><div style="font-size:10px;color:var(--g4);text-transform:uppercase;">Out</div></div></div>'+(m.lastBook!=='None yet'?'<div style="font-size:11px;color:var(--lb);margin-top:6px;font-style:italic;">'+m.lastBook+'</div>':'')+'</div>';}).join('');
+  }catch(e){g.innerHTML='<div class="empty" style="grid-column:1/-1"><div class="ic">⚠️</div><h3>'+e.message+'</h3></div>';}
+}
+
+function fillAsel(){
+  var o='<option value="">— Select a book —</option>'+bks.map(function(b){return '<option value="'+b.id+'">'+b.title+' ('+(b.pages||'?')+' pgs · '+b.impactPoints+' pts'+(b.overridePoints>0?' ⚡':'')+')</option>';}).join('');
+  ['apb','aob','avb'].forEach(function(id){var e=document.getElementById(id);if(e)e.innerHTML=o;});
+}
+
+async function loadLog(){
+  var w=document.getElementById('alog');
+  try{var d=await api({action:'getCheckouts'});var list=(d.checkouts||[]).reverse();
+    w.innerHTML=list.length?'<table><tr><th>Employee</th><th>Book</th><th>Checked Out</th><th>Due</th><th>Returned</th><th>Points</th><th>Status</th></tr>'+list.map(function(c){return '<tr><td>'+c.employee+'</td><td>'+c.bookTitle+'</td><td>'+c.checkoutDate+'</td><td>'+c.dueDate+'</td><td>'+(c.returnDate||'—')+'</td><td style="color:var(--gold);font-weight:700;">'+(c.pointsAwarded?'⭐ '+c.pointsAwarded:'—')+'</td><td><span class="chip '+(c.status==='Returned'?'cret':c.status==='Overdue'?'cdue':'cout')+'">'+c.status+'</span></td></tr>';}).join('')+'</table>':'<div class="empty"><div class="ic">📋</div><h3>No checkouts yet</h3></div>';
+  }catch(e){w.innerHTML='<div class="empty"><div class="ic">⚠️</div><h3>'+e.message+'</h3></div>';}
+}
+
+function loadOvr(){
+  var w=document.getElementById('pov');
+  w.innerHTML='<table><tr><th>Book</th><th>Pages</th><th>Auto</th><th>Override</th><th>Final</th><th>Days</th><th>Copies</th><th>Amazon</th></tr>'+bks.map(function(b){return '<tr><td style="max-width:160px;font-size:12px;">'+b.title+'</td><td style="text-align:center;">'+(b.pages||'—')+'</td><td style="text-align:center;color:var(--lb);">'+b.autoPoints+'</td><td style="text-align:center;">'+(b.overridePoints>0?'<span class="chip cov">⚡ '+b.overridePoints+'</span>':'—')+'</td><td style="text-align:center;color:var(--gold);font-weight:700;">⭐ '+b.impactPoints+'</td><td style="text-align:center;">'+b.checkoutDays+'d</td><td style="text-align:center;">'+b.copies+'</td><td style="text-align:center;">'+(b.amazonLink?'<button class="btn btn-s btn-sm" onclick="window.open(\''+b.amazonLink+'\',\'_blank\')">🛒 Buy</button>':'—')+'</td></tr>';}).join('')+'</table>';
+}
+
+async function loadReports(){
+  var w=document.getElementById('reports-wrap');
+  try{var d=await api({action:'getReports'});var list=(d.reports||[]).reverse();
+    if(!list.length){w.innerHTML='<div class="empty"><div class="ic">📝</div><h3>No reports yet</h3><p>Reports appear here when employees return books.</p></div>';return;}
+    w.innerHTML='<table><tr><th>Employee</th><th>Book</th><th>Date</th><th>Points</th><th>What They Liked</th><th>What They Learned</th><th>Implementations</th></tr>'+list.map(function(r){return '<tr><td>'+r.employee+'</td><td style="font-weight:600;">'+r.title+'</td><td>'+r.date+'</td><td style="color:var(--gold);font-weight:700;">⭐ '+r.points+'</td><td style="max-width:160px;font-size:12px;">'+r.whatLiked+'</td><td style="max-width:160px;font-size:12px;">'+r.whatLearned+'</td><td style="max-width:180px;font-size:12px;">'+(r.implementations||[]).map(function(x,i){return (i+1)+'. '+x;}).join('<br>')+'</td></tr>';}).join('')+'</table>';
+  }catch(e){w.innerHTML='<div class="empty"><div class="ic">⚠️</div><h3>'+e.message+'</h3></div>';}
+}
+
+async function aAddEmp(){
+  var n=document.getElementById('aen').value.trim();if(!n)return toast('Missing','Enter a name first.');
+  try{var d=await api({action:'addEmployee',name:n});if(emps.indexOf(n)<0)emps.push(n);fillUSel();document.getElementById('aen').value='';toast(d.success?'Added!':'Note',d.success?d.message:d.error);}
+  catch(e){toast('Error',e.message);}
+}
+
+async function aSetPages(){
+  var bid=document.getElementById('apb').value;var pg=document.getElementById('apv').value;var r=document.getElementById('apr');
+  if(!bid||!pg)return toast('Missing','Select a book and enter page count.');
+  try{var d=await api({action:'updatePages',bookId:bid,pages:pg});r.style.color=d.success?'#81c784':'#ef5350';r.textContent=(d.success?'✓ ':'✗ ')+(d.success?d.message:d.error);if(d.success){toast('Pages Set! 📄',d.message);await loadLib();loadOvr();}}
+  catch(e){toast('Error',e.message);}
+}
+
+async function aSetOvr(){
+  var bid=document.getElementById('aob').value;var pts=document.getElementById('aov').value;var r=document.getElementById('aor');
+  if(!bid||pts==='')return toast('Missing','Select a book and enter points.');
+  try{var d=await api({action:'updatePoints',bookId:bid,points:pts});r.style.color=d.success?'#81c784':'#ef5350';r.textContent=(d.success?'✓ ':'✗ ')+(d.success?d.message:d.error);if(d.success){toast('Override Set! ⭐',d.message);await loadLib();loadOvr();}}
+  catch(e){toast('Error',e.message);}
+}
+
+async function aClrOvr(){
+  var bid=document.getElementById('aob').value;var r=document.getElementById('aor');if(!bid)return toast('Missing','Select a book first.');
+  try{var d=await api({action:'resetOverride',bookId:bid});r.style.color=d.success?'#81c784':'#ef5350';r.textContent=(d.success?'✓ ':'✗ ')+(d.success?d.message:d.error);if(d.success){toast('Override Cleared!',d.message);await loadLib();loadOvr();}}
+  catch(e){toast('Error',e.message);}
+}
+
+async function aToggleAvail(avail){
+  var bid=document.getElementById('avb').value;var r=document.getElementById('avr');if(!bid)return toast('Missing','Select a book first.');
+  try{var d=await api({action:'toggleAvailability',bookId:bid,available:avail});r.style.color=d.success?'#81c784':'#ef5350';r.textContent=(d.success?'✓ ':'✗ ')+(d.success?d.message:d.error);if(d.success){toast(avail?'✓ Available':'✗ Unavailable',d.message);await loadLib();loadOvr();}}
+  catch(e){toast('Error',e.message);}
+}
+
+async function loadRecs(){
+  var g=document.getElementById('rec-grid');g.innerHTML='<div class="ld" style="grid-column:1/-1"><div class="sp"></div>Loading recommendations...</div>';
+  try{var d=await api({action:'getRecommendations'});allRecs=(d.recommendations||[]).filter(function(r){return !r.alreadyInLibrary;});buildRecCats();renderRecs(allRecs);}
+  catch(e){g.innerHTML='<div class="empty" style="grid-column:1/-1"><div class="ic">⚠️</div><h3>'+e.message+'</h3><p style="font-size:13px;margin-top:6px;">Run setupRecommendations in Apps Script first.</p></div>';}
 }
 function buildRecCats(){
   var cats=[...new Set(allRecs.map(function(r){return r.category;}))].sort();
-  document.getElementById('rec-filters').innerHTML='<span class="fc active" onclick="setRecCat(\'\',this)">All ('+allRecs.length+')</span>'
-    +cats.map(function(c){var n=allRecs.filter(function(r){return r.category===c;}).length;return '<span class="fc" onclick="setRecCat(\''+c+'\',this)">'+c+' ('+n+')</span>';}).join('');
+  document.getElementById('rec-filters').innerHTML='<span class="fc active" onclick="sRecCat(\'\',this)">All ('+allRecs.length+')</span>'+cats.map(function(c){var n=allRecs.filter(function(r){return r.category===c;}).length;return '<span class="fc" onclick="sRecCat(\''+c+'\',this)">'+c+' ('+n+')</span>';}).join('');
 }
-function setRecCat(c,el){
-  recCat=c;
-  document.querySelectorAll('#rec-filters .fc').forEach(function(x){x.classList.remove('active');});
-  el.classList.add('active');
-  renderRecs(recCat?allRecs.filter(function(r){return r.category===recCat;}):allRecs);
-}
+function sRecCat(c,el){recCat=c;document.querySelectorAll('#rec-filters .fc').forEach(function(x){x.classList.remove('active');});el.classList.add('active');renderRecs(recCat?allRecs.filter(function(r){return r.category===recCat;}):allRecs);}
 function renderRecs(recs){
   var g=document.getElementById('rec-grid');
-  if(!recs.length){g.innerHTML='<div class="empty" style="grid-column:1/-1"><div class="ic">🎉</div><h3>All recommendations added to library!</h3></div>';return;}
-  g.innerHTML=recs.map(function(r){return '<div style="background:rgba(15,31,45,0.6);border:1px solid rgba(124,146,167,0.2);border-radius:14px;padding:18px;">'
-    +'<div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:4px;">'+r.category+'</div>'
-    +'<div style="font-family:\'Playfair Display\',serif;font-size:15px;font-weight:700;color:var(--cream);margin-bottom:2px;">'+r.title+'</div>'
-    +'<div style="font-size:12px;color:var(--lb);margin-bottom:8px;">by '+r.author+'</div>'
-    +'<div style="font-size:11px;color:var(--g4);margin-bottom:12px;line-height:1.5;">'+r.whyRead+'</div>'
-    +'<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;">'
-      +'<span style="font-size:12px;color:var(--gold);">'+(r.price||'')+' · '+(r.format||'')+'</span>'
-      +'<div style="display:flex;gap:6px;">'
-        +(r.amazonLink?'<button class="btn btn-s btn-sm" onclick="window.open(\''+r.amazonLink+'\',\'_blank\')">🛒</button>':'')
-        +'<button class="btn btn-p btn-sm" onclick="addToLib('+r.rowIndex+',\''+esc(r.title)+'\',\''+esc(r.author)+'\',\''+esc(r.category)+'\',\''+esc(r.amazonLink||'')+'\')">+ Add to Library</button>'
-      +'</div>'
-    +'</div></div>';}).join('');
+  if(!recs.length){g.innerHTML='<div class="empty" style="grid-column:1/-1"><div class="ic">🎉</div><h3>All recommendations added!</h3></div>';return;}
+  g.innerHTML=recs.map(function(r){return '<div style="background:rgba(15,31,45,0.6);border:1px solid rgba(124,146,167,0.2);border-radius:12px;padding:16px;"><div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:3px;">'+r.category+'</div><div style="font-family:\'Playfair Display\',serif;font-size:14px;font-weight:700;color:var(--cream);margin-bottom:2px;">'+r.title+'</div><div style="font-size:12px;color:var(--lb);margin-bottom:6px;">by '+r.author+'</div><div style="font-size:11px;color:var(--g4);margin-bottom:10px;line-height:1.5;">'+r.whyRead+'</div><div style="display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap;"><span style="font-size:12px;color:var(--gold);">'+(r.price||'')+' · '+(r.format||'')+'</span><div style="display:flex;gap:5px;">'+(r.amazonLink?'<button class="btn btn-s btn-sm" onclick="window.open(\''+r.amazonLink+'\',\'_blank\')">🛒</button>':'')+'<button class="btn btn-p btn-sm" onclick="addToLib('+r.rowIndex+',\''+esc(r.title)+'\',\''+esc(r.author)+'\',\''+esc(r.category)+'\',\''+esc(r.amazonLink||'')+'\')">+ Add to Library</button></div></div></div>';}).join('');
 }
 async function addToLib(rowIndex,title,author,category,amazonLink){
-  try{
-    var d=await api({action:'addToLibrary',rowIndex:rowIndex,title:title,author:author,category:category,amazonLink:amazonLink,pages:0});
-    if(d.success){toast('Added! 📚',d.message,5000);await loadLib();await loadRecs();}
-    else toast('Error',d.error);
-  }catch(e){toast('Error',e.message);}
+  try{var d=await api({action:'addToLibrary',rowIndex:rowIndex,title:title,author:author,category:category,amazonLink:amazonLink,pages:0});if(d.success){toast('Added! 📚',d.message,5000);await loadLib();await loadRecs();}else toast('Error',d.error);}
+  catch(e){toast('Error',e.message);}
 }
+
 async function loadSugAdmin(){
-  var w=document.getElementById('sug-admin-wrap');
-  try{
-    var d=await api({action:'getSuggestions'});
-    var list=(d.suggestions||[]).filter(function(s){return s.status==='Pending';});
-    if(!list.length){w.innerHTML='<div class="empty"><div class="ic">💡</div><h3>No pending suggestions</h3><p>All caught up! Full history is in Google Sheets.</p></div>';return;}
-    w.innerHTML='<table><tr><th>Employee</th><th>Book</th><th>Author</th><th>Reason</th><th>Date</th><th>Action</th></tr>'
-      +list.map(function(s){return '<tr><td>'+s.employee+'</td><td style="font-weight:600;">'+s.title+'</td><td>'+s.author+'</td>'
-        +'<td style="max-width:180px;font-size:12px;">'+s.reason+'</td><td>'+s.date+'</td>'
-        +'<td><span class="chip '+(s.status==='Approved'?'cret':s.status==='Not at this time'?'cdue':'cout')+'">'+s.status+'</span></td>'
-        +'<td style="display:flex;gap:4px;"><button class="btn btn-ok btn-sm" onclick="updSug('+s.id+',\'Approved\')">✓ Approve</button>'
-        +'<button class="btn btn-w btn-sm" onclick="updSug('+s.id+',\'Not at this time\')">✗ Decline</button></td></tr>';}).join('')+'</table>';
+  var w=document.getElementById('sug-admin');
+  try{var d=await api({action:'getSuggestions'});var list=(d.suggestions||[]).filter(function(s){return s.status==='Pending';});
+    if(!list.length){w.innerHTML='<div class="empty"><div class="ic">✅</div><h3>No pending suggestions</h3><p>All caught up! Full history is in Google Sheets.</p></div>';return;}
+    w.innerHTML='<table><tr><th>Employee</th><th>Book</th><th>Author</th><th>Reason</th><th>Date</th><th>Action</th></tr>'+list.map(function(s){return '<tr><td>'+s.employee+'</td><td style="font-weight:600;">'+s.title+'</td><td>'+s.author+'</td><td style="max-width:160px;font-size:12px;">'+s.reason+'</td><td>'+s.date+'</td><td style="display:flex;gap:4px;"><button class="btn btn-ok btn-sm" onclick="updSug('+s.id+',\'Approved\')">✓ Approve</button><button class="btn btn-w btn-sm" onclick="updSug('+s.id+',\'Not at this time\')">✗ Decline</button></td></tr>';}).join('')+'</table>';
   }catch(e){w.innerHTML='<div class="empty"><div class="ic">⚠️</div><h3>'+e.message+'</h3></div>';}
 }
 async function updSug(id,status){
-  try{
-    var d=await api({action:'updateSuggestionStatus',suggestionId:id,status:status});
-    if(d.success){
-      toast(status==='Approved'?'Approved and Added! 📚':'Updated!',d.message,5000);
-      loadSugAdmin();
-      if(status==='Approved'){await loadLib();}
-    }else toast('Error',d.error);
-  }catch(e){toast('Error',e.message);}
+  try{var d=await api({action:'updateSuggestionStatus',suggestionId:id,status:status});if(d.success){toast(status==='Approved'?'Approved and Added! 📚':'Updated!',d.message,5000);loadSugAdmin();if(status==='Approved')await loadLib();}else toast('Error',d.error);}
+  catch(e){toast('Error',e.message);}
 }
 
+async function submitSug(){
+  var u=document.getElementById('susr').value;var t=document.getElementById('sug-title').value.trim();var a=document.getElementById('sug-author').value.trim();var r=document.getElementById('sug-reason').value.trim();var res=document.getElementById('sug-result');
+  if(!u)return toast('Select Your Name','Please select your name first.');if(!t||!r)return toast('Missing Fields','Please fill in title and reason.');
+  try{var d=await api({action:'submitSuggestion',employeeName:u,bookTitle:t,author:a,reason:r});res.style.color=d.success?'#81c784':'#ef5350';res.textContent=(d.success?'✓ ':'✗ ')+(d.success?d.message:d.error);if(d.success){document.getElementById('sug-title').value='';document.getElementById('sug-author').value='';document.getElementById('sug-reason').value='';loadMySugs();}}
+  catch(e){toast('Error',e.message);}
+}
+async function loadMySugs(){
+  var w=document.getElementById('my-sug');if(!usr){w.innerHTML='';return;}
+  try{var d=await api({action:'getSuggestions'});var mine=(d.suggestions||[]).filter(function(s){return s.employee===usr;});
+    if(!mine.length){w.innerHTML='<p style="font-size:13px;color:var(--lb);">No suggestions yet.</p>';return;}
+    w.innerHTML='<div class="twrap"><table><tr><th>Book</th><th>Author</th><th>Submitted</th><th>Status</th></tr>'+mine.map(function(s){var c=s.status==='Approved'?'#81c784':s.status==='Not at this time'?'#ef5350':'#ffb74d';return '<tr><td>'+s.title+'</td><td>'+s.author+'</td><td>'+s.date+'</td><td><span class="chip" style="color:'+c+';">'+s.status+'</span></td></tr>';}).join('')+'</table></div>';
+  }catch(e){w.innerHTML='<p style="font-size:13px;color:#ef5350;">Could not load.</p>';}
+}
+
+async function runSetup(){
+  var m=document.getElementById('smsg');m.style.color='var(--lb)';m.textContent='⟳ Running setup...';
+  try{var d=await api({action:'setup'});m.style.color=d.success?'#81c784':'#ef5350';m.textContent=(d.success?'✓ ':'✗ ')+(d.success?d.msg:d.error);if(d.success){toast('Setup Complete! 🎉','All Google Sheet tabs created!');setTimeout(loadLib,800);}}
+  catch(e){m.style.color='#ef5350';m.textContent='✗ '+e.message;}
+}
+async function refAll(){await loadLib();loadOvr();toast('Refreshed!','Data reloaded.');}
+function esc(s){return(s||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'");}
+document.querySelectorAll('.mov').forEach(function(o){o.addEventListener('click',function(e){if(e.target===o){closeMod(o.id);if(o.id==='mpin')rClicks();}});});
 loadLib();
 </script>
 </body>
